@@ -128,7 +128,7 @@ function Checkout(props) {
                 },
                 body: JSON.stringify({
                     address: selectedAddressId,
-                    total_price: totalPrice,
+                    total_price: overallTotalPrice,
                     order_status: "Placed"
                 }),
             });
