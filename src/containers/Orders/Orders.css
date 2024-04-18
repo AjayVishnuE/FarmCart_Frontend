@@ -1,152 +1,42 @@
-.Profile-overall-component{
+.order-overall-container{
     background-color: #F6F5F5;
     height:100vh;
-}
-.profile-box{
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    padding-left: 10%;
-    gap:25px;
-}
 
-.ellipse{
-  border: 0.5px solid black;
-  text-align: center;
-  object-fit: cover;
-  border-radius: 50%;
-  height: 72px;
-  width: 72px;
 }
-.profile-name{
-    font-weight: 500;
-    font-size: 25px;
-    color:#7519EB;
-    line-height: 26.25px;
-}
-.profile-email{
-    font-weight: 300;
-    line-height: 16.71px;
-    margin-top: 5px;
-}
-.profile-btns {
-    width: 319px;
-    height: 55px;
-    margin-top: 15px;
+.orderstitle{
     margin-left: 8%;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 7px;
-    display: inline-flex;
-  }
-  
-  .Group97,
-  .Group98 {
-    width: 156px;
-    height: 55px;
-    position: relative;
-  }
-  
-  .button-box {
-    width: 156px;
-    height: 55px;
-    left: 0;
-    top: 0;
-    position: absolute;
-    background: white;
-    box-shadow: 0px 20px 40px rgba(57, 57, 57, 0.10);
-    border-radius: 11px;
-  }
-  
-  .Frame48096276,
-  .Frame48096277 {
-    width: 73px;
-    height: 19px;
-    left: 41px;
-    top: 18px;
-    position: absolute;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
-    display: inline-flex;
-  }
-  
-  .vector {
-    width: 18px;
-    height: 14.55px;
-    
-  }
-  
-  .Wishlist,
-  .Orders {
-    color: #222222;
-    font-size: 16px;
-    font-family: 'SF Pro Rounded';
-    font-weight: 500;
-    word-wrap: break-word;
-  }
-  
-  .explorebtn{
-    display: flex;
-    background: #7519eb;
-    border-radius: 11px;
-    width: 318px;
-    align-items: center;
-    justify-content: center;
-    height: 55px;
-    position: relative;
-    margin-top: 10px;
-    margin-left: 8%;
-}
-.explore{
-    margin-left: 8px;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 300;
+    color: #000;
 
-}
-.recent-order{
-    color: #201f20;
-    margin-top: 15px;
-    margin-left: 8%;
-    font-size: 19.9px;
-    font-weight: 500;
-
-    line-height: 20px;
-
+font-family: "SF Pro Rounded";
+font-size: 19.862px;
+font-style: normal;
+font-weight: 700;
+line-height: 26.483px; /* 133.333% */
+letter-spacing: -0.662px;
 }
 
-.order-box-1 {
+.order-1 {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    width: fit-content;
     background-color: #ffffff;
     border-radius: 20.13px;
     box-shadow: 0px 20.13px 40.25px #3939391a;
-    height: fit-content;
-    width: fit-content;
     margin-top: 15px;
     margin-left: 8%;
     padding: 20px;
     }
-  
-  .order-box-1-item{
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
-    width: 100%;
-  }
+
 
 .order1-pic{
     margin-left: 6px;
-    width: 72px;
-    height: 72px;
 }
 .order-right {
-    margin: 0 0 0 0  ;
+    margin-top: 18px;
     display:flex;
     gap: 37px;
     position: relative;
+    margin-left: 10px;
 }
 
 .leftdiv {
@@ -162,9 +52,11 @@
     font-family: "SF Pro Rounded-Semibold", Helvetica;
     font-size: 15px;
     font-weight: 550;
+
     margin-top: -1px;
+
     text-align: center;
-  
+
 }
 
  .text-wrapper-2 {
@@ -172,7 +64,7 @@
     font-family: "SF Pro Rounded-Medium", Helvetica;
     font-size: 11px;
     font-weight: 500;
-    
+
     line-height: 10px;
 }
 
@@ -180,7 +72,7 @@
     color: #000000;
     align-items: center;
     display:flex;
-   
+
     font-family: "SF Pro Rounded-Regular", Helvetica;
     font-size: 18.3px;
     font-weight: 400;
@@ -199,7 +91,7 @@
     font-family: "SF Pro Rounded-Regular", Helvetica;
     font-size: 20px;
     font-weight: 550;
-    
+
     line-height: 18.6px;
 }
 
@@ -209,7 +101,10 @@
     font-weight: 550;
     margin-top: 5px;
 }
+.order-box-1-item{
+    display: flex;
 
+}
 .orderstatus{
     display: flex;
 }
@@ -232,7 +127,7 @@ line-height: 11.4px;
 
 }.price1{
     display: flex;
-    
+
     color:#615D5D;
     margin-left: 20%;
 }
@@ -243,9 +138,10 @@ line-height: 11.4px;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
     display: flex;
   }
-  
+
   .rowpro{
     justify-content: flex-start;
     align-items: flex-start;
@@ -286,7 +182,7 @@ line-height: 11.4px;
     margin-left: 20px;
     border: 0.95px #615D5D dotted;
   }
-  
+
   .totalLabel {
     width: 138px;
     color: #212529;
@@ -297,7 +193,7 @@ line-height: 11.4px;
     line-height: 20.91px;
     word-wrap: break-word;
   }
-  
+
   .totalValue {
     width: 75px;
     text-align: right;
@@ -308,58 +204,15 @@ line-height: 11.4px;
     line-height: 20.91px;
     word-wrap: break-word;
   }
-  .logoutbtn{
-    
-    bottom: 150px; 
-    color: #FFF;
-    font-size: 15.448px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    border-radius: 30px;
-    background: #FF4343;
-    width: 80%;
-    margin-left: 8%;
-    margin-top: 15px;
-    height: 70px;
-    border: none;
-
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.modal-content h2 {
-  margin-bottom: 20px;
-}
-
-.modal-content button {
-  margin: 10px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #007BFF;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.modal-content button:hover {
-  background-color: #0056b3;
-}
+  .canceldiv{
+    color:#FF4343;
+font-size: 10px;
+font-weight: 300;
+line-height: 11.4px;
+  }
+  .deliverdiv{
+    color:#0BCE83;
+font-size: 10px;
+font-weight: 300;
+line-height: 11.4px;
+  }

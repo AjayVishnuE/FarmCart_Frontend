@@ -26,6 +26,7 @@ function Expandpage() {
     const [error, setError] = useState('');
     const [submitting, setSubmitting] = useState(false);
     const navigate = useNavigate(); 
+    const accessToken = localStorage.getItem('accessToken');
 
     useEffect(() => {
       if (!product_id) {
@@ -66,7 +67,25 @@ function Expandpage() {
       } catch (error) {
           setError(error.response?.data?.message || 'Failed to add to cart');
       }
-  };
+    };
+
+    const handleAddToWishlist = async () => {
+      if (!accessToken) {
+          setError('You must be logged in to add items to the wishlist.');
+          return;
+      }
+      try {
+          await axios.post(
+              `${API_ENDPOINTS.wishlist}/wishlist-crud/`,
+              { product: product_id },
+              { headers: { Authorization: `Bearer ${accessToken}` } }
+          );
+          navigate('/wishlist')
+      } catch (error) {
+          setError(error.response?.data?.message || 'Failed to add to wishlist');
+      }
+    };
+
     if (loading) {
       return <div className=''>Loading.....</div>;
     }
@@ -173,8 +192,10 @@ function Expandpage() {
                 </div>
                 
          </div>
-         <button className='addtobtn' type="submit" disabled={submitting}>Add to Cart
-         </button>
+        <div className='button-group'>
+          <button type="submit" disabled={submitting} className='addtobtn'>Add to Cart</button>
+          <button type="button" onClick={handleAddToWishlist} className='wishlistbtn'>Add to Wishlist</button>
+        </div>
         </div>
         <Navbar/>
         </form>

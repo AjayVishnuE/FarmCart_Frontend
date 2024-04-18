@@ -111,18 +111,21 @@ function ProfilePage(props) {
                 <div className="profile-btns">
                     <div className="Group97">
                         <div className="button-box" />
+                        <Link to= "/orders">
                             <div className="Frame48096276">
-                            
                                 <img className='vector' src={ordercart} alt="cart"/>
                                 <div className="Orders">Orders</div>
                             </div>
-                        </div>
+                        </Link>
+                    </div>
                     <div className="Group98">
                         <div className="button-box" />
-                        <div className="Frame48096277">
-                        <img className='vector' src={wishlist} alt="heart"/>
-                        <div className="Wishlist">Wishlist</div>
-                        </div>
+                        <Link to="/wishlist">
+                            <div className="Frame48096277">
+                                <img className='vector' src={wishlist} alt="heart"/>
+                                <div className="Wishlist">Wishlist</div>
+                            </div>
+                        </Link>
                     </div>
                 </div>
 
@@ -195,8 +198,8 @@ function ProfilePage(props) {
                         </div>
                     )}
                 </div>
-            <Navbar/>
             </div>
+            <Navbar/>
         </div>
     );
 }
