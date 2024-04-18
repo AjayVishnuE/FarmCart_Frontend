@@ -1,6 +1,6 @@
 import React from 'react';
 import './EmptyNotification.css';
-import { Navbar,Header} from '../../components';
+import { Navbar,Header} from '..';
 import { Link } from 'react-router-dom';
 import cart from '../../Images/shopping-cart.svg';
 import bar from '../../Images/Bar.png';

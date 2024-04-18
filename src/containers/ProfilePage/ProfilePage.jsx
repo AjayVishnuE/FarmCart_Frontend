@@ -137,7 +137,7 @@ function ProfilePage(props) {
                 </div>
 
                 <div className='recent-order'>
-                Recent orders
+                Recent Order
                 </div>
                 {profileData.orders.slice(0, 1).map((item,index)=>
                     <div className="order-box-1">
