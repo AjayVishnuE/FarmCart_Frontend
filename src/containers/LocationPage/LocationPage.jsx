@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import './LocationPage.css';
 import { Link , useNavigate} from 'react-router-dom';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
@@ -6,7 +6,33 @@ import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 
 
 function LocationPage() {
+  const [userRole, setUserRole] = useState(null);
   const navigate = useNavigate(); 
+
+  useEffect(() => {
+    fetchUserRole();
+  }, []);
+
+  async function fetchUserRole() {
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      console.error('No access token available.');
+      return;
+    }
+    try {
+      const response = await fetch(`${API_ENDPOINTS.users}/username`, {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`
+        }
+      });
+      if (!response.ok) throw new Error('Failed to fetch user data');
+      const data = await response.json();
+      setUserRole(data.role);
+    } catch (error) {
+      console.error("Error fetching user role: ", error);
+    }
+  }
+
   function getLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(
@@ -18,7 +44,7 @@ function LocationPage() {
             console.error('No access token available.');
             return;
           }
-  
+
           const locationData = { location_latitude, location_longitude };
           try {
             const response = await fetch(`${API_ENDPOINTS.users}/location/`, {
@@ -31,10 +57,15 @@ function LocationPage() {
             });
             if (response.ok) {
               const result = await response.json();
-              console.log(result)
               console.log('Location saved:', result);
-              navigate('/dashboard');
-
+              // Navigate based on role
+              if (userRole === 'Farmer') {
+                navigate('/farmerdashboard');
+              } else if (userRole === 'Consumer') {
+                navigate('/dashboard');
+              } else {
+                navigate('/dashboard'); // Default or unknown role
+              }
             } else {
               throw new Error('Failed to save location to the server');
             }

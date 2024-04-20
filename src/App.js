@@ -1,8 +1,9 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { IntroPage, LoadingPage, SignupPage,LocationPage, LoginPage, Dashboard, Seemore, SearchPage, Expandpage, CartPage,CheckoutPage, AddressPage,Checkout, Orderplace ,Notification, EmptyNotification, ChatPage, Profile, FarmerDashboard, ProductDetail, FarmChat, FarmerSignupPage, Orders, Wishlist} from './containers';
+import { IntroPage, LoadingPage, SignupPage,LocationPage, LoginPage, Dashboard, Seemore, SearchPage, Expandpage, CartPage,CheckoutPage, AddressPage,Checkout, Orderplace ,Notification, EmptyNotification, ChatPage, Profile, ProductDetail, FarmChat, FarmerSignupPage, Orders, Wishlist, FarmerProductsList, FarmerDash} from './containers';
 import { AuthProvider } from './components/Auth/AuthContext';
+import { Header } from './components';
 
 const App = () => {
   return (
@@ -27,10 +28,11 @@ const App = () => {
           <Route path="/profile" exact element={<Profile/>}/>
           <Route path="/nonotification" exact element={<EmptyNotification/>}/>
           <Route path="/chat" exact element={<ChatPage/>} />
-          <Route path="/farmdash" exact element={<FarmerDashboard/>}/>
+          <Route path="/farmerdashboard" exact element={<FarmerDash/>}/>
           <Route path="/addproduct" exact element={<ProductDetail/>}/>
           <Route path="/farmchat" exact element={<FarmChat/>}/>
           <Route path="/Farmersignup" exact element={<FarmerSignupPage />} />
+          <Route path="/farmerproductlist" exact element={<FarmerProductsList/>}/>
           <Route path='/orders' exact element={<Orders/>}/>
           <Route path='/wishlist' exact element={<Wishlist/>}/>
         </Routes>

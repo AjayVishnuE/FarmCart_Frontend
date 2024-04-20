@@ -5,7 +5,7 @@
     height: 50px;
     width: 100%;
     max-width: 450px;
-    position: absolute;
+    position:fixed;
     bottom: 20px;
     gap:15%;
 }

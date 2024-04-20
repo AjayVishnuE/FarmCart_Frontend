@@ -17,8 +17,9 @@ export {default as Notification} from './NotificationPage/NotificationPage';
 export {default as EmptyNotification} from '../components/EmptyNotification/EmptyNotification';
 export {default as ChatPage} from './ChatPage/ChatPage';
 export {default as Profile} from './ProfilePage/ProfilePage';
-export {default as FarmerDashboard} from './farmer-Dashboard/farmerdashboard';
-export {default as ProductDetail} from './farmer-AddProduct/Addproduct';
+export {default as ProductDetail} from './FarmerAddProduct/Addproduct';
+export {default as FarmerDash } from './FarmerDash/FarmerDash';
 export {default as FarmChat} from './farmer-ChatPage/ChatPage';
 export {default as Orders} from './Orders/Orders';
 export {default as Wishlist} from './Wishlist/Wishlist';
+export {default as FarmerProductsList} from './FarmerProductsList/FarmerProductsList'
