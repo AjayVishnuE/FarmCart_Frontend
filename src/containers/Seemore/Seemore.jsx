@@ -10,6 +10,7 @@ import { Navbar,ProductComponent, SearchBar} from '../../components'
 
 function Seemore(props) {
     const [products, setProducts] = useState([]);
+    const accessToken = localStorage.getItem('accessToken');
 
     useEffect(() => {
         axios.get(`${API_ENDPOINTS.product}/productlist/`)

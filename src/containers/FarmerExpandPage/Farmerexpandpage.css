@@ -1,0 +1,95 @@
+.expand-overall-container{
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-image: url('../../Images/whitecommonbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.titleboxfarm{
+    font-size: 18px;
+    margin-top: 10%;
+    color: rgba(32, 31, 32, 0.6);
+
+}
+.price{
+    color:blueviolet;
+    font-size: 18px;
+    font-weight: 500;
+}
+.quantity-entry{
+    display: flex;
+    flex-direction: row;
+}
+.ColorText {
+    color: rgba(32, 31, 32, 0.6);
+    font-size: 18px;
+    font-family: 'SF Pro Rounded';
+    font-weight: 400;
+    line-height: 22.07px;
+    word-wrap: break-word;
+  }
+  
+  .ColorTextSmall {
+    color: rgba(32, 31, 32, 0.6);
+    font-size: 12px;
+    font-family: 'SF Pro Rounded';
+    font-weight: 400;
+    line-height: 22.07px;
+    word-wrap: break-word;
+  }
+  .reviewpopdiv {
+    
+    width: 90%;
+    padding: 10%;
+    background-color: #ffffff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .reviewtitle{
+    color: '#000';
+    font-size: 19.86px;
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+
+  .farmdetailsdesc{
+    display: flex;
+    align-items: center;
+    width:100%;
+    margin-top: 20px;
+    }
+.reviewname{
+   color:blueviolet;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 12px;
+}
+.review{
+    color: #222;
+font-size: 11px;
+margin-top: 10px;
+margin-left: 8px;
+}
+.reviewdesc{
+ align-items: center;
+ justify-content: center;
+ padding: 20px;
+}
+.rating{
+    margin-left: 30px;
+}
+
+.farmer-user-image{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 0.5px solid black;
+    object-fit: cover;
+}

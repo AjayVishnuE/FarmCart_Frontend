@@ -14,6 +14,6 @@ export const API_ENDPOINTS = {
   orderdetails: `${API_BASE_URL}/api/orderdetails/`,
   profile: `${API_BASE_URL}/api/profile/`,
   wishlsit: `${API_BASE_URL}/api/wishlist/`,
-
+  farmdash: `${API_BASE_URL}/api/farmerdashboard/`,
 
 };

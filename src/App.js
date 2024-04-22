@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { IntroPage, LoadingPage, SignupPage,LocationPage, LoginPage, Dashboard, Seemore, SearchPage, Expandpage, CartPage,CheckoutPage, AddressPage,Checkout, Orderplace ,Notification, EmptyNotification, ChatPage, Profile, ProductDetail, FarmChat, FarmerSignupPage, Orders, Wishlist, FarmerProductsList, FarmerDash} from './containers';
+import { IntroPage, LoadingPage, SignupPage,LocationPage, LoginPage, Dashboard, Seemore, SearchPage, Expandpage, CartPage,CheckoutPage, AddressPage,Checkout, Orderplace ,Notification, EmptyNotification, ChatPage, Profile, ProductDetail, FarmChat, FarmerSignupPage, Orders, Wishlist, FarmerProductsList, FarmerDash, FarmerExpandPage, FarmerProfile, FarmerOrders, FarmerChatPage, FarmerAddDetails} from './containers';
 import { AuthProvider } from './components/Auth/AuthContext';
 import { Header } from './components';
 
@@ -30,11 +30,15 @@ const App = () => {
           <Route path="/chat" exact element={<ChatPage/>} />
           <Route path="/farmerdashboard" exact element={<FarmerDash/>}/>
           <Route path="/addproduct" exact element={<ProductDetail/>}/>
-          <Route path="/farmchat" exact element={<FarmChat/>}/>
+          <Route path="/farmerchat" exact element={<FarmerChatPage/>}/>
           <Route path="/Farmersignup" exact element={<FarmerSignupPage />} />
           <Route path="/farmerproductlist" exact element={<FarmerProductsList/>}/>
           <Route path='/orders' exact element={<Orders/>}/>
           <Route path='/wishlist' exact element={<Wishlist/>}/>
+          <Route path="/farmerexpand/:product_id" exact element={<FarmerExpandPage/>} />
+          <Route path='/farmerprofile' exact element={<FarmerProfile/>} />
+          <Route path='/farmerorders' exact element={<FarmerOrders/>} />
+          <Route path='/farmeradddetails' exact element={<FarmerAddDetails/>} />
         </Routes>
       </Router>
     </AuthProvider>

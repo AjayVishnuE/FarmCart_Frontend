@@ -5,7 +5,7 @@ import bar from '../../Images/Bar.png';
 import { Link } from 'react-router-dom';
 import cart from '../../Images/shopping-cart.svg';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
-import { Navbar,ProductComponent, SearchBar} from '../../components'
+import { FarmerProductComponent, Navbar,ProductComponent, SearchBar} from '../../components'
 import Farmer_navbar from '../../components/Farmer-Navbar/FarmerNavbar';
 
 
@@ -17,7 +17,7 @@ function FarmerProductList(props) {
         setLoading(true);
         const config = {
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Assuming you're using Bearer token authentication
+                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, 
                 'Content-Type': 'application/json',
             },
         };
@@ -45,7 +45,7 @@ function FarmerProductList(props) {
                     <div className='Productcompset2'>
                         {products.map((item,index)=>
                             <div className='Productbox'>
-                                <ProductComponent
+                                <FarmerProductComponent
                                     id = {item.product_id}
                                     name={item.product_name}
                                     price={item.price}

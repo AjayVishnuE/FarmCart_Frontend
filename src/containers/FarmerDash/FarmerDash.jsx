@@ -15,45 +15,44 @@ function capitalizeFirstLetter(string) {
 }
 
 function FarmerDash() {
-    const [username, setUsername] = useState('');
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
-  
-    const handleSvgClick = (event) => {
-      const svg = event.target.closest(".mySvg");
-      if (!svg) return; 
-      const paths = svg.querySelectorAll("path");
-      paths.forEach((path) => {
-        path.setAttribute("fill", "#7519EB");
-        path.setAttribute("stroke", "#7519EB");
-      });
+  const handleSvgClick = (event) => {
+    const svg = event.target.closest(".mySvg");
+    if (!svg) return;
+    const paths = svg.querySelectorAll("path");
+    paths.forEach((path) => {
+      path.setAttribute("fill", "#7519EB");
+      path.setAttribute("stroke", "#7519EB");
+    });
+  };
+
+  const [userData, setUserData] = useState({ username: '', otherData: null });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(`${API_ENDPOINTS.farmdash}data/`, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, 
+          },
+        });
+        const data = response.data;
+        data.username = capitalizeFirstLetter(data.username || '');
+        setUserData(data); 
+      } catch (err) {
+        setError('Failed to fetch data');
+        console.error('Fetching data error:', err);
+      } finally {
+        setLoading(false);
+      }
     };
-  
-  
-    useEffect(() => {
-        const fetchUsername = async () => {
-            try {
-                const response = await axios.get(`${API_ENDPOINTS.users}/username/`, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Assuming you're using Bearer token authentication
-                        'Content-Type': 'application/json',
-                    },
-                });
-                const capitalizedUsername = capitalizeFirstLetter(response.data.username);
-                setUsername(capitalizedUsername);
-                setLoading(false);
-            } catch (err) {
-                setError('Failed to fetch username');
-                setLoading(false);
-                console.error('Fetching username error:', err);
-            }
-        };
-  
-        fetchUsername();
-      }); 
-  
-      if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error loading username: {error}</p>;
+
+    fetchUserData();
+  }, []); 
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
     return (
       <div className="overall-farmer-dashboard">
         <div className="farmer-dashboard">
@@ -80,14 +79,14 @@ function FarmerDash() {
           </Link>
         </div>
         <h1 className="farmgoodmorni">Good Morning,</h1>
-        <h2 className="username">{username} !</h2>
+        <h2 className="username">{userData.username} !</h2>
         <div className="dash-box">
           <div className="buttonbox1">
-            <div className="orderno">99</div>
+            <div className="orderno">{userData.num_recent_orders}</div>
             <div className="ordertitle">Orders today</div>
           </div>
           <div className="buttonbox2">
-            <div className="totalorder">1002</div>
+            <div className="totalorder">{userData.total_orders}</div>
             <div className="ordertitle">Total orders</div>
           </div>
         </div>
@@ -117,22 +116,25 @@ function FarmerDash() {
         <Saleschart />
   
         <div className="Statistics">Statistics</div>
-        <div className="statibox">
-            <img src={lemon} alt="lemon"></img>
-            <div className="Statitextout">
-            <div className="Frame19995">
-              <div className="fruitname">Assameese Citrus</div>
-              <div className="RJFarms">R & J Farms</div>
-            </div>
-            <div className="Frame19994">
-              <div className="Kg">
-                <span className="Weight">25</span>
-                <span className="Unit">kg</span>
+        {userData.product_details.map((item,index)=>
+          <div className="statibox">
+              <img src={API_ENDPOINTS.media + item.product_image} alt={item.product_name}></img>
+              <div className="Statitextout">
+                <div className="Frame19995">
+                  <div className="fruitname">{item.product_name}</div>
+                  <div className="RJFarms">{item.farms}</div>
+                </div>
+                <div className="Frame19994">
+                  <div className="Kg">
+                    <span className="Weight">{item.quantity}</span>
+                    <span className="Unit">kg</span>
+                  </div>
+                  <div className="Left">left</div>
+                </div>
               </div>
-              <div className="Left">left</div>
-            </div>
           </div>
-      </div>
+        )}
+
   
   
   
