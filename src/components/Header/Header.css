@@ -1,11 +1,10 @@
 .header1{
     display: flex;
     align-items: center;
-    justify-content: left;
-    width: 80%;
+    justify-content: space-between;
+    width: 100%;
     max-width: 450px;
     padding:5% 10% ;
-    gap:86%;
     margin:0;
   }
   .images1{

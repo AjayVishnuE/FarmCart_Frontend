@@ -13,22 +13,6 @@
   display: none; 
 }
 
-.images1{
-  width:7%;
-  height: 30px;
-  object-fit: contain;
-  margin:0;
-}
-.header1{
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  width: 80%;
-  max-width: 450px;
-  padding:10% 10% 6% 10%;
-  gap:86%;
-  margin:0;
-}
 .username{
     color:#7519EB;
     margin-left:10%;

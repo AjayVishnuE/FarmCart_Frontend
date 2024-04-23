@@ -1,22 +1,67 @@
-import React, { useState, useEffect } from 'react';
-import './Search.css';
+import axios from 'axios';
+import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
+import ProductComponent from '../ProductComponent/ProductComponent';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './SearchBar.css'; // Make sure to create a CSS file for styling
 
-function SearchBar(props) {
-    const [isHovered, setIsHovered] = useState(false);
+function SearchBar() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        // Implement any logic for fetching frequent and recent searches here
-        // For now, let's assume they are stored in state variables
-    }, []);
+  const handleExpand = () => {
+    setIsExpanded(true);
+  };
 
-    return (
-        <div className='search-box3' onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-                <div className="search-btn2">
-                    <i className="fas fa-search"></i>
-                </div>
-                <input className="search-text2" type="text" placeholder="Search" />
-            </div>            
-    );
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!searchQuery.trim()) return; // Check if the query isn't just whitespace
+    setIsLoading(true);
+    setError('');
+
+    try {
+      const response = await axios.post(`${API_ENDPOINTS.search}create/`, { search_keyword: searchQuery },{
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    });
+      navigate('/search-results', { state: { results: response.data.products ,query: searchQuery } });
+    } catch (err) {
+      console.error('Error fetching search results:', err);
+      setError('Failed to retrieve search results');
+    }
+    setIsLoading(false);
+  };
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  return (
+    <div className="search-bar-container">
+      <form onSubmit={handleSubmit} className={`search-form ${isExpanded ? 'expanded' : ''}`}>
+        {isExpanded && (
+          <input
+            type="text"
+            className="search-input"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search..."
+          />
+        )}
+        <button type="submit" className="search-button" onClick={handleExpand}>
+          <i className="fa fa-search"></i> 
+        </button>
+      </form> 
+    </div>
+  );
 }
 
 export default SearchBar;

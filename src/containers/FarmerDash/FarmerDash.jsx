@@ -50,7 +50,7 @@ function FarmerDash() {
 
     fetchUserData();
   }, []); 
-
+  console.log(userData)
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
     return (
@@ -109,11 +109,13 @@ function FarmerDash() {
         </Link>
         <div className="topproduct">Top selling product</div>
         <div className="topselling">
-          <div className="topsellname">Singaporean Orange</div>
-          <div className="topsellpercent">+45%</div>
+          <div className="topsellname">{userData.top_sold_product.product_name}</div>
+          <div className="topsellpercent">+{userData.top_sold_product.sold_quantity}</div>
           
         </div>
-        <Saleschart />
+        <Saleschart 
+          sold_products = {userData.sold_products}
+        />
   
         <div className="Statistics">Statistics</div>
         {userData.product_details.map((item,index)=>

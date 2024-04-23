@@ -5,7 +5,7 @@ import bar from '../../Images/Bar.png';
 import { Link } from 'react-router-dom';
 import cart from '../../Images/shopping-cart.svg';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
-import { FarmerProductComponent, Navbar,ProductComponent, SearchBar} from '../../components'
+import { FarmerHeader, FarmerProductComponent, Navbar,ProductComponent} from '../../components'
 import Farmer_navbar from '../../components/Farmer-Navbar/FarmerNavbar';
 
 
@@ -36,11 +36,7 @@ function FarmerProductList(props) {
     console.log(products);
     return (
         <div className='seemore-overall-container'>
-            <div className='header2'>
-                <img className='images1' src={bar} alt="bars"/>
-                <SearchBar/>
-                <img className='images2' src={cart} alt="cart"/>
-            </div>
+            <FarmerHeader/>
             <div className='Productlist'>
                     <div className='Productcompset2'>
                         {products.map((item,index)=>

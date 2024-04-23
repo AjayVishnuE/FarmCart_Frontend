@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 import './ChatPage.css';
-import { Header, Navbar} from '../../components';
+import { Header, Navbar, EmptyChat} from '../../components';
 import bot from '../../Images/smalllogo.png';
 
 
@@ -35,13 +35,10 @@ function ChatPage() {
   return (
     <div className='chat-overall-container'>
       <Header/>
-      
-     
-    
-        {responses.map((item, index) => (
+      {responses.length > 0 ? (
+          responses.map((item, index) => (
           <div  className= 'msg-chat' key={index}>
             <div className="msg right-msg">
-              
               <div className='msg-bubble'>
                 <p className="msg-text"> {item.query}</p>
               </div>
@@ -54,12 +51,12 @@ function ChatPage() {
                 <p className="msg-text"> {item.response}</p>
               </div>
             </div>
-
-            
-            
           </div>
-        ))}
-      
+        ))
+        ): (
+          <EmptyChat /> 
+      )}
+
       <form onSubmit={handleQuerySubmit}>
         <div className='msger-inputarea'>
         <input className="msger-input"

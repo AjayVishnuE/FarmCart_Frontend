@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './Seemore.css';
 import axios from 'axios';
 import bar from '../../Images/Bar.png';
-import { Link } from 'react-router-dom';
 import cart from '../../Images/shopping-cart.svg';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
-import { Navbar,ProductComponent, SearchBar} from '../../components'
+import { Header, Navbar,ProductComponent, SearchBar} from '../../components'
 
 
 function Seemore(props) {
@@ -25,11 +24,11 @@ function Seemore(props) {
 
     return (
         <div className='seemore-overall-container'>
-            <div className='header2'>
-                <img className='images1' src={bar} alt="bars"/>
-                <SearchBar/>
-                <img className='images2' src={cart} alt="cart"/>
-            </div>
+        <div className='header2'>
+            <img className='images1' src={bar} alt="bars"/>
+            <SearchBar/>
+            <img className='images2' src={cart} alt="cart"/>
+        </div>
             <div className='Productlist'>
                     <div className='Productcompset2'>
                         {products.map((item,index)=>

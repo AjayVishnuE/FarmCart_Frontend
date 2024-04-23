@@ -58,13 +58,12 @@ function LocationPage() {
             if (response.ok) {
               const result = await response.json();
               console.log('Location saved:', result);
-              // Navigate based on role
               if (userRole === 'Farmer') {
                 navigate('/farmerdashboard');
               } else if (userRole === 'Consumer') {
                 navigate('/dashboard');
               } else {
-                navigate('/dashboard'); // Default or unknown role
+                navigate('/dashboard'); 
               }
             } else {
               throw new Error('Failed to save location to the server');
@@ -115,11 +114,9 @@ function LocationPage() {
               </br>provide the nearest farms and delivery points so as to ease your distance.
               </div>
               <button className='continuebutton' onClick={getLocation}>Get Location</button>
-              <Link to = "/dashboard">
               <div className='Nomessage'>
                     No, Choose location manually
               </div>
-              </Link>
           </div>
 
       </div>
