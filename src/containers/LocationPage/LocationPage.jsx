@@ -116,6 +116,7 @@ function LocationPage() {
               <button className='continuebutton' onClick={getLocation}>Get Location</button>
               <div className='Nomessage'>
                     No, Choose location manually
+                    
               </div>
           </div>
 
