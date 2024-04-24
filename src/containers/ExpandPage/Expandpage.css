@@ -40,6 +40,9 @@
     display: flex;
     flex-direction: row;
 }
+.btn__container{
+    width: 50px;
+}
 .images3{
     width:60%;
 }

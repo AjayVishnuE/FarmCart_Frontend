@@ -1,6 +1,6 @@
 import React, { useState, useEffect }  from 'react';
 import './LocationPage.css';
-import { Link , useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
 
 
@@ -114,9 +114,11 @@ function LocationPage() {
               </br>provide the nearest farms and delivery points so as to ease your distance.
               </div>
               <button className='continuebutton' onClick={getLocation}>Get Location</button>
+              <Link to="/dashboard">
               <div className='Nomessage'>
                     No, Choose location manually
               </div>
+              </Link>
           </div>
 
       </div>

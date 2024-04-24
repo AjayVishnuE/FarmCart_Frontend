@@ -1,7 +1,7 @@
 import React from 'react'
 import bar from "../../Images/Bar.png";
 import { Link } from 'react-router-dom';
-
+import './Farmerheader.css'
 
 function FarmerHeader() {
     const handleSvgClick = (event) => {

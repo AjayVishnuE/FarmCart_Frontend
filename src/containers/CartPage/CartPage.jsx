@@ -1,122 +1,152 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState, useEffect } from 'react';
 import './CartPage.css';
-import { Header, Navbar, EmptyCart} from '../../components';
+import { Header, Navbar, EmptyCart } from '../../components';
 import { Link } from 'react-router-dom';
-import cart from '../../Images/shopping-cart.svg';
-import bar from '../../Images/Bar.png';
-import product from '../../Images/listone.png';
-import { API_ENDPOINTS} from '../../components/Auth/apiConfig';  
+import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 
-
-function CartPage(props) {
-    const [counter, setCounter] = useState(1);
+function CartPage() {
     const [cartItems, setCartItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
     const accessToken = localStorage.getItem('accessToken');
     const [refreshCart, setRefreshCart] = useState(false);
-    // counter
-    const increase = () => {setCounter(count => count + 1);};
-  
-    const decrease = () => {setCounter(count => count - 1);};
+    const [itemQuantities, setItemQuantities] = useState({});
 
-    const handleDeleteClick = async (itemId) => {
+    useEffect(() => {
+        const fetchCartItems = async () => {
+            try {
+                const response = await fetch(`${API_ENDPOINTS.cart}/cart-crud/`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch cart items');
+                }
+
+                const data = await response.json();
+                setCartItems(data);
+                const quantities = {};
+                data.forEach(item => quantities[item.cart_id] = item.quantity);
+                setItemQuantities(quantities);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchCartItems();
+    }, [refreshCart]);
+
+    const updateQuantity = async (cart_id, newQuantity) => {
         try {
-            const response = await fetch(`${API_ENDPOINTS.cart}/cart-crud/${itemId}`, {
-                method: 'DELETE',
+            const response = await fetch(`${API_ENDPOINTS.cart}/cart-crud/${cart_id}/`, {
+                method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${accessToken}`,
                     'Content-Type': 'application/json',
                 },
+                body: JSON.stringify({ quantity: newQuantity })
             });
+
             if (!response.ok) {
-                throw new Error('Failed to delete the item');
+                throw new Error('Failed to update the quantity');
             }
-            document.getElementById(`deleteBtn-${itemId}`).style.display = "none";
         } catch (error) {
-            console.error('Error:', error.message);
+            console.error('Error updating quantity:', error.message);
         }
-        setRefreshCart(!refreshCart);
     };
-    
-    useEffect(() => {
-        const fetchCartItems = async () => {
-          try {
-            const response = await fetch(`${API_ENDPOINTS.cart}/cart-crud/`, {
-              method: 'GET',
+
+    const handleQuantityChange = (cart_id, delta) => {
+        const newQuantity = Math.max(1, itemQuantities[cart_id] + delta);
+        setItemQuantities(prev => ({ ...prev, [cart_id]: newQuantity }));
+        updateQuantity(cart_id, newQuantity);
+    };
+
+    const handleInputChange = (e, cart_id) => {
+        const value = parseInt(e.target.value, 10);
+        const newQuantity = Number.isNaN(value) ? 1 : value;
+        setItemQuantities(prev => ({ ...prev, [cart_id]: newQuantity }));
+        updateQuantity(cart_id, newQuantity);
+    };
+
+    const handleDeleteClick = async (itemId) => {
+      try {
+          const response = await fetch(`${API_ENDPOINTS.cart}/cart-crud/${itemId}`, {
+              method: 'DELETE',
               headers: {
-                'Authorization': `Bearer ${accessToken}`,
-                'Content-Type': 'application/json'
+                  'Authorization': `Bearer ${accessToken}`,
+                  'Content-Type': 'application/json',
               },
-            });
-    
-            if (!response.ok) {
-              throw new Error('Failed to fetch cart items');
-            }
-    
-            const data = await response.json();
-            setCartItems(data);
-          } catch (err) {
-            setError(err.message);
-          } finally {
-            setIsLoading(false);
+          });
+          if (!response.ok) {
+              throw new Error('Failed to delete the item');
           }
-        };
-    
-        fetchCartItems();
-      }, [refreshCart]);
-      console.log(cartItems)
-
-      if (cartItems.length === 0) {
-        return <div><EmptyCart /></div>;
+          document.getElementById(`deleteBtn-${itemId}`).style.display = "none";
+      } catch (error) {
+          console.error('Error:', error.message);
       }
+      setRefreshCart(!refreshCart);
+    };
 
-      if (isLoading) {
+    if (cartItems.length === 0) {
+        return <EmptyCart />;
+    }
+
+    if (isLoading) {
         return <div>Loading cart items...</div>;
-      }
-    
-      if (error) {
+    }
+
+    if (error) {
         return <div>Error: {error}</div>;
-      }
-    
-      
+    }
+
     return (
         <div className='cart-overall-container'>
             <Header/>
-            <div  className='cartlist'>
-                {cartItems.map((item,index) => (
-                    <div id={`deleteBtn-${item.cart_id}`} className='listitem'>
-                        <img  className="proimage" src={API_ENDPOINTS.media + item.product_details.product_image} alt="image1"/>
+            <div className='cartlist'>
+                {cartItems.map((item) => (
+                    <div key={item.cart_id} className='listitem'>
+                        <img className="proimage" src={API_ENDPOINTS.media + item.product_details.product_image} alt="product"/>
                         <div className='itemdetails'>
-                            <div className='itemname'>{item.product_details.product_name}</div>
-                            <div className='itemprice'>{item.product_details.price}</div>
-                            <div className='quantitydesc'>
-                                <div className='quantity'>Quantity (in kgs)
-                                </div>
+                            <div className='itemdetailsleft'>
+                              <div className='itemname'>{item.product_details.product_name}</div>
+                              <div className='itemprice'>{item.product_details.price}</div>
+                              <div className='quantity'>Quantity (in kgs)</div>
                             </div>
-
-                        </div>
-                        <div className='rightbtns'>
-                            <button  className='deletebtn' onClick={() => handleDeleteClick(item.cart_id)}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-                                <circle cx="9.5" cy="9.5" r="9.5" fill="#7519EB"/>
-                                <path d="M12.6666 6.33334L6.33331 12.6667" stroke="white" stroke-width="1.40741" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M6.33331 6.33334L12.6666 12.6667" stroke="white" stroke-width="1.40741" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </button>
-                            <div className="btn__container">
-                                    <button className="control__btn" onClick={decrease}>-</button>
-                                    <span className="counter__output">{counter}</span>
-                                    <button className="control__btn" onClick={increase}>+</button>
+                            <div className='rightbtns'>
+                              <button  className='deletebtn' onClick={() => handleDeleteClick(item.cart_id)}>
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                                  <circle cx="9.5" cy="9.5" r="9.5" fill="#7519EB"/>
+                                  <path d="M12.6666 6.33334L6.33331 12.6667" stroke="white" stroke-width="1.40741" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M6.33331 6.33334L12.6666 12.6667" stroke="white" stroke-width="1.40741" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                              </button>
+                              <div className="btn__container">
+                                  <button type="button" onClick={() => handleQuantityChange(item.cart_id, -1)}>-</button>
+                                  <input                 
+                                      style={{width: "50px", textAlign: "center"}}
+                                      name="amount"
+                                      type="number" 
+                                      value={itemQuantities[item.cart_id] || 1}
+                                      onChange={(e) => handleInputChange(e, item.cart_id)}
+                                  />
+                                  <button type="button" onClick={() => handleQuantityChange(item.cart_id, 1)}>+</button> 
+                              </div>
                             </div>
                         </div>
                     </div>
                 ))}
-                
-            </div><Link to='/checkoutpage'>
-            <button className='checkbtn' type="submit" >
-                Checkout
-            </button></Link>
+            </div>
+            <Link to='/checkoutpage'>
+                <button className='checkbtn' type="submit">
+                    Checkout
+                </button>
+            </Link>
             <Navbar/>
         </div>
     );

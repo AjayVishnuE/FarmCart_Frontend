@@ -117,13 +117,9 @@ function Expandpage() {
               
                 <div className='quantity-entry'>
                   <div className="btn__container">
-                    <button type="button" onClick={decrease} disabled={counter <= 1}>-</button>
-                    <input 
-                        type="number" 
-                        value={counter} 
-                        readOnly
-                    />
-                    <button type="button" onClick={increase}>+</button>
+                    <button type="button" onClick={decrease}>-</button>
+                    <input style={{width:"20px", textAlign: "center"}} name="amount" type="text" readOnly value={counter}/>
+                    <button type="button" onClick={increase}>+</button>  
                   </div>
                 </div>
             </div>
