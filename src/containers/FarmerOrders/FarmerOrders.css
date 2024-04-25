@@ -1,7 +1,7 @@
 .order-overall-container{
     background-color: #F6F5F5;
     height:100vh;
-
+    overflow-y: scroll;
 }
 .orderstitle{
     margin-left: 8%;

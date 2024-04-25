@@ -33,6 +33,16 @@ function LocationPage() {
     }
   }
 
+  function redirectButton(){
+    if (userRole === 'Farmer') {
+      navigate('/farmerdashboard');
+    } else if (userRole === 'Consumer') {
+      navigate('/dashboard');
+    } else {
+      navigate('/dashboard'); 
+    }
+  }
+
   function getLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(
@@ -114,11 +124,11 @@ function LocationPage() {
               </br>provide the nearest farms and delivery points so as to ease your distance.
               </div>
               <button className='continuebutton' onClick={getLocation}>Get Location</button>
-              <Link to="/dashboard">
               <div className='Nomessage'>
-                    No, Choose location manually
+                <button className="manualbutton" onClick={redirectButton}>
+                No, Choose location manually
+                </button>
               </div>
-              </Link>
           </div>
 
       </div>

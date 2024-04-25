@@ -74,7 +74,7 @@ function FarmerUsersEdit() {
                     'Content-Type': 'multipart/form-data',  
                 },
             };
-            const response = await axios.patch(`${API_ENDPOINTS.User}/seller-crud/${User_id}/`, formData, config);
+            const response = await axios.patch(`${API_ENDPOINTS.users}/edituser/`, formData, config);
             console.log('User updated:', response.data);
         } catch (error) {
             console.error('Error updating User:', error.response ? error.response.data : error);

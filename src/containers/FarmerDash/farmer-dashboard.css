@@ -2,7 +2,7 @@
         background-image: url('../../Images/whitecommonbg.png');
         background-repeat: no-repeat;
         background-size: cover;
-        overflow-x: hidden;
+        overflow-y: scroll;
     }
 
     .overall-farmer-dashboard-container::-webkit-scrollbar {
