@@ -117,6 +117,7 @@ function LocationPage() {
               <Link to="/dashboard">
               <div className='Nomessage'>
                     No, Choose location manually
+                    
               </div>
               </Link>
           </div>
