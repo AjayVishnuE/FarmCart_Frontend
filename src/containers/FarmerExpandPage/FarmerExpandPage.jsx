@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FarmerNavbar, Header, Navbar } from '../../components';
+import { FarmerHeader, FarmerNavbar} from '../../components';
 import './Farmerexpandpage.css';
 import { Rating } from 'react-simple-star-rating';
-import product from '../../Images/product.png';
-import farmer from '../../Images/user (color).svg';
 import bar from "../../Images/Bar.png";
-import { Link, useParams, } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
 
 
@@ -25,6 +23,37 @@ function FarmerExpandPage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const accessToken = localStorage.getItem('accessToken');
+    const navigate = useNavigate();
+    const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
+
+    const deleteProduct = async () => {
+      try {
+          const response = await axios.delete(`${API_ENDPOINTS.product}/seller-crud/${product_id}/`, {
+              headers: {
+                  'Authorization': `Bearer ${accessToken}`
+              }
+          });
+
+          console.log('Product deleted:', response.data);
+          // Handle the post-delete logic here (e.g., redirect or state update)
+      } catch (error) {
+          console.error('Error deleting product:', error.response ? error.response.data : error);
+      }
+    };
+
+    const handleDeleteClick = () => {
+      setShowConfirmationPopup(true);
+    };
+
+    const handleConfirmDelete = () => {
+        deleteProduct();
+        setShowConfirmationPopup(false);
+        navigate('/farmerproductlist')
+    };
+
+    const handleCancelDelete = () => {
+        setShowConfirmationPopup(false); 
+    };
 
     useEffect(() => {
       if (!product_id) {
@@ -60,30 +89,8 @@ function FarmerExpandPage() {
     }
     return (
         <div className='expand-overall-container'>
-        <div className="header1" >
-        <img className="logoimage" src={bar} alt="bars" />
-        <Link to="/farmnotification">
-          <svg
-            id="notification-svg"
-            className="mySvg"
-            width="24"
-            height="27"
-            viewBox="0 0 24 27"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              id="Vector"
-              d="M2.64214 19.3564L2.67143 19.3271V19.2857V11.5714C2.67143 7.62994 5.21382 4.1974 9.02874 3.05293L9.1 3.03155V2.95714V2.57143C9.1 1.21237 10.2124 0.1 11.5714 0.1C12.9305 0.1 14.0429 1.21237 14.0429 2.57143V2.95714V3.03155L14.1141 3.05293C17.929 4.1974 20.4714 7.62994 20.4714 11.5714V19.2857V19.3271L20.5007 19.3564L23.0429 21.8986V23.0429H0.1V21.8986L2.64214 19.3564ZM5.04286 20.5714V20.6714H5.14286H18H18.1V20.5714V11.5714C18.1 7.9162 15.2267 5.04286 11.5714 5.04286C7.9162 5.04286 5.04286 7.9162 5.04286 11.5714V20.5714ZM14.0408 24.5286C13.9879 25.8418 12.897 26.9 11.5714 26.9C10.2459 26.9 9.15497 25.8418 9.10201 24.5286H14.0408Z"
-              fill="#7519EB"
-              stroke="white"
-              stroke-width="0.2"
-            />
-          </svg>
-        </Link>
-      </div>
-
-            <div className='product-container'>
+          <FarmerHeader/>
+          <div className='product-container'>
           <div className='product-details-box'>
             <div className='productbox'>
               <div className='product-name'>
@@ -96,7 +103,7 @@ function FarmerExpandPage() {
                 <span className="ColorTextSmall">(in kgs)</span>
             </div>
                         
-                <div className='quantity-entry'>
+                {/* <div className='quantity-entry'>
                   <div className="btn__container">
                     <button type="button" onClick={decrease} disabled={counter <= 1}>-</button>
                     <input 
@@ -106,7 +113,7 @@ function FarmerExpandPage() {
                     />
                     <button type="button" onClick={increase}>+</button>
                   </div>
-                </div>
+                </div> */}
             </div>
           
           <img className="images3" src={productDetails.product_image} alt="hoho" />
@@ -116,36 +123,59 @@ function FarmerExpandPage() {
         </div>
         <div className='reviewpopdiv'>
         <div className='reviewtitle'>Product Reviews</div>
-        {productDetails.reviews.map((item,index)=>
-        <div className='farmdetailsdesc'>
-            <div className='reviewname'>
-                <img className='farmer-user-image' src={API_ENDPOINTS.media + item.reviewer.user_image} alt={item.reviewer.username} />
-                <div className='reviewname'>{item.reviewer.username}</div>
-            </div>
-            <div className='reviewdesc'>
-                <Rating className='rating'
-                initialValue={item.rating}
-                onClick={function noRefCheck(){}}
-                readonly
-                size={22}
-                allowFraction
-                fillColor={'#FF7A00'}
-                showTooltip
-                tooltipStyle={{
-                    'background-color': 'white',
-                    color: 'transparent'
-                    }}
-                />
-                <div className='review'>
-                {item.comment}
-                </div>
-            </div>
-        </div>
+        {productDetails.reviews.length > 0 ? (
+          productDetails.reviews.map((item,index)=>
+          <div className='farmdetailsdesc'>
+              <div className='reviewname'>
+                  <img className='farmer-user-image' src={API_ENDPOINTS.media + item.reviewer.user_image} alt={item.reviewer.username} />
+                  <div className='reviewname'>{item.reviewer.username}</div>
+              </div>
+              <div className='reviewdesc'>
+                  <Rating className='rating'
+                  initialValue={item.rating}
+                  onClick={function noRefCheck(){}}
+                  readonly
+                  size={22}
+                  allowFraction
+                  fillColor={'#FF7A00'}
+                  showTooltip
+                  tooltipStyle={{
+                      'background-color': 'white',
+                      color: 'transparent'
+                      }}
+                  />
+                  <div className='review'>
+                  {item.comment}
+                  </div>
+              </div>
+          </div>
+            )
+        ) : (
+          <div className='no-reviews'>No reviews yet.</div>
         )}
+      
 
         </div>
-        <FarmerNavbar/>
+        
+        <div className='editproductbutton'>
+          <Link style={{color:"white"}} to={`/productsedit/${product_id}`}>
+              Edit the Product Details
+          </Link>
         </div>
+        <button onClick={handleDeleteClick}>
+              Delete the Product
+        </button>
+        {showConfirmationPopup && (
+                <div className='confirmation-popup'>
+                  <div className="modal-content">
+                    <p>Are you sure you want to delete this product?</p>
+                    <button onClick={handleConfirmDelete}>Confirm</button>
+                    <button onClick={handleCancelDelete}>Cancel</button>
+                  </div>
+                </div>
+            )}
+        <FarmerNavbar/>
+      </div>
     );
 }
 

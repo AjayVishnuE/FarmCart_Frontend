@@ -5,8 +5,7 @@ import './FarmerProfile.css';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 import cart from '../../Images/shopping-cart.svg';
 import bar from '../../Images/Bar.png';
-import ordercart from '../../Images/ordercart.svg';
-import wishlist from '../../Images/wishlist.png';
+import edit from '../../Images/edit_icon.png';
 import crown from '../../Images/crown.svg';
 import intransit from '../../Images/wpf_in-transit.svg';
 import delievered from '../../Images/package-delivered.svg';
@@ -107,11 +106,20 @@ function FarmerProfile(props) {
                         <p className='profile-email'>{profileData.email}</p>
                     </div>
                 </div>
-
-                <div className="explorebtn">
-                    <img src={crown} alt="crown"></img>
-                    <div className='explore'>
-                    Explore Farm Cart Premium
+                <div className='explorebtncontainer'>
+                    <div className='explorebtn'>
+                        <img className='editpremlogo' src={edit} alt="edit"/>
+                        <div className='explore'>
+                            <Link style={{color:"white"}} to="/profileedit">
+                                Edit Profile
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="explorebtn">
+                        <img className='editpremlogo' src={crown} alt="crown"></img>
+                        <div className='explore'>
+                            Farm Cart Premium
+                        </div>
                     </div>
                 </div>
                 <div className='farmerseccontainer'>

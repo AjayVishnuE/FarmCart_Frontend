@@ -28,6 +28,8 @@
 
 .itemdetails{
     width: 200px;
+    display: flex;
+    gap: 5px;
 }
 .itemname{
     font-size:larger;
@@ -49,7 +51,7 @@
 
 }
 .btn__container{
-   margin-top: 50px;
+   margin-top: 22px;
    display: flex;
    align-items: center;
 }

@@ -3,11 +3,10 @@ import { Header, Navbar} from '../../components';
 import { Link, useNavigate } from 'react-router-dom';
 import './ProfilePage.css';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
-import cart from '../../Images/shopping-cart.svg';
-import bar from '../../Images/Bar.png';
 import ordercart from '../../Images/ordercart.svg';
 import wishlist from '../../Images/wishlist.png';
 import crown from '../../Images/crown.svg';
+import edit from '../../Images/edit_icon.png';
 import intransit from '../../Images/wpf_in-transit.svg';
 import delievered from '../../Images/package-delivered.svg';
 
@@ -47,7 +46,7 @@ function ProfilePage(props) {
         };
 
         fetchData();
-    }, []); 
+    }, [accessToken]); 
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
@@ -91,12 +90,7 @@ function ProfilePage(props) {
     };
     return (
         <div className='Profile-overall-component'>
-            <div className='header1'>
-                <img className='images1' src={bar} alt="bars"/>
-                <Link to="/cart">
-                <img className='images1' src={cart} alt="cart"/>
-                </Link>
-            </div>
+            <Header/>
             <div className='profile-container'>
                 <div className='profile-box'>
                     <div className="pic">
@@ -129,10 +123,20 @@ function ProfilePage(props) {
                     </div>
                 </div>
 
-                <div className="explorebtn">
-                    <img src={crown} alt="crown"></img>
-                    <div className='explore'>
-                    Explore Farm Cart Premium
+                <div className='explorebtncontainer'>
+                    <div className='explorebtn'>
+                        <img className='editpremlogo' src={edit} alt="edit"/>
+                        <div className='explore'>
+                            <Link style={{color:"white"}} to="/profileedit">
+                                Edit Profile
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="explorebtn">
+                        <img className='editpremlogo' src={crown} alt="crown"></img>
+                        <div className='explore'>
+                            Farm Cart Premium
+                        </div>
                     </div>
                 </div>
 

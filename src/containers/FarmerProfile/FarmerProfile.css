@@ -10,6 +10,7 @@
     gap:25px;
 }
 
+
 .ellipse{
   border: 0.5px solid black;
   text-align: center;
@@ -85,25 +86,32 @@
     font-weight: 500;
     word-wrap: break-word;
   }
-  
+  .explorebtncontainer{
+    width:80%;
+    margin: 0 10%;
+    display: flex;
+    gap:10%;
+  }
+
   .explorebtn{
+    margin: 0;
+    width: 45%;
     display: flex;
     background: #7519eb;
-    border-radius: 11px;
-    width: 318px;
     align-items: center;
     justify-content: center;
-    height: 55px;
-    position: relative;
-    margin-top: 10px;
-    margin-left: 8%;
 }
+
 .explore{
-    margin-left: 8px;
     color: #ffffff;
     font-size: 16px;
     font-weight: 300;
+}
 
+.editpremlogo{
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }
 
 .recentorderviewallcontainer{
