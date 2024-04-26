@@ -1,7 +1,6 @@
 .order-overall-container{
     background-color: #F6F5F5;
     height:100vh;
-    overflow-y: scroll;
 
 }
 .orderstitle{
@@ -51,7 +50,7 @@ letter-spacing: -0.662px;
   display: flex;
 
 }
-.rating-container{
+.rating-continer{
   width: 100%;
   display: flex;
   flex-direction: column;

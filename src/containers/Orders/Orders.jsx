@@ -2,6 +2,7 @@ import React, { useState, useEffect }  from 'react';
 import './Orders.css';
 import axios from 'axios';
 import { Header, Navbar} from '../../components';
+import { Link, useNavigate } from 'react-router-dom';
 import intransit from '../../Images/wpf_in-transit.svg';
 import delievered from '../../Images/package-delivered.svg';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
@@ -13,6 +14,7 @@ function Orders(props) {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const accessToken = localStorage.getItem('accessToken'); 
+    const navigate = useNavigate();
     // const [rating, setRating] = useState(0);
     const [rating, setRating] = useState(0)
     const [comments, setComments] = useState({});
@@ -34,45 +36,7 @@ function Orders(props) {
 
                 const data = await response.json();
                 setProfileData(data);
-                const initialRating = {};
-                const initialComments = {};
-                const deliveredOrders = data.orders.filter((order) => order.order_status === 'Delivered');
-                data.orders.forEach((order) => {
-                    order.order_details.forEach((orderdetail) => {
-                        const product_id = orderdetail.product_details.product_id;
-                        initialRating[product_id] = 0;
-                        initialComments[product_id] = '';
-                    });
-                });
-                setRating(initialRating);
-                setComments(initialComments);
-    
-                deliveredOrders.forEach(async (order) => {
-                    order.order_details.forEach(async (orderdetail) => {
-                        const product_id = orderdetail.product_details.product_id;
-                        try {
-                            const existingReview = await axios.get(`${API_ENDPOINTS.reviews}read/${product_id}`, {
-                                headers: {
-                                    'Authorization': `Bearer ${accessToken}`,
-                                },
-                            });
-                            if (existingReview && existingReview.data) {
-                                const existingRating = existingReview.data.rating;
-                                const existingComment = existingReview.data.comment;
-                                setRating((prevRating) => ({
-                                    ...prevRating,
-                                    [product_id]: existingRating,
-                                }));
-                                setComments((prevComments) => ({
-                                    ...prevComments,
-                                    [product_id]: existingComment,
-                                }));
-                            }
-                        } catch (error) {
-                            console.error('Error fetching existing review:', error);
-                        }
-                    });
-                });
+
             } catch (error) {
                 console.error('Error fetching consumer profile:', error);
                 setError(error.message);
@@ -80,8 +44,9 @@ function Orders(props) {
                 setIsLoading(false);
             }
         };
+        console.log(profileData)
         fetchData();
-    }, [accessToken]); 
+    }, []); 
 
     const handleRatingChange = (product_id, newRating) => {
         setRating((prevRating) => ({
@@ -97,76 +62,25 @@ function Orders(props) {
           [product_id]: newComment,
         }));
       };
-
+    
       const handleSubmitReview = async (product_id) => {
+        const accessToken = localStorage.getItem('accessToken'); 
         try {
-            if (rating[product_id] && comments[product_id]) {
-                let reviewResponse;
-                try {
-                    reviewResponse = await axios.get(`${API_ENDPOINTS.reviews}read/${product_id}/`, {
-                        headers: {
-                            'Authorization': `Bearer ${accessToken}`,
-                        },
-                    });
-                } catch (error) {
-                    if (error.response && error.response.status === 404) {
-                        reviewResponse = null;
-                    } else {
-                        console.error('Error fetching existing review:', error);
-                        return; 
-                    }
-                }
+          const response = await axios.post(`${API_ENDPOINTS.reviews}reviews/`, {
+            product: product_id,
+            rating: rating[product_id],
+            comment: comments[product_id],
+          }, {
+            headers: {
+              'Authorization': `Bearer ${accessToken}`,
+            },
+          });
+          console.log('Review submitted:', response.data);
     
-                if (reviewResponse && reviewResponse.data) {
-                    await axios.put(`${API_ENDPOINTS.reviews}update/${reviewResponse.data.review_id}/`, {
-                        product: product_id,
-                        rating: rating[product_id],
-                        comment: comments[product_id],
-                    }, {
-                        headers: {
-                            'Authorization': `Bearer ${accessToken}`,
-                        },
-                    });
-                    console.log('Review updated');
-                } else {
-                    await axios.post(`${API_ENDPOINTS.reviews}create/`, {
-                        product: product_id,
-                        rating: rating[product_id],
-                        comment: comments[product_id],
-                    }, {
-                        headers: {
-                            'Authorization': `Bearer ${accessToken}`,
-                        },
-                    });
-                    console.log('New review submitted');
-                }
-            } else {
-                console.error('Rating and comment are required');
-            }
         } catch (error) {
-            console.error('Error submitting review:', error);
+          console.error('Error submitting review:', error);
         }
-    };
-    
-
-    //   const handleSubmitReview = async (product_id) => {
-    //     const accessToken = localStorage.getItem('accessToken'); 
-    //     try {
-    //       const response = await axios.post(`${API_ENDPOINTS.reviews}reviews/`, {
-    //         product: product_id,
-    //         rating: rating[product_id],
-    //         comment: comments[product_id],
-    //       }, {
-    //         headers: {
-    //           'Authorization': `Bearer ${accessToken}`,
-    //         },
-    //       });
-    //       console.log('Review submitted:', response.data);
-    
-    //     } catch (error) {
-    //       console.error('Error submitting review:', error);
-    //     }
-    //   };
+      };
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
@@ -210,29 +124,23 @@ function Orders(props) {
                                 </div>
                             </div>
                         {getStatusInfo(order.order_status).text === 'Delivered' && (
-                            <div className='rating-container'>
-                                <Rating
-                                    name={`rating-${orderdetail.product_details.product_id}`}
-                                    className='ratingcomponent'
-                                    starCount={0}
-                                    initialValue={rating[orderdetail.product_details.product_id] || 0}
-                                    value={rating[orderdetail.product_details.product_id] || 0}
-                                    onClick={(newRating) => handleRatingChange(orderdetail.product_details.product_id, newRating)}
-                                />
-                                <textarea
-                                    className='textareainrating'x
-                                    type="text" 
-                                    name = {`comment-${orderdetail.product_details.product_id}`}
-                                    value={comments[orderdetail.product_details.product_id] || ''}
-                                    onChange={(event) => handleCommentChange(orderdetail.product_details.product_id, event)}
-                                    placeholder='Any Comments?...'
-                                />
-                                <button 
-                                    className='review-sbmt-btn' 
-                                    onClick={() => handleSubmitReview(orderdetail.product_details.product_id)}
-                                >
-                                    Submit Review
-                                </button>
+                            <div className='rating-continer'>
+                              <Rating
+                                name={`rating-${orderdetail.product_details.product_id}`}
+                                className='ratingcomponent'
+                                starCount={5}
+                                value={rating[orderdetail.product_details.product_id] || 0}
+                                onClick={(newRating) => handleRatingChange(orderdetail.product_details.product_id, newRating)}
+                              />
+                              <textarea
+                                className='textareainrating'
+                                type="text" 
+                                name = {`comment-${orderdetail.product_details.product_id}`}
+                                value={comments[orderdetail.product_details.product_id] || ''}
+                                onChange={(event) => handleCommentChange(orderdetail.product_details.product_id, event)}
+                                placeholder='Any Comments?...'
+                              />
+                              <button className='review-sbmt-btn' onClick={() => handleSubmitReview(orderdetail.product_details.product_id)}>Submit Review</button>
                             </div>
                         )}
                     </div>

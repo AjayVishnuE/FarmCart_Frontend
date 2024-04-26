@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { IntroPage, LoadingPage, SignupPage,LocationPage, LoginPage, Dashboard, Seemore, SearchPage, Expandpage, CartPage,CheckoutPage, AddressPage,Checkout, Orderplace ,Notification, EmptyNotification, ChatPage, Profile, ProductDetail, FarmChat, FarmerSignupPage, Orders, Wishlist, FarmerProductsList, FarmerDash, FarmerExpandPage, FarmerProfile, FarmerOrders, FarmerChatPage, FarmerAddDetails, SearchResultsPage, FarmerProductsEdit, ProfileEdit} from './containers';
+import { IntroPage, LoadingPage, SignupPage,LocationPage, LoginPage, Dashboard, Seemore, SearchPage, Expandpage, CartPage,CheckoutPage, AddressPage,Checkout, Orderplace ,Notification, EmptyNotification, ChatPage, Profile, ProductDetail, FarmChat, FarmerSignupPage, Orders, Wishlist, FarmerProductsList, FarmerDash, FarmerExpandPage, FarmerProfile, FarmerOrders, FarmerChatPage, FarmerAddDetails, SearchResultsPage} from './containers';
 import { AuthProvider } from './components/Auth/AuthContext';
 import { Header } from './components';
 
@@ -27,7 +27,6 @@ const App = () => {
           <Route path="/ordersuccess" exact element={<Orderplace/>}/>
           <Route path="/notification" exact element={<Notification/>}/>
           <Route path="/profile" exact element={<Profile/>}/>
-          <Route path="/profileedit" exact element={<ProfileEdit/>}/>
           <Route path="/nonotification" exact element={<EmptyNotification/>}/>
           <Route path="/chat" exact element={<ChatPage/>} />
           <Route path="/farmerdashboard" exact element={<FarmerDash/>}/>
@@ -41,7 +40,6 @@ const App = () => {
           <Route path='/farmerprofile' exact element={<FarmerProfile/>} />
           <Route path='/farmerorders' exact element={<FarmerOrders/>} />
           <Route path='/farmeradddetails' exact element={<FarmerAddDetails/>} />
-          <Route path="/productsedit/:product_id" exact element={<FarmerProductsEdit/>} />
         </Routes>
       </Router>
     </AuthProvider>

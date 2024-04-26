@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import Saleschart from "../../components/SalesChart/Saleschart";
 import lemon from '../../Images/lemon.png';
 import Farmer_navbar from "../../components/Farmer-Navbar/FarmerNavbar";
-import FarmerNavbar from "../../components/Farmer-Navbar/FarmerNavbar";
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -145,7 +144,7 @@ function FarmerDash() {
   
   
       </div>
-      <FarmerNavbar/>
+      <Farmer_navbar/>
       </div>
     )
 }

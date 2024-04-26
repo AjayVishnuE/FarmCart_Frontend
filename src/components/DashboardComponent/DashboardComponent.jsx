@@ -13,12 +13,7 @@ const DashboardComponent = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(`${API_ENDPOINTS.product}/productlist/`, {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Assuming you're using Bearer token authentication
-                'Content-Type': 'application/json',
-            },
-        })
+        axios.get(`${API_ENDPOINTS.product}/productlist/`)
             .then(response => {
                 const productList = response.data;
                 const tempFruits = [], tempVegetables = [], tempExotic = [];

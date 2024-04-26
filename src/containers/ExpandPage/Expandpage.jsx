@@ -117,9 +117,13 @@ function Expandpage() {
               
                 <div className='quantity-entry'>
                   <div className="btn__container">
-                    <button type="button" onClick={decrease}>-</button>
-                    <input style={{width:"20px", textAlign: "center"}} name="amount" type="text" readOnly value={counter}/>
-                    <button type="button" onClick={increase}>+</button>  
+                    <button type="button" onClick={decrease} disabled={counter <= 1}>-</button>
+                    <input 
+                        type="number" 
+                        value={counter} 
+                        readOnly
+                    />
+                    <button type="button" onClick={increase}>+</button>
                   </div>
                 </div>
             </div>
@@ -136,7 +140,7 @@ function Expandpage() {
           </div>
         </div>
         <div className='popdiv'>
-        <p style={{textAlign:"justify", width:"100%", }}>{productDetails.product_description}</p>
+        <p style={{textAlign:"justify", width:"100%"}}>{productDetails.product_description}</p>
           <h3 style={{textAlign:"left", width:"100%"}} className='farmdetailshead'>Farm details</h3>
           <div className='farmdetailsdesc'>
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">

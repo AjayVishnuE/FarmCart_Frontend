@@ -1,6 +1,6 @@
 import React, { useState, useEffect }  from 'react';
 import './LocationPage.css';
-import {Link, useNavigate} from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
 
 
@@ -30,16 +30,6 @@ function LocationPage() {
       setUserRole(data.role);
     } catch (error) {
       console.error("Error fetching user role: ", error);
-    }
-  }
-
-  function redirectButton(){
-    if (userRole === 'Farmer') {
-      navigate('/farmerdashboard');
-    } else if (userRole === 'Consumer') {
-      navigate('/dashboard');
-    } else {
-      navigate('/dashboard'); 
     }
   }
 
@@ -125,9 +115,7 @@ function LocationPage() {
               </div>
               <button className='continuebutton' onClick={getLocation}>Get Location</button>
               <div className='Nomessage'>
-                <button className="manualbutton" onClick={redirectButton}>
-                No, Choose location manually
-                </button>
+                    No, Choose location manually
               </div>
           </div>
 
