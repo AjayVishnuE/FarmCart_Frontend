@@ -2,7 +2,7 @@
     background-color: #F6F5F5;
     height:100vh;
 }
-.profile-box{
+.profile-box-farmer{
     display: flex;
     align-items: center;
     justify-content: left;
@@ -11,7 +11,7 @@
 }
 
 
-.ellipse{
+.ellipse-farmer{
   border: 0.5px solid black;
   text-align: center;
   object-fit: cover;
@@ -88,7 +88,7 @@
   }
   .explorebtncontainer{
     width:80%;
-    margin: 0 10%;
+    margin: 10px 10%;
     display: flex;
     gap:10%;
   }
@@ -100,6 +100,7 @@
     background: #7519eb;
     align-items: center;
     justify-content: center;
+   
 }
 
 .explore{
@@ -109,8 +110,8 @@
 }
 
 .editpremlogo{
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 
@@ -124,13 +125,18 @@
 .recent-order{
     color: #201f20;
     margin-top: 15px;
-    margin-left: 8%;
+    margin-left: 12%;
     font-size: 19.9px;
     font-weight: 500;
 
     line-height: 20px;
 
 }
+.viewname{
+  color:#7519eb;
+  margin-right: 3%;
+}
+
 
 .order-box-1 {
     display: flex;
@@ -142,14 +148,14 @@
     height: fit-content;
     width: fit-content;
     margin-top: 15px;
-    margin-left: 8%;
-    padding: 20px;
+    margin-left: 10%;
+    padding: 20px 50px 20px 20px;
     }
   
-  .order-box-1-item{
+  .order-box-1-item-profile{
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    
     width: 100%;
   }
 
@@ -165,7 +171,7 @@
     position: relative;
 }
 
-.leftdiv {
+.leftdiv-profile{
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -191,7 +197,9 @@
     
     line-height: 10px;
 }
-
+.element-wrapper{
+  margin-left: 85px;
+}
 .element {
     color: #000000;
     align-items: center;
@@ -226,11 +234,13 @@
     margin-top: 5px;
 }
 
-.orderstatus{
+.orderstatus-profile{
     display: flex;
+    /* margin-right: 8%; */
 }
 .statusframe{
     margin-left: 8%;
+    
 }
 
 .status-wrapper{
@@ -335,7 +345,7 @@ line-height: 11.4px;
     border-radius: 30px;
     background: #FF4343;
     width: 80%;
-    margin-left: 8%;
+    margin-left: 10%;
     margin-top: 15px;
     height: 70px;
     border: none;
@@ -391,8 +401,9 @@ line-height: 11.4px;
 
 .farmdetailsbtn{
     background-color: rgb(213, 210, 210);
-    padding: 10px;
+    padding: 10px 40px;
     border-radius: 15px;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -411,10 +422,10 @@ line-height: 11.4px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 38%;
+    width: 45%;
     background-color: white;
     border-radius: 15px;
-    padding:5px ;
+    padding:15px 5px ;
 }
 
 .svgclass{

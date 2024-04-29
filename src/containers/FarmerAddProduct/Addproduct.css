@@ -1,9 +1,13 @@
 .addproduct-overall-container{
-  
+  overflow-y: scroll;
   background-color: #F6F5F5;
   justify-content: center;
   align-items: center;
     
+}
+
+.addproduct-overall-container::-webkit-scrollbar {
+  display: none; 
 }
 .addproductInfoContainer {
   width: 100%;
@@ -19,7 +23,7 @@
   margin-bottom: 15px;
 }
 .addvalue:focus {
-  border-color: #A0A5BA; /* Change the border color when input is focused */
+  border-color: #A0A5BA; 
 }
 .addvalue::placeholder {
   color: #A0A5BA;
@@ -46,17 +50,20 @@
   padding-left: 5%;
 
 }
+.addvalue.select {
+  width: 350px;
+}
 .addvalue::placeholder {
   color: #A0A5BA; /* Change placeholder text color */
   
 }
 .addvalue option {
-  color: #A0A5BA; /* Example font color */
-  padding: 5%; /* Example padding */
+  color: #A0A5BA; 
+  padding: 5%; 
 }
   
 .addproductbtn {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   color: #FFF;
   font-size: 15.448px;
   font-style: normal;
@@ -70,7 +77,7 @@
   margin-top: 20px;
 }
 
-.FileUploadBase {
+.FileUploadBase-Addpro{
   width: 300px;
   
   padding: 20px;
