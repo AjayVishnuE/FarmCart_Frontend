@@ -3,9 +3,12 @@
     background-color: #F6F5F5;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
     
 }
-
+.chat-overall-container::-webkit-scrollbar {
+  display: none; 
+}
 .msg-chat{
   flex: 1;
   overflow-y: auto;
