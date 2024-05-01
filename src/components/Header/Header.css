@@ -1,7 +1,4 @@
-.header-overall-container{
-  width: 100%;
-  
-}
+
 
 .header1{
     display: flex;
@@ -12,9 +9,18 @@
     padding:5% 10% ;
     margin:0;
   }
-  .images1{
-    width:7%;
-    height: 30px;
-    object-fit: contain;
-    margin:0;
-  }
+ 
+  
+.images1{
+  width:7%;
+  height: 30px;
+  object-fit: contain;
+  margin:0;
+}
+
+.logoimage{
+  width:25%;
+  height: 45px;
+  object-fit: contain;
+  margin:0;
+}
