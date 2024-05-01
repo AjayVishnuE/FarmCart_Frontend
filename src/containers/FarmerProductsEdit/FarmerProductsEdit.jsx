@@ -133,7 +133,7 @@ function FarmerProductsEdit() {
                 </div>
                 <div className='editProductFormItem'>
                     <label className='editlabel'>Product Type</label>
-                    <select className='editvalue' name="product_type" value={productData.product_type} onChange={handleInputChange} id="product_type">
+                    <select className='editvalue select' name="product_type" value={productData.product_type} onChange={handleInputChange} id="product_type">
                         <option value="Fruits">Fruits</option>
                         <option value="Vegetables">Vegetables</option>
                         <option value="Exotic">Exotic</option>

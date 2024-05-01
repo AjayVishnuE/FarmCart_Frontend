@@ -72,6 +72,9 @@
     color: #A0A5BA; /* Example font color */
     padding: 5%; /* Example padding */
   }
+  .editvalue.select {
+    width: 350px;
+  }
   
   .FileUploadBase {
     width: 200px;
