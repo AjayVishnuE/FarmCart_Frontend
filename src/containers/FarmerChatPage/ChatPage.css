@@ -82,12 +82,14 @@ input:focus {
   border: none; 
 }
 .msger-send-btn {
-  margin-left: 10px;
+  margin-left: 60px;
   border: none;
-  background: rgb(0, 196, 65);
+  /* background: rgb(0, 196, 65); */
   color: #fff;
+  background: #FFF;
   font-weight: bold;
   cursor: pointer;
-  padding: 10px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 50px;
 }
 
