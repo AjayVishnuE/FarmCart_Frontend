@@ -8,11 +8,12 @@
 .overall-farmer-dashboard::-webkit-scrollbar {
   display: none; 
 }
-.farmer-dashboard{height:100vh;
+.farmer-dashboard{
+  height:100vh;
   padding: 0;
   margin: 0;
   width: 100%;
-
+ 
 }
 .username{
   color:#7519EB;
@@ -95,7 +96,7 @@ justify-content: center;
 height: 55px;
 position: relative;
 margin-top: 15px;
-margin-left: 8%;
+margin-left: 10%;
 }
 
 .explorepro{
@@ -125,10 +126,11 @@ font-style: normal;
 font-weight: 600;
 line-height:  20px;
 margin-top: 50px;
+margin-bottom: 15px;;
 }
 .topselling{
 display: flex;
-width: 259px;
+width: 303px;
 margin-left: 10%;
 text-align: center;
 font-family: "SF Pro Rounded";
@@ -143,6 +145,8 @@ background-color: #FFF;
 justify-content: space-between;
 border-top-left-radius:20.127px ;
 border-top-right-radius: 20.127px;
+box-shadow: 0px 20.127px 40.253px 0px rgba(57, 57, 57, 0.10)
+
 }
 .topsellpercent{
 color:#0BCE83;
@@ -150,11 +154,19 @@ color:#0BCE83;
 .statibox{
 display: flex;
 background-color: #FFF;
-border-radius: 20.13px;
-width: 259px;
+border-radius: 18px;
+width: 318px;
 margin-left: 10%;
+margin-bottom: 20px;
 padding:10px 15px;
+box-shadow: 0px 20.127px 40.253px 0px rgba(57, 57, 57, 0.10);
 
+}
+.statibox:nth-child(2) {
+  /* Additional styling for the second statibox */
+  background-color: #7519EB; /* Example background color */
+  border: 2px solid #7519EB; /* Example border */
+  /* Add more styles as needed */
 }
 .Statitextout {
 margin-left: 10px;
@@ -233,4 +245,17 @@ font-family: 'SF Pro Rounded';
 font-weight: 600;
 line-height: 10.31px;
 word-wrap: break-word;
+}
+.fnavbar-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  max-width: 450px;
+  position:fixed;
+  bottom: 0;
+  gap:15%;
+  background: linear-gradient(0deg, #FFFFFF, rgba(255, 255, 255, 0));
+  
 }

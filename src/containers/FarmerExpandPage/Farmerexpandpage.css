@@ -45,13 +45,17 @@
     line-height: 22.07px;
     word-wrap: break-word;
   }
+.buttondiv{
+  display: flex;
+}
+
   .reviewpopdiv {
     
     width: 90%;
     padding: 10%;
     background-color: #ffffff;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;  
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;  
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,18 +77,21 @@
    color:blueviolet;
     align-items: center;
     margin-top: 5px;
-    font-size: 12px;
+    font-size: 15px;
+    margin-left: 15px;
 }
 .review{
     color: #222;
 font-size: 11px;
 margin-top: 10px;
-margin-left: 8px;
+margin-left: 30px;
+font-size: 15px;
 }
 .reviewdesc{
  align-items: center;
  justify-content: center;
  padding: 20px;
+ font-size: 15px;
 }
 .rating{
     margin-left: 30px;
@@ -104,7 +111,20 @@ margin-left: 8px;
     width: fit-content;
     border-radius: 15px;
     color: white;
+    font-size: 12px;
+    margin-right: 20px;
 }
+.deleteproductbutton{
+  background-color: #FF4343;
+  padding: 20px 30px;
+  width: fit-content;
+  border-radius: 15px;
+  color: white;
+  margin-right: 20px;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
 
 .confirmation-popup {
     position: fixed;
