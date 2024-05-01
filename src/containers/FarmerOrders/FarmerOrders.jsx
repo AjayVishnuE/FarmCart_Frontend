@@ -1,6 +1,6 @@
 import React, { useState, useEffect }  from 'react';
 import './FarmerOrders.css';
-import { FarmerNavbar, Header, Navbar} from '../../components';
+import { FarmerHeader, FarmerNavbar, Header, Navbar} from '../../components';
 import { Link, useNavigate } from 'react-router-dom';
 import intransit from '../../Images/wpf_in-transit.svg';
 import delievered from '../../Images/package-delivered.svg';
@@ -60,7 +60,8 @@ function FarmerOrders(props) {
     };
     return (
         <div className='order-overall-container'>
-            <Header/>
+            <FarmerHeader/>
+            <div className='order-container'>
             <div className='orderstitle'>My orders</div>
             {profileData.user_orders.map((item,index)=>
                     <div className="order-box-1">
@@ -109,7 +110,7 @@ function FarmerOrders(props) {
                     </div>
                 </div>
             )}
-
+        </div>
         <FarmerNavbar/>
         </div>
     );
