@@ -56,8 +56,9 @@ function FarmerDash() {
   if (error) return <p>Error: {error}</p>;
     return (
       <div className="overall-farmer-dashboard">
+         <FarmerHeader/>
         <div className="farmer-dashboard">
-        <FarmerHeader/>
+       
         <h1 className="farmgoodmorni">Good Morning,</h1>
         <h2 className="username">{userData.username} !</h2>
         <div className="dash-box">
