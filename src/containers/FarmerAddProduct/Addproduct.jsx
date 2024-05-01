@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FarmerNavbar, Header} from '../../components';
+import { FarmerHeader, FarmerNavbar, Header} from '../../components';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
@@ -71,7 +71,8 @@ function Addproduct(props) {
       
     return (
         <div className='addproduct-overall-container'>
-            <Header/>
+            <FarmerHeader/>
+           
             <form className='addproductInfoContainer' onSubmit={handleSubmit}>
                 <span className='addlabel'>Product Image</span>
                 <div className="FileUploadBase-Addpro">
