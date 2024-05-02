@@ -11,6 +11,9 @@ function ChatPage() {
   const [query, setQuery] = useState('');
   const [responses, setResponses] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isComplaintNext, setIsComplaintNext] = useState(false);
+  const accessToken = localStorage.getItem('accessToken');
+  const COMPLAINT_KEYWORDS = ["i want to register a complaint", "i have a complaint", "complaint about a product", "complaint regarding service", "file a complaint", "report an issue"];
 
   const handleQueryChange = (e) => {
     setQuery(e.target.value);
@@ -20,11 +23,32 @@ function ChatPage() {
     e.preventDefault();
     if (!query.trim()) return;
     setLoading(true);
-
-    try {
-      const response = await axios.post(`${API_ENDPOINTS.chat}/chat/`, { query });
-      setResponses([...responses, { query, response: response.data.response }]);
+  
+    const isComplaintTrigger = COMPLAINT_KEYWORDS.some(keyword => query.toLowerCase().includes(keyword));
+  
+    if (isComplaintTrigger) {
+      setResponses([...responses, { query, response: 'Your next message will be registered as a complaint, and our technical team will look into it shortly.' }]);
+      setIsComplaintNext(true);
+      setLoading(false);
       setQuery('');
+      return; 
+    }
+  
+    const endpoint = isComplaintNext ? `${API_ENDPOINTS.chat}/complaint/` : `${API_ENDPOINTS.chat}/chat/`;
+    const requestBody = isComplaintNext ? { complaint: query } : { message: query };
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json'
+      }
+    };
+  
+    try {
+      const response = await axios.post(endpoint, requestBody, config);
+      const responseMessage = isComplaintNext ? 'Your message has been registered as a complaint, and our technical team will look into it shortly.' : response.data.response;
+      setResponses([...responses, { query, response: responseMessage }]);
+      setQuery('');
+      setIsComplaintNext(false); 
     } catch (error) {
       console.error('Error:', error);
       setResponses([...responses, { query, response: 'Failed to get a response. Please try again.' }]);
