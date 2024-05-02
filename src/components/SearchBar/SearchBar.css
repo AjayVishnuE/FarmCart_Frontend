@@ -23,6 +23,7 @@
     border: none;
     outline: none;
     padding: 5px;
+    background-color: transparent;
     flex-grow: 1; /* Input field takes up the available space */
   }
   
