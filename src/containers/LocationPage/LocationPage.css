@@ -5,7 +5,7 @@
     padding: 0;
     height: 100vh;
     background-image: url(../../Images/Background2.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     justify-content:flex-end;
     align-items: center;
@@ -14,47 +14,35 @@
 .manualbutton{
     color:#0BCE83;
     font-weight: bold;
-    
+    margin-bottom: 25px;
+  
     border: none;
+   
     background-color: transparent;
-    margin-left: 70px;
-    text-align: center;
-    margin-right: 35px;
-    margin-top: 35px;
 }
 
 .locationbox{
     width: 100%;
 
     
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     
 }
 .Sharelocation{
     color: #2D0C57;
     font-size: 25px;
     font-weight: bold;
-    padding:  0px 50px 0px 50px;
+    padding:  10px 50px 0px 50px;
     
 }
 .Locationdesc{
-    display: flex;
     line-height: 1.5;
-   
     color:#868686;
-   
-    align-items: center;
-    font-size: 15px;
-    padding: 20px ;
-    
-}
-.locationtext{
-    margin-left: 25px;
-    margin-right: 45px;
-    text-align: center;
+    font-size: 18px;
+    padding: 20px 50px 20px 50px;
 }
 .continuebutton{
-    
+    margin-top: 20px;
     margin-left: 35px;
     margin-right: 35px;
     color: #FFFFFF;
