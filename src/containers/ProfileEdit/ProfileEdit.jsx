@@ -79,7 +79,13 @@ function FarmerUsersEdit() {
         } catch (error) {
             console.error('Error updating User:', error.response ? error.response.data : error);
         }
-        navigate(`/farmerexpand/${User_id}`)
+        if (userData.role === 'Farmer') {
+            navigate('/farmerprofile');
+          } else if (userData.role === 'Consumer') {
+            navigate('/profile');
+          } else {
+            navigate('/profile'); 
+          }
     };
     
     

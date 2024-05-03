@@ -12,15 +12,21 @@ function Seemore(props) {
     const accessToken = localStorage.getItem('accessToken');
 
     useEffect(() => {
-        axios.get(`${API_ENDPOINTS.product}/productlist/`)
-            .then(response => {
-                const productList = response.data;
-                setProducts(productList);
-            })
-            .catch(error => {
-                console.error('Error fetching the data:', error);
-            });
+        axios.get(`${API_ENDPOINTS.product}/productlist/`, {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => {
+            const productList = response.data;
+            setProducts(productList);
+        })
+        .catch(error => {
+            console.error('Error fetching the data:', error);
+        });
     }, []); 
+    
 
     return (
         <div className='seemore-overall-container'>

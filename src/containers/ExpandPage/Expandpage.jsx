@@ -99,7 +99,7 @@ function Expandpage() {
     }
     const product_image_url = API_ENDPOINTS.media + productDetails.product_image;
     const farmer_image_url = API_ENDPOINTS.media + productDetails.seller_details.user_image;
-    
+    console.log(productDetails)
 
     return (
       <div className='expand-overall-container'>

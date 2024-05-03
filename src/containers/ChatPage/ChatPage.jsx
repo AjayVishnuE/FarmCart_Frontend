@@ -11,7 +11,7 @@ function ChatPage() {
   const [loading, setLoading] = useState(false);
   const [isComplaintNext, setIsComplaintNext] = useState(false);
   const accessToken = localStorage.getItem('accessToken');
-  const COMPLAINT_KEYWORDS = ["i want to register a complaint", "i have a complaint", "complaint about a product", "complaint regarding service", "file a complaint", "report an issue"];
+  const COMPLAINT_KEYWORDS = ["i want to register a complaint", "i have a complaint", "complaint about a product", "complaint regarding service", "file a complaint", "report an issue", "lodge a complaint", "submit a complaint", "make a complaint", "raise a complaint", "issue a complaint", "report a problem", "express dissatisfaction", "send a complaint", "formal complaint", "problem with a product", "issue with service", "not happy with product", "unsatisfied with service", "complaint about an order", "feedback about poor service", "negative feedback", "need to complain", "want to complain", "complaint department", "complaint against", "complaint due to", "complaint for"];
 
   const handleQueryChange = (e) => {
     setQuery(e.target.value);
@@ -25,7 +25,7 @@ function ChatPage() {
     const isComplaintTrigger = COMPLAINT_KEYWORDS.some(keyword => query.toLowerCase().includes(keyword));
   
     if (isComplaintTrigger) {
-      setResponses([...responses, { query, response: 'Your next message will be registered as a complaint, and our technical team will look into it shortly.' }]);
+      setResponses([...responses, { query, response: 'Your next message will be registered as a complaint, Please explain your complaint in detail, and our technical team will look into it shortly.' }]);
       setIsComplaintNext(true);
       setLoading(false);
       setQuery('');
