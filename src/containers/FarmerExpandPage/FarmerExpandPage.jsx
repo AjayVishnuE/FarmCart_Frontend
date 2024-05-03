@@ -118,9 +118,35 @@ function FarmerExpandPage() {
           
           <img className="images3" src={productDetails.product_image} alt="hoho" />
           </div>
-       
+          <div className='buttondiv'>
+          <div className='editproductbutton'>
+          <Link style={{color:"white"}} to={`/productsedit/${product_id}`}>
+              Edit the Product Details
+          </Link>
+          </div>
+          <div className="deleteproductbutton" onClick={handleDeleteClick}>
+          {/* <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+          <circle cx="9.5" cy="9.5" r="9.5" fill="#FF4343"/>
+          <path d="M12.6667 6.3335L6.33334 12.6668" stroke="white" stroke-width="1.40741" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6.33334 6.3335L12.6667 12.6668" stroke="white" stroke-width="1.40741" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg> */}Delete
+        </div>
+        {showConfirmationPopup && (
+                <div className='confirmation-popup'>
+                  <div className="modal-content">
+                    <p>Are you sure you want to delete this product?</p>
+                    <button onClick={handleConfirmDelete}>Confirm</button>
+                    <button onClick={handleCancelDelete}>Cancel</button>
+                  </div>
+                </div>
+
+            )}
+            </div>
+
+        
           
         </div>
+        
         <div className='reviewpopdiv'>
         <div className='reviewtitle'>Product Reviews</div>
         {productDetails.reviews.length > 0 ? (
@@ -157,23 +183,8 @@ function FarmerExpandPage() {
 
         </div>
         
-        <div className='editproductbutton'>
-          <Link style={{color:"white"}} to={`/productsedit/${product_id}`}>
-              Edit the Product Details
-          </Link>
-        </div>
-        <button onClick={handleDeleteClick}>
-              Delete the Product
-        </button>
-        {showConfirmationPopup && (
-                <div className='confirmation-popup'>
-                  <div className="modal-content">
-                    <p>Are you sure you want to delete this product?</p>
-                    <button onClick={handleConfirmDelete}>Confirm</button>
-                    <button onClick={handleCancelDelete}>Cancel</button>
-                  </div>
-                </div>
-            )}
+        
+       
         <FarmerNavbar/>
       </div>
     );

@@ -75,6 +75,8 @@ function FarmerAddDetails() {
             <div className='addproductInfoItem'>
                 <label className='addlabel'>Enter FarmName</label>
                 <input className='addvalue' id="farms" value={farms} onChange={e => setFarms(e.target.value)} type='text'/>
+                <label className='addlabel'>Enter Address</label>
+                <input className='addvalue' placeholder="address"/>
             </div>
             <button className='addproductbtn' type="submit">
                 Add/Edit Farm

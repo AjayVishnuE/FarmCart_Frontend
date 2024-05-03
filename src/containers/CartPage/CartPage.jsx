@@ -127,15 +127,15 @@ function CartPage() {
                                   </svg>
                               </button>
                               <div className="btn__container">
-                                  <button type="button" onClick={() => handleQuantityChange(item.cart_id, -1)}>-</button>
-                                  <input                 
-                                      style={{width: "50px", textAlign: "center"}}
+                                  <button className="addminus"type="button" onClick={() => handleQuantityChange(item.cart_id, -1)}>-</button>
+                                  <input  className='addinput'               
+                                      style={{width: "35px", textAlign: "center"}}
                                       name="amount"
                                       type="number" 
                                       value={itemQuantities[item.cart_id] || 1}
                                       onChange={(e) => handleInputChange(e, item.cart_id)}
                                   />
-                                  <button type="button" onClick={() => handleQuantityChange(item.cart_id, 1)}>+</button> 
+                                  <button className="addminus" type="button" onClick={() => handleQuantityChange(item.cart_id, 1)}>+</button> 
                               </div>
                             </div>
                         </div>

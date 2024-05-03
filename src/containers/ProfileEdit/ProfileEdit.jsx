@@ -125,8 +125,8 @@ function FarmerUsersEdit() {
                 ) : (
                     <Header/>
                 )}
-                <span className='editlabel'>User Image:</span>
-                <div className="FileUploadBase">
+                <span className='editlabelprofile'>User Image:</span>
+                <div className="FileUploadBaseprofile">
                     <input type="file" onChange={handleInputChange} name="user_image" accept="image/*" style={{ display: 'none' }} id="UserImageUpload" />
                     <label htmlFor="UserImageUpload" className="User-image-edit-label">
                         <img 

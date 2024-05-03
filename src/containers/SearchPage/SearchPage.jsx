@@ -5,6 +5,7 @@ import cart from '../../Images/shopping-cart.svg';
 import bar from '../../Images/Bar.png';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 import { Navbar, ProductComponent, SearchBar} from '../../components';
+import { Link } from 'react-router-dom';
 
 function SearchPage(props) {
     const [isHovered, setIsHovered] = useState(false);
@@ -47,14 +48,17 @@ function SearchPage(props) {
     return (
         <div className='searchpage-container'>
             <div className='header2'>
-                <img className='images1' src={bar} alt="bars"/>
+            <img className='logoimage' src={bar} alt="bars" />
                 <SearchBar/>
-                <img className='images2' src={cart} alt="cart"/>
+                <Link to = "/cart">
+                    <img className='cartimage' src={cart} alt="cart" />
+                </Link>
             </div>
-            <div>
-                <p>Recent Searches</p>
+            <p className='recentup'>Recent Searches</p>
+            <div className='searchlist'>
+               
                 {recentSearchesquery.slice(0,4).map((item, index) => (
-                    <div>{item}</div>
+                    <div className='searchitem'>{item}</div>
                 ))}
             </div>
             <div className="searchtext">Recently Searched Products</div>

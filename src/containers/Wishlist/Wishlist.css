@@ -26,8 +26,10 @@
     margin-top: 40px;
 }
 
-.itemdetails{
+.itemdetailswish{
     width: 200px;
+    display: flex;
+    flex-direction: column;
 }
 .itemname{
     font-size:larger;
@@ -40,7 +42,7 @@
 }
 .wishdeletebtn{
    margin-bottom: 10px;
-    margin-left: 65px;
+    margin-left: 95px;
     width: fit-content;
     border: 0;
     background-color: #F6F5F5;
@@ -61,13 +63,14 @@
    justify-content: space-between;
    background-color: #0BCE83;
    border-radius: 6.019px;
- padding:10px 15px 10px 15px;
- margin-left: 50px;
+ padding:8px 10px 8px 10px;
+ margin-left: 30px;
  flex-shrink: 0;
+ margin-right: 20px;
  
 }
 .wishcart{
-    font-size: 10.905px;
+    font-size: 10px;
     margin-left: 6px;
     color: #FFF;
     font-weight: 300;
@@ -77,19 +80,18 @@
 
 .checkbtn{
     
-        position: fixed;
-        bottom: 100px; 
-        color: #FFF;
-        font-size: 15.448px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-        border-radius: 30px;
-        background: #0BCE83;
-        width: 80%;
-        max-width: 450px;
-        height: 70px;
-        border: none;
-        margin-left: 10%;
-    
+        
+    position: fixed;
+    bottom: 100px; 
+    color: #FFF;
+    font-size: 15.448px;
+    font-style: normal;
+    font-weight: 600;
+    margin-left: 40px;
+    border-radius: 30px;
+    background:#0BCE83;
+    width: 360px;
+    max-width: 450px;
+    height: 70px;
+    border: none;
 }

@@ -1,20 +1,26 @@
-.header-overall-container{
-  width: 100%;
-  
-}
 
-.header1{
+.header12{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 80%;
     max-width: 450px;
-    padding:5% 10% ;
+    padding:10% 10% 6% 10%;
+    gap:86%;
     margin:0;
   }
-  .images1{
-    width:7%;
-    height: 30px;
-    object-fit: contain;
-    margin:0;
-  }
+ 
+  
+.images1{
+  width:7%;
+  height: 30px;
+  object-fit: contain;
+  margin:0;
+}
+
+.logoimage{
+  width:25%;
+  height: 45px;
+  object-fit: contain;
+  margin:0;
+}

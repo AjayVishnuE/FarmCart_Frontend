@@ -54,6 +54,7 @@
    margin-top: 22px;
    display: flex;
    align-items: center;
+   margin-left: 8px;
 }
 
 .control__btn {
@@ -70,6 +71,26 @@
     margin-right: 10px;
     box-shadow: 0.865px 1.73px 12.972px 0px rgba(32, 31, 32, 0.05);
   }
+  .addminus{
+    padding:5px 8px;
+    border-radius: 6.621px;
+    border: 1.103px solid #FFF;
+    background: #FFF;
+    box-shadow: 1.103px 2.207px 16.552px 0px rgba(32, 31, 32, 0.05);
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .addinput{
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 5px;
+  }
+  input.addinput {
+    background: none;
+    border: none;
+
+    outline: none;
+  }
 .checkbtn{
     
         position: fixed;
@@ -85,7 +106,7 @@
         max-width: 450px;
         height: 70px;
         border: none;
-        margin-left: 10%;
+        margin-left: 8%;
     
 }
 .rightbtns{

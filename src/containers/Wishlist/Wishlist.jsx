@@ -65,7 +65,7 @@ function Wishlist(props) {
             {wishlistItems.map(item => (
                 <div  className='listitem'>
                     <img  className="proimage" alt={item.product_details.product_name} src={API_ENDPOINTS.media + item.product_details.product_image} />
-                    <div className='itemdetails'>
+                    <div className='itemdetailswish'>
                         <div className='flexbtn'>
                             <div className='itemname'>{item.product_details.product_name}</div>
                             <button  className='wishdeletebtn' onClick={() => handleDeleteClick(item.wishlist_id)}>

@@ -2,10 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
+    height: 100px;
     width: 100%;
     max-width: 450px;
     position:fixed;
-    bottom: 20px;
+    bottom: 0;
     gap:15%;
+    background: linear-gradient(0deg, #FFFFFF, rgba(255, 255, 255, 0));
+    
 }

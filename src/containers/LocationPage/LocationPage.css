@@ -14,23 +14,25 @@
 .manualbutton{
     color:#0BCE83;
     font-weight: bold;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
+  
     border: none;
-    background-color: white;
+   
+    background-color: transparent;
 }
 
 .locationbox{
     width: 100%;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 50px;
+
+    
+    margin-bottom: 40px;
     
 }
 .Sharelocation{
     color: #2D0C57;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
-    padding:  0px 50px 0px 50px;
+    padding:  10px 50px 0px 50px;
     
 }
 .Locationdesc{
@@ -49,10 +51,4 @@
     padding: 20px 20%;
     border-radius: 30px;
     border: none;
-}
-.Nomessage{
-    color:#0BCE83;
-    font-weight: bold;
-    margin-top: 25px;
-    margin-bottom: 35px;
 }

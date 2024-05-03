@@ -4,8 +4,11 @@
     justify-content: center;
     align-items: center;
     overflow-y: scroll;
+    
 }
-
+.chat-overall-container::-webkit-scrollbar {
+  display: none; 
+}
 .msg-chat{
   flex: 1;
   overflow-y: auto;
@@ -84,8 +87,8 @@
   .msger-send-btn {
     margin-left: 10px;
     border: none;
-    background: rgb(0, 196, 65);
-    color: #fff;
+    
+    
     font-weight: bold;
     cursor: pointer;
     padding: 10px;
