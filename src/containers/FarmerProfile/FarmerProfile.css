@@ -1,6 +1,6 @@
 .Profile-overall-component{
     background-color: #F6F5F5;
-    height:100vh;
+    height:125vh;
     overflow-y: scroll;
 }
 .Profile-overall-component::-webkit-scrollbar {
@@ -340,7 +340,7 @@ line-height: 11.4px;
   }
   .logoutbtn{
     
-    bottom: 200px; 
+     
     color: #FFF;
     font-size: 15.448px;
     font-style: normal;
