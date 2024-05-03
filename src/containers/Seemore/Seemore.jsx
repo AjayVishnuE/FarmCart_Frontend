@@ -5,7 +5,7 @@ import bar from '../../Images/Bar.png';
 import cart from '../../Images/shopping-cart.svg';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
 import { Header, Navbar,ProductComponent, SearchBar} from '../../components'
-
+import { Link } from 'react-router-dom';
 
 function Seemore(props) {
     const [products, setProducts] = useState([]);
@@ -31,9 +31,11 @@ function Seemore(props) {
     return (
         <div className='seemore-overall-container'>
         <div className='header2'>
-            <img className='images1' src={bar} alt="bars"/>
+        <img className='logoimage' src={bar} alt="bars" />
             <SearchBar/>
-            <img className='images2' src={cart} alt="cart"/>
+            <Link to = "/cart">
+                    <img className='cartimage' src={cart} alt="cart" />
+                </Link>
         </div>
             <div className='Productlist'>
                     <div className='Productcompset2'>

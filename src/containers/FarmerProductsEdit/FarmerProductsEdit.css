@@ -1,19 +1,29 @@
+.edit-overall{
+  background-color: #F6F5F5;
+  overflow-y: hidden;
+  
+}
+.edit-overall::-webkit-scrollbar {
+  display: none; 
+}
+
 .editProductFormContainer{
     background-color: #F6F5F5;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     height: 100vh;
+   
   }
   .editproductInfoContainer {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+   
     max-width: 450px;
-    justify-content: flex-start;
+   
      
   }
 
@@ -62,6 +72,9 @@
     color: #A0A5BA; /* Example font color */
     padding: 5%; /* Example padding */
   }
+  .editvalue.select {
+    width: 350px;
+  }
   
   .FileUploadBase {
     width: 200px;
@@ -73,8 +86,8 @@
     justify-content: center;
     align-items: center;
     gap: 2.19px;
-    margin-left: 8%;
-    margin: 10px 0 15px 8%;
+   
+    margin: 10px 0 15px 25%;
   }
   
   .Content {
@@ -126,5 +139,9 @@
     border-radius: 15px;
     color: white;
     border: none;
+    font-size: 15.448px;
+    margin-left: 35%;
+    margin-top: 20px;
+    bottom: 150px; 
   }
   

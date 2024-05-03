@@ -79,6 +79,7 @@
 }
 .slidetext{
   text-align: justify;
+  line-height: 1.5;
 }
 .animate {
   animation: slideUp 1s forwards;

@@ -25,6 +25,12 @@
     width: 100%;
   }
 
+  .logoimage{
+    width:25%;
+    height: 45px;
+    object-fit: contain;
+    margin:0;
+  }
   .Productbox{
     margin-top: 35px;
     padding:10px;

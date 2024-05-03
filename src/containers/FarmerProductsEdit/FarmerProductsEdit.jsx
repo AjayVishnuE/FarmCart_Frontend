@@ -4,6 +4,7 @@ import { useParams, useNavigate} from "react-router-dom";
 
 import './FarmerProductsEdit.css';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
+import { FarmerHeader, FarmerNavbar } from '../../components';
 
 
 function FarmerProductsEdit() {
@@ -100,7 +101,8 @@ function FarmerProductsEdit() {
         return <div>Product not found.</div>;
     }
     return (
-        <div>
+        <div className='edit-overall'>
+            <FarmerHeader/>
             <form className='editProductFormContainer' onSubmit={handleFormSubmit}>
                 <span className='editlabel'>Product Image</span>
                 <div className="FileUploadBase">
@@ -131,7 +133,7 @@ function FarmerProductsEdit() {
                 </div>
                 <div className='editProductFormItem'>
                     <label className='editlabel'>Product Type</label>
-                    <select className='editvalue' name="product_type" value={productData.product_type} onChange={handleInputChange} id="product_type">
+                    <select className='editvalue select' name="product_type" value={productData.product_type} onChange={handleInputChange} id="product_type">
                         <option value="Fruits">Fruits</option>
                         <option value="Vegetables">Vegetables</option>
                         <option value="Exotic">Exotic</option>
@@ -141,6 +143,7 @@ function FarmerProductsEdit() {
                     Update Product
                 </button>
         </form>
+        <FarmerNavbar/>
         </div>
     )
 }
