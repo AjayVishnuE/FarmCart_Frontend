@@ -12,7 +12,22 @@
     position:absolute;
     right: 10%;
 }
-
+.recentup{
+    color:blueviolet;
+    margin-left:10%;
+}
+.searchlist{
+    display: flex;
+    margin-left:10%;
+}
+.searchitem
+{
+    margin:5px;
+    padding:10px;
+    border-radius: 10px;
+background: #FFF;
+box-shadow: 0px 20.127px 40.253px 0px rgba(57, 57, 57, 0.10);
+}
 .frequent-searches,
 .recent-searches {    
 
