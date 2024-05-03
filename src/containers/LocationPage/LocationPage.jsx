@@ -120,9 +120,9 @@ function LocationPage() {
                   Share your location
               </div>
               <div className='Locationdesc'>
-              If we have your location, we can <br>
-              </br>provide the nearest farms and delivery points so as to ease your distance.
-              </div>
+              <p className='locationtext'>If we have your location, we can <br/>
+              provide the nearest farms and delivery <br/>points so as to ease your distance.
+              </p></div>
               <button className='continuebutton' onClick={getLocation}>Get Location</button>
               <div className='Nomessage'>
                 <button className="manualbutton" onClick={redirectButton}>
