@@ -165,11 +165,8 @@ padding:10px 15px;
 box-shadow: 0px 20.127px 40.253px 0px rgba(57, 57, 57, 0.10);
 
 }
-.statibox:nth-child(2) {
-  /* Additional styling for the second statibox */
-  background-color: #7519EB; /* Example background color */
-  border: 2px solid #7519EB; /* Example border */
-  /* Add more styles as needed */
+.statibox:last-child {
+ margin-bottom: 50px;
 }
 .Statitextout {
 margin-left: 10px;

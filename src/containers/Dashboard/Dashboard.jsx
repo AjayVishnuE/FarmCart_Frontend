@@ -42,7 +42,7 @@ function Dashboard() {
   return (
     <div className='dashboard-overall-container'>
       <Header/>
-      
+      <div className='dashboard-container'></div>
       <h1 className='goodmorni'>Good Morning,</h1>
       <h2 className='username'>{username} !</h2>
       <Link to = "/search">

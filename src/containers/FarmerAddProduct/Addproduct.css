@@ -1,8 +1,7 @@
 .addproduct-overall-container{
   overflow-y: scroll;
   background-color: #F6F5F5;
-  
-    
+ 
 }
 
 .addproduct-overall-container::-webkit-scrollbar {
@@ -62,7 +61,7 @@
 }
   
 .addproductbtn {
-  margin-bottom: 25px;
+  margin-bottom: 50px;
   color: #FFF;
   font-size: 15.448px;
   font-style: normal;
@@ -74,6 +73,8 @@
   height: 70px;
   border: none;
   margin-top: 20px;
+  
+  bottom: 150px;
 }
 
 .FileUploadBase-Addpro{
