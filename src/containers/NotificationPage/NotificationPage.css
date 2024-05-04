@@ -54,18 +54,21 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 12.76px;
+    gap: 5px;
   }
   
  
   .Subjectlinecontainer {
     flex: 1 1 0;
-    height: 13px;
+    height: 10px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 7.98px;
     font-size: 14px;
+  }
+
+  .Subjectmessagecontainer{
+    font-size: 12px;
   }
   
   

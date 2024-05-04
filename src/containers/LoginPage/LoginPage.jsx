@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link , useNavigate} from 'react-router-dom';
+import { Link , redirect, useNavigate} from 'react-router-dom';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
 import axios from 'axios';
 import './login.css'
@@ -31,6 +31,19 @@ function LoginPage() {
       const accessToken = response.data.accessToken;
 
       localStorage.setItem('accessToken', accessToken);
+
+      const notifyUrl = `${API_ENDPOINTS.notification}getpost/`;
+      const notifyData = {
+        title: "Successful login",
+        message:"Your Account login Has been successful",
+        redirect: "/",
+
+      };
+
+      await axios.post(notifyUrl, notifyData, {
+        headers: { Authorization: `Bearer ${accessToken}` }
+      });
+
       navigate('/location');
   
     } catch(error){

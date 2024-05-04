@@ -3,6 +3,7 @@ import { Header, Navbar } from '../../components';
 import { useNavigate } from 'react-router-dom';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 import "./AddressPage.css"
+import axios from 'axios';
 
 function AddressPage(props) {
     const [addressType, setAddressType] = useState('Home');
@@ -78,6 +79,19 @@ function AddressPage(props) {
                 throw new Error('Failed to save address');
             }
             await fetchAddresses(); 
+
+            const notifyUrl = `${API_ENDPOINTS.notification}getpost/`;
+            const notifyData = {
+              title: "New Address Added",
+              message:"Your new address Has been added successfully",
+              redirect: "/address",
+      
+            };
+      
+            await axios.post(notifyUrl, notifyData, {
+              headers: { Authorization: `Bearer ${accessToken}` }
+            });
+
             navigate('/checkout');
         } catch (error) {
             console.error('Error saving address:', error);

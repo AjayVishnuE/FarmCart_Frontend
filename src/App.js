@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { IntroPage, LoadingPage, SignupPage,LocationPage, LoginPage, Dashboard, Seemore, SearchPage, Expandpage, CartPage,CheckoutPage, AddressPage,Checkout, Orderplace ,Notification, EmptyNotification, ChatPage, Profile, ProductDetail, FarmChat, FarmerSignupPage, Orders, Wishlist, FarmerProductsList, FarmerDash, FarmerExpandPage, FarmerProfile, FarmerOrders, FarmerChatPage, FarmerAddDetails, SearchResultsPage, FarmerProductsEdit, ProfileEdit} from './containers';
+import { IntroPage, LoadingPage, SignupPage,LocationPage, LoginPage, Dashboard, Seemore, SearchPage, Expandpage, CartPage,CheckoutPage, AddressPage,Checkout, Orderplace ,Notification, EmptyNotification, ChatPage, Profile, ProductDetail, FarmChat, FarmerSignupPage, Orders, Wishlist, FarmerProductsList, FarmerDash, FarmerExpandPage, FarmerProfile, FarmerOrders, FarmerChatPage, FarmerAddDetails, SearchResultsPage, FarmerProductsEdit, ProfileEdit, FarmerNotification} from './containers';
 import { AuthProvider } from './components/Auth/AuthContext';
 import { Header } from './components';
 
@@ -38,6 +38,7 @@ const App = () => {
           <Route path='/orders' exact element={<Orders/>}/>
           <Route path='/wishlist' exact element={<Wishlist/>}/>
           <Route path="/farmerexpand/:product_id" exact element={<FarmerExpandPage/>} />
+          <Route path="/farmernotification" exact element={<FarmerNotification/>} />
           <Route path='/farmerprofile' exact element={<FarmerProfile/>} />
           <Route path='/farmerorders' exact element={<FarmerOrders/>} />
           <Route path='/farmeradddetails' exact element={<FarmerAddDetails/>} />

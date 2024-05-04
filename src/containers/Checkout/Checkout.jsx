@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Checkout.css'; 
+import axios from 'axios';
 import home from '../../Images/Home.svg';
 import office from '../../Images/Briefcase.svg';
 import { Navbar, Header } from '../../components';
@@ -163,6 +164,19 @@ function Checkout(props) {
             }));
     
             console.log("Order details added");
+
+            const notifyUrl = `${API_ENDPOINTS.notification}getpost/`;
+            const notifyData = {
+              title: "Order Placed",
+              message:"Your Order has been placed",
+              redirect: "/orders",
+      
+            };
+      
+            await axios.post(notifyUrl, notifyData, {
+              headers: { Authorization: `Bearer ${accessToken}` }
+            });
+
             navigate('/ordersuccess');
         } catch (error) {
             console.error('Error placing order:', error);

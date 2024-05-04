@@ -11,94 +11,74 @@ import './Expandpage.css';
 
 function Expandpage() {
     // Counter
-    const [counter, setCounter] = useState(1); // Set initial count to 1
-    const increase = () => setCounter(prevCount => prevCount + 1);
-    const decrease = () => setCounter(prevCount => prevCount > 1 ? prevCount - 1 : 1);
-
-    // Rating Component
-    const [rating, setRating] = useState(0)
-
-
-    //Backend integration
-    const { product_id } = useParams();
+    const [counter, setCounter] = useState(1);
     const [productDetails, setProductDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [submitting, setSubmitting] = useState(false);
-    const navigate = useNavigate(); 
-    const accessToken = localStorage.getItem('accessToken');
+    const navigate = useNavigate();
+    const { product_id } = useParams();
 
     useEffect(() => {
-      if (!product_id) {
-        setError('Product ID not provided.');
-        setLoading(false);
-        return;
-      }
-  
-      const fetchProductDetails = async () => {
-        try {
-          const response = await axios.get(`${API_ENDPOINTS.productdetails}${product_id}`);
-          setProductDetails(response.data);
-        } catch (error) {
-          setError('Error fetching product details');
-        } finally {
-          setLoading(false);
-        }
-      };
-  
-      fetchProductDetails();
+        const fetchProductDetails = async () => {
+            try {
+                const response = await axios.get(`${API_ENDPOINTS.productdetails}${product_id}`);
+                setProductDetails(response.data);
+            } catch (error) {
+                setError('Error fetching product details');
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchProductDetails();
     }, [product_id]);
 
+    const increase = () => {
+        setCounter(prevCount => prevCount < productDetails.quantity ? prevCount + 1 : prevCount);
+    }
+
+    const decrease = () => {
+        setCounter(prevCount => prevCount > 1 ? prevCount - 1 : 1);
+    }
+
     const handleSubmit = async (e) => {
-      e.preventDefault();
-      const accessToken = localStorage.getItem('accessToken');
-      if (!accessToken) {
-          setError('You must be logged in to add items to the cart.');
-          return;
-      }
-      const product=product_id;
-      try {
-          await axios.post(
-              `${API_ENDPOINTS.cart}/cart-crud/`,
-              { product, quantity: counter },
-              { headers: { Authorization: `Bearer ${accessToken}` } }
-          );  
-          navigate('/cart');  
-      } catch (error) {
-          setError(error.response?.data?.message || 'Failed to add to cart');
-      }
+        e.preventDefault();
+        setSubmitting(true);
+        try {
+            await axios.post(`${API_ENDPOINTS.cart}/cart-crud/`, {
+                product: product_id,
+                quantity: counter
+            }, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` }
+            });
+            navigate('/cart');
+        } catch (error) {
+            setError(error.response?.data?.message || 'Failed to add to cart');
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     const handleAddToWishlist = async () => {
-      if (!accessToken) {
-          setError('You must be logged in to add items to the wishlist.');
-          return;
-      }
-      try {
-          await axios.post(
-              `${API_ENDPOINTS.wishlist}/wishlist-crud/`,
-              { product: product_id },
-              { headers: { Authorization: `Bearer ${accessToken}` } }
-          );
-          navigate('/wishlist')
-      } catch (error) {
-          setError(error.response?.data?.message || 'Failed to add to wishlist');
-      }
+        try {
+            await axios.post(`${API_ENDPOINTS.wishlist}/wishlist-crud/`, {
+                product: product_id
+            }, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` }
+            });
+            navigate('/wishlist');
+        } catch (error) {
+            setError(error.response?.data?.message || 'Failed to add to wishlist');
+        }
     };
 
-    if (loading) {
-      return <div className=''>Loading.....</div>;
-    }
-  
-    if (error) {
-      return <div>Error: {error}</div>;
-    }
-  
-    if (!productDetails) {
-      return <div>Product not found.</div>;
-    }
-    const product_image_url = API_ENDPOINTS.media + productDetails.product_image;
-    const farmer_image_url = API_ENDPOINTS.media + productDetails.seller_details.user_image;
+    if (loading) return <div>Loading.....</div>;
+    if (error) return <div>Error: {error}</div>;
+    if (!productDetails) return <div>Product not found.</div>;
+
+    const productImageUrl = `${API_ENDPOINTS.media}${productDetails.product_image}`;
+    const userImageUrl = `${API_ENDPOINTS.media}${productDetails.seller_details.user_image}`;
+
     console.log(productDetails)
 
     return (
@@ -124,7 +104,7 @@ function Expandpage() {
                 </div>
             </div>
           
-          <img className="images3" src={product_image_url} alt="hoho" />
+          <img className="images3" src={productImageUrl} alt="hoho" />
           </div>
        
           <div className='certificate'>
@@ -155,7 +135,7 @@ function Expandpage() {
             About farmer
          </h3>
          <div className='farmdetailsdesc'>
-         <img className='farmer' src={farmer_image_url} alt="farmer" />
+         <img className='farmer' src={userImageUrl} alt="farmer" />
                 <div className='Farmlocationdesc'>
                     <div className='farmername'>{productDetails.seller_details.username}</div>
                     <div className='verification'>
@@ -174,7 +154,7 @@ function Expandpage() {
                 </div>
                 <div className='farmerdesc'>
                     <Rating
-                    initialValue={productDetails.farmer_details.overallrating}
+                    initialValue={productDetails.farmer_details.farmer_rating}
                     onClick={function noRefCheck(){}}
                     readonly
                     size={28}

@@ -66,7 +66,7 @@ function Addproduct(props) {
         } catch (error) {
         console.error('Error posting product:', error);
         }
-        navigate('/dashboard');  
+        navigate('/farmerproductlist');  
     };
       
     return (

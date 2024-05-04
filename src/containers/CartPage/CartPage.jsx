@@ -22,15 +22,23 @@ function CartPage() {
                         'Content-Type': 'application/json',
                     },
                 });
-
+    
                 if (!response.ok) {
                     throw new Error('Failed to fetch cart items');
                 }
-
-                const data = await response.json();
-                setCartItems(data);
+    
+                let data = await response.json();
                 const quantities = {};
-                data.forEach(item => quantities[item.cart_id] = item.quantity);
+                data = data.map(item => {
+                    const maxQuantity = item.product_details.quantity;
+                    const adjustedQuantity = Math.min(item.quantity, maxQuantity);
+                    quantities[item.cart_id] = adjustedQuantity;
+                    return {
+                        ...item,
+                        quantity: adjustedQuantity  // Adjusting quantity before setting state
+                    };
+                });
+                setCartItems(data);
                 setItemQuantities(quantities);
             } catch (err) {
                 setError(err.message);
@@ -38,7 +46,7 @@ function CartPage() {
                 setIsLoading(false);
             }
         };
-
+    
         fetchCartItems();
     }, [refreshCart]);
 
@@ -62,17 +70,27 @@ function CartPage() {
     };
 
     const handleQuantityChange = (cart_id, delta) => {
-        const newQuantity = Math.max(1, itemQuantities[cart_id] + delta);
+        const currentQuantity = itemQuantities[cart_id];
+        const maxQuantity = cartItems.find(item => item.cart_id === cart_id).product_details.quantity;
+        let newQuantity = currentQuantity + delta;
+    
+        newQuantity = Math.max(1, Math.min(newQuantity, maxQuantity));
+    
         setItemQuantities(prev => ({ ...prev, [cart_id]: newQuantity }));
         updateQuantity(cart_id, newQuantity);
     };
 
     const handleInputChange = (e, cart_id) => {
         const value = parseInt(e.target.value, 10);
-        const newQuantity = Number.isNaN(value) ? 1 : value;
+        const maxQuantity = cartItems.find(item => item.cart_id === cart_id).product_details.quantity;
+        let newQuantity = Number.isNaN(value) ? 1 : value;
+    
+        newQuantity = Math.max(1, Math.min(newQuantity, maxQuantity));
+    
         setItemQuantities(prev => ({ ...prev, [cart_id]: newQuantity }));
         updateQuantity(cart_id, newQuantity);
     };
+    
 
     const handleDeleteClick = async (itemId) => {
       try {
@@ -104,7 +122,7 @@ function CartPage() {
     if (error) {
         return <div>Error: {error}</div>;
     }
-
+    console.log(cartItems)
     return (
         <div className='cart-overall-container'>
             <Header/>

@@ -16,7 +16,7 @@ function FarmerHeader() {
   return (
     <div className="header1" onClick={handleSvgClick}>
         <img className="logoimage" src={bar} alt="bars" />
-        <Link to="/notification">
+        <Link to="/farmernotification">
           <svg
             id="notification-svg"
             className="mySvg"

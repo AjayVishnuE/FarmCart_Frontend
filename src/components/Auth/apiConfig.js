@@ -18,6 +18,7 @@ export const API_ENDPOINTS = {
   farmerdetails: `${API_BASE_URL}/api/farmerdetails/`,
   search: `${API_BASE_URL}/api/search/`,
   reviews: `${API_BASE_URL}/api/review/`,
+  notification: `${API_BASE_URL}/api/notification/`,
   
 
 };

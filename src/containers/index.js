@@ -29,4 +29,5 @@ export {default as FarmerExpandPage} from './FarmerExpandPage/FarmerExpandPage';
 export {default as FarmerProfile} from './FarmerProfile/FarmerProfile';
 export {default as FarmerOrders} from './FarmerOrders/FarmerOrders';
 export {default as FarmerAddDetails} from './FarmerAddDetails/FarmerAddDetails';
+export {default as FarmerNotification} from './FarmerNotification/FarmerNotification';
 export {default as FarmerProductsEdit} from './FarmerProductsEdit/FarmerProductsEdit';
