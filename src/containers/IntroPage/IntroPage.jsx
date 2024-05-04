@@ -33,7 +33,7 @@ function IntroPage() {
     {
       img: bgimg1,
       title: 'Know Your Farmer, Know Your Food.',
-      text: 'At Farm Cart, we prioritize trust and transparency between farmers and consumers. Our platform offers farm profiles with a farmers story, growing practices, and certifications, allowing informed decisions about food origin. You can read reviews from other customers for insights into the quality and freshness of each farm. Additionally, you can communicate with farmers directly for a personalized shopping experience.',
+      text: 'At Farm Cart, we prioritize trust and transparency between farmers and consumers. Our platform offers farm profiles with a farmers story, growing practices, and certifications, allowing informed decisions about food origin. You can read reviews from other customers for insights into the quality and freshness of each farm. ',
     },
     {
       img: bgimg2,
