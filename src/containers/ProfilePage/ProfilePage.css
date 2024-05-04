@@ -85,8 +85,10 @@
     font-weight: 500;
     word-wrap: break-word;
   }
-  
-  .explorebtn{
+  .explorebtncontainer-user{
+    margin:10px 10%;
+  }
+  .explorebtn-user{
     display: flex;
     background: #7519eb;
     border-radius: 11px;
@@ -96,7 +98,7 @@
     height: 55px;
     position: relative;
     margin-top: 10px;
-    margin-left: 8%;
+   
 }
 .explore{
     margin-left: 8px;
@@ -116,7 +118,7 @@
 
 }
 
-.order-box-1 {
+.order-box-1-profile {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -127,13 +129,14 @@
     width: fit-content;
     margin-top: 15px;
     margin-left: 8%;
+    margin-right: 20px;
     padding: 20px;
     }
   
   .order-box-1-item{
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    
     width: 100%;
   }
 
