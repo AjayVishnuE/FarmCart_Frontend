@@ -20,7 +20,7 @@ function SearchResultsPage() {
                     <img className='cartimage' src={cart} alt="cart" />
                 </Link>
         </div>
-        <h3>Search Results for "{query}"</h3>
+        <h3 className='search-result'>Search Results for "{query}"</h3>
         <div className="searchresults-container">
         {results.map((item, index) => (
             <div key={index} className='Productbox'>

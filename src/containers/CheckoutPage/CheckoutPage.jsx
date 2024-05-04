@@ -94,10 +94,10 @@ function CheckoutPage() {
                             <div className="value">₹ 20.00</div>
                         </div>
                         </div>
-                        <div className="separator"></div>
+                        <div className="separator-checkout"></div>
                         <div className="row">
                         <div className="totalLabel">Total Amount</div>
-                        <div className="totalValue">₹ {overallTotalPrice}</div>
+                        <div className="totalValue-checkout">₹ {overallTotalPrice}</div>
                         </div>
                     </div>
                     </div>

@@ -1,5 +1,5 @@
 .addproduct-overall-container{
-  overflow-y: scroll;
+  overflow-y: hidden;
   background-color: #F6F5F5;
  
 }
@@ -9,7 +9,7 @@
 }
 .addproductInfoContainer {
   width: 100%;
-  height: 125vh;
+  height: 103vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

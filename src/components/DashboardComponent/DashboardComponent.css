@@ -15,7 +15,7 @@
   #he1{
     
     
-    font-size: 20px;
+    font-size: 16px;
   }
   #he1:hover{
     color: #7519EB; 
@@ -51,6 +51,7 @@ padding-right: 15%;
     display:flex;
     overflow: scroll;
     width: 100%;
+    margin-left: 10%;
   }
 
   .Productcompset::-webkit-scrollbar {

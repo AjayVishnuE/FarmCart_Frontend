@@ -1,11 +1,12 @@
 .Profile-overall-component{
     background-color: #F6F5F5;
-    height:125vh;
+    height:103vh;
     overflow-y: scroll;
 }
 .Profile-overall-component::-webkit-scrollbar {
   display: none; 
 }
+
 .profile-box-farmer{
     display: flex;
     align-items: center;
@@ -99,7 +100,7 @@
 
   .explorebtn{
     margin: 0;
-    width: 45%;
+    width: 100%;
     display: flex;
     background: #7519eb;
     align-items: center;
@@ -112,11 +113,44 @@
     font-size: 16px;
     font-weight: 300;
 }
-
-.editpremlogo{
-  width: 20px;
+.editlogo{
+  margin-top: 25px;
+  width: 30px;
   height: 20px;
   object-fit: contain;
+}
+
+.editpremlogo{
+  
+  width: 30px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.farmerseccontainer{
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  gap: 15px;
+}
+
+.farmdetailsbtn{
+   background-color: rgb(213, 210, 210);
+  padding: 10px 30px;
+  border-radius: 11px;
+  width: 70%;
+  margin-left:25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+
+
+  
+ 
+ 
 }
 
 .recentorderviewallcontainer{
@@ -142,7 +176,7 @@
 }
 
 
-.order-box-1 {
+.order-box-1-profile {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -153,7 +187,8 @@
     width: fit-content;
     margin-top: 15px;
     margin-left: 10%;
-    padding: 20px 50px 20px 20px;
+    margin-right: 10%;
+    padding: 20px 20px 20px 20px;
     }
   
   .order-box-1-item-profile{
@@ -201,8 +236,8 @@
     
     line-height: 10px;
 }
-.element-wrapper{
-  margin-left: 85px;
+.element-wrapperprofile{
+  margin-left: 60px;
 }
 .element {
     color: #000000;
@@ -290,17 +325,7 @@ line-height: 11.4px;
     line-height: 20.91px;
     word-wrap: break-word;
   }
-  .pricevaluepro {
-    width: 150px;
-    text-align: right;
-    color: #615D5D;
-    font-size: 13px;
-    font-family: 'SF Pro Rounded';
-    font-weight: 400;
-    line-height: 20.91px;
-    word-wrap: break-word;
-  }
-  .packvaluepro {
+  .pricevalueprofile {
     width: 120px;
     text-align: right;
     color: #615D5D;
@@ -310,8 +335,18 @@ line-height: 11.4px;
     line-height: 20.91px;
     word-wrap: break-word;
   }
-  .separator {
-    width: 220px;
+  .packvalueprofile {
+    width: 100px;
+    text-align: right;
+    color: #615D5D;
+    font-size: 13px;
+    font-family: 'SF Pro Rounded';
+    font-weight: 400;
+    line-height: 20.91px;
+    word-wrap: break-word;
+  }
+  .separator-profile {
+    width: 200px;
     height: 0;
     margin-left: 20px;
     border: 0.95px #615D5D dotted;
@@ -328,8 +363,8 @@ line-height: 11.4px;
     word-wrap: break-word;
   }
   
-  .totalValue {
-    width: 75px;
+  .totalValueprofile {
+    width: 60px;
     text-align: right;
     color: #212529;
     font-size: 13.31px;
@@ -394,31 +429,12 @@ line-height: 11.4px;
   background-color: #0056b3;
 }
 
-.farmerseccontainer{
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
-.farmdetailsbtn{
-    background-color: rgb(213, 210, 210);
-    padding: 10px 40px;
-    border-radius: 15px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center
-}
-
 .flexdivfarmprofile{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4%;
+    margin:0 10%;
+    gap:8%;
 }
 
 .btninprofile{
@@ -432,6 +448,7 @@ line-height: 11.4px;
     padding:15px 5px ;
 }
 
+
 .svgclass{
-    height: 50px;
+    height: 40px;
 }

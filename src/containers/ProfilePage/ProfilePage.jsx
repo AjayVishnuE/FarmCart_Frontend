@@ -123,8 +123,8 @@ function ProfilePage(props) {
                     </div>
                 </div>
 
-                <div className='explorebtncontainer'>
-                    <div className='explorebtn'>
+                <div className='explorebtncontainer-user'>
+                    <div className='explorebtn-user'>
                         <img className='editpremlogo' src={edit} alt="edit"/>
                         <div className='explore'>
                             <Link style={{color:"white"}} to="/profileedit">
@@ -132,7 +132,7 @@ function ProfilePage(props) {
                             </Link>
                         </div>
                     </div>
-                    <div className="explorebtn">
+                    <div className="explorebtn-user">
                         <img className='editpremlogo' src={crown} alt="crown"></img>
                         <div className='explore'>
                             Farm Cart Premium
@@ -144,7 +144,7 @@ function ProfilePage(props) {
                 Recent Order
                 </div>
                 {profileData.orders.slice(0, 1).map((item,index)=>
-                    <div className="order-box-1">
+                    <div className="order-box-1-profile">
                         {item.order_details.map((orderitem,index)=>
                             <div className='order-box-1-item'>
                                 <div className='order-left'>

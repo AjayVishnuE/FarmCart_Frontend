@@ -24,7 +24,8 @@
     outline: none;
     padding: 5px;
     background-color: transparent;
-    flex-grow: 1; /* Input field takes up the available space */
+    flex-grow: 1; 
+    font-size: small;
   }
   
   .search-button {
