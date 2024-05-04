@@ -6,8 +6,9 @@
     width: 80%;
     max-width: 450px;
     position: fixed;
-    bottom: 10px;
+    bottom: 0px;
     padding: 0 10%;
+    background: linear-gradient(0deg, #FFFFFF, rgba(255, 255, 255, 0));
    
 
 }

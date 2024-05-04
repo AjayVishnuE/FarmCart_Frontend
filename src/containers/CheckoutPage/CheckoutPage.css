@@ -102,7 +102,7 @@
     word-wrap: break-word;
   }
   
-  .separator {
+  .separator-checkout {
     width: 318.43px;
     height: 0;
     border: 0.95px #615D5D dotted;
@@ -118,7 +118,7 @@
     word-wrap: break-word;
   }
   
-  .totalValue {
+  .totalValue-checkout {
     width: 159.22px;
     text-align: right;
     color: #212529;
@@ -192,9 +192,10 @@
     font-style: normal;
     font-weight: 600;
     margin-left: 40px;
+    margin-right: 5%;
     border-radius: 30px;
     background: #888;
-    width: 360px;
+    width: 80%;
     max-width: 450px;
     height: 70px;
     border: none;

@@ -3,10 +3,14 @@
     padding: 0;
     margin: 0;
     width: 100%;
+
     background-image: url('../../Images/whitecommonbg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
+.expand-overall-container::-webkit-scrollbar {
+    display: none; 
+  }
 .product-container{
     height:fit-content;
     padding: 0 0 0 10%;
@@ -56,7 +60,7 @@
     padding: 10px;
 }
 .popdiv {
-    height:fit-content;
+    height:72%;
     width: 90%;
     padding: 5%;
     background-color: #ffffff;
