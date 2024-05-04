@@ -5,7 +5,7 @@ import './FarmerProfile.css';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 import cart from '../../Images/shopping-cart.svg';
 import bar from '../../Images/Bar.png';
-import edit from '../../Images/edit_icon.png';
+import edit from '../../Images/edit.png';
 import crown from '../../Images/crown.svg';
 import intransit from '../../Images/wpf_in-transit.svg';
 import delievered from '../../Images/package-delivered.svg';
@@ -100,16 +100,18 @@ function FarmerProfile(props) {
                         <p className='profile-name'>{profileData.username}</p>
                         <p className='profile-email'>{profileData.email}</p>
                     </div>
-                </div>
-                <div className='explorebtncontainer'>
-                    <div className='explorebtn'>
-                        <img className='editpremlogo' src={edit} alt="edit"/>
+                    <div className='editbtn'>
+                        
                         <div className='explore'>
-                            <Link style={{color:"white"}} to="/profileedit">
-                                Edit Profile
+                            <Link style={{color:"#7519eb"}} to="/profileedit">
+                            <img className='editlogo' src={edit} alt="edit"/>
                             </Link>
                         </div>
                     </div>
+                </div>
+                
+                <div className='explorebtncontainer'>
+                    
                     <div className="explorebtn">
                         <img className='editpremlogo' src={crown} alt="crown"></img>
                         <div className='explore'>
@@ -120,7 +122,7 @@ function FarmerProfile(props) {
                 <div className='farmerseccontainer'>
                     <Link to ='/farmeradddetails'>
                         <div className='farmdetailsbtn'>
-                            Add/ Edit Your Farm Details.<br/><lable style={{"fontSize":"small"}}>Without Farmer Details your products wont be verified</lable>
+                            Add/ Edit Your Farm Details.<br/><lable style={{"fontSize":"small"}}>Get your products  verified</lable>
                         </div>
                     </Link>
                     <div className='flexdivfarmprofile'>
@@ -143,7 +145,7 @@ function FarmerProfile(props) {
                     <div  className='viewname'><Link to="/farmerorders">view all</Link></div>
                 </div>
                 {profileData.user_orders.slice(0, 1).map((item,index)=>
-                    <div className="order-box-1">
+                    <div className="order-box-1-profile">
                         {item.custom_order_details.map((orderitem,index)=>
                             <div className='order-box-1-item-profile'>
                                 <div className='order-left'>
@@ -154,7 +156,7 @@ function FarmerProfile(props) {
                                         <div className="text-wrapper">{orderitem.product_details.product_name}</div>
                                         <div className="text-wrapper-2">INR {orderitem.product_details.price}</div>
                                     </div>
-                                    <div className="element-wrapper">
+                                    <div className="element-wrapperprofile">
                                         <p className="element">
                                         <span className="span">{orderitem.quantity}</span>
                                         <span className="text-wrapper-3">kg</span>
@@ -173,17 +175,17 @@ function FarmerProfile(props) {
                             <div className="rowContainerpro">
                                 <div className="rowpro">
                                     <div className="labelpro">Order Price</div>
-                                    <div className="pricevaluepro">₹ {item.total_price-20}</div>
+                                    <div className="pricevalueprofile">₹ {item.total_price-20}</div>
                                 </div>
                                 <div className="rowpro">
                                     <div className="labelpro">Packing Charges</div>
-                                    <div className="packvaluepro">₹ 20.00</div>
+                                    <div className="packvalueprofile">₹ 20.00</div>
                                 </div>
                             </div>
-                            <div className="separator"></div>
+                            <div className="separator-profile"></div>
                             <div className="row">
                                 <div className="totalLabel">Total Amount</div>
-                                <div className="totalValue">₹ {item.total_price}</div>
+                                <div className="totalValueprofile">₹ {item.total_price}</div>
                             </div>
                         </div>
                     </div>
