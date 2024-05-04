@@ -143,7 +143,7 @@ function CartPage() {
                 ))}
             </div>
             <Link to='/checkoutpage'>
-                <button className='checkbtn' type="submit">
+                <button className='checkbtn-cart' type="submit">
                     Checkout
                 </button>
             </Link>
