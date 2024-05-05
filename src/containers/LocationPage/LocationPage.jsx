@@ -115,22 +115,14 @@ function LocationPage() {
 
   return (
       <div className='LocationPage'>
-          <div className="locationbox">
-              <div className='Sharelocation'>
-                  Share your location
-              </div>
-              <div className='Locationdesc'>
-              <p className='locationtext'>If we have your location, we can <br/>
-              provide the nearest farms and delivery <br/>points so as to ease your distance.
-              </p></div>
-              <button className='continuebutton' onClick={getLocation}>Get Location</button>
-              <div className='Nomessage'>
-                <button className="manualbutton" onClick={redirectButton}>
-                No, Choose location manually
-                </button>
-              </div>
-          </div>
-
+        <div className="locationbox">
+          <div className='Sharelocation'>Share Your Location</div>
+          <div className='Locationdesc'>
+          <p className='locationtext'>If we have your location, we can provide the nearest farms and delivery points so as to ease your distance. Without location you won't be able to view and purchase products.
+          </p></div>
+          <button className='continuebutton' onClick={getLocation}>Get Location</button>
+          <button className="manualbutton" onClick={redirectButton}>No, Choose location later.</button>
+        </div>
       </div>
   );
 }

@@ -57,7 +57,7 @@
     margin-top: 10px;
 }
 .wishbtn__container{
-  
+  border: none;
    display: flex;
    align-items: center;
    justify-content: space-between;

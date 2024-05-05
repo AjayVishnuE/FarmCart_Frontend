@@ -61,28 +61,29 @@ function ChatPage() {
   return (
     <div className='chat-overall-container'>
       <FarmerHeader/>
+      <div className='chatmsgcontainer'>
         {responses.length > 0 ? (
-          responses.map((item, index) => (
-          <div  className= 'msg-chat' key={index}>
-            <div className="msg right-msg">
-              <div className='msg-bubble'>
-                <p className="msg-text"> {item.query}</p>
+            responses.map((item, index) => (
+            <div  className= 'msg-chat' key={index}>
+              <div className="msg right-msg">
+                <div className='msg-bubble'>
+                  <p className="msg-text"> {item.query}</p>
+                </div>
+              </div>
+              <div className="msg left-msg">
+                <div class="msg-img">
+                  <img src={bot} alt="logo"></img>
+                </div>
+                <div className='msg-bubble'>
+                  <p className="msg-text"> {item.response}</p>
+                </div>
               </div>
             </div>
-            <div className="msg left-msg">
-              <div class="msg-img">
-                <img src={bot} alt="logo"></img>
-              </div>
-              <div className='msg-bubble'>
-                <p className="msg-text"> {item.response}</p>
-              </div>
-            </div>
-          </div>
-        ))
-        ): (
-          <EmptyChat /> 
-      )}
-      
+          ))
+          ): (
+            <EmptyChat /> 
+        )}
+      </div>
       <form onSubmit={handleQuerySubmit}>
         <div className='msger-inputarea'>
         <input className="msger-input"

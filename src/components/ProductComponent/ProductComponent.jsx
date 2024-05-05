@@ -11,14 +11,12 @@ function ProductComponent(props) {
 
   return (
     <Link to={`/expand/${props.id}`}>
-    <div className='product-component-overall'>
       <div className='minicard'>
         <div className='Textbody'>
-          <img src={backendBaseUrl} alt={altText} className='product-image'></img>
-          <div className='name'>{name}</div>
+          <img src={backendBaseUrl} alt={altText} className='product-image12'></img>
+          <div className='name12'>{name}</div>
           <div className='inr'>INR {price}</div>
         </div>
-      </div>
       </div>
     </Link> 
   )

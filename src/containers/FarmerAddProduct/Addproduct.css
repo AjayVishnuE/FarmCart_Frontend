@@ -4,6 +4,12 @@
  
 }
 
+.imagepreview12{
+  height: 180px;
+  width: 100px;
+  object-fit: contain;
+}
+
 .addproduct-overall-container::-webkit-scrollbar {
   display: none; 
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect }  from 'react';
 import './Orders.css';
 import axios from 'axios';
-import { Header, Navbar} from '../../components';
+import { Header, Loader, Navbar} from '../../components';
 import intransit from '../../Images/wpf_in-transit.svg';
 import delievered from '../../Images/package-delivered.svg';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
@@ -168,7 +168,7 @@ function Orders(props) {
     //     }
     //   };
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <Loader/>;
     if (error) return <div>Error: {error}</div>;
     if (!profileData) return <div>No profile data found</div>;
 

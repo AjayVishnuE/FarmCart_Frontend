@@ -3,9 +3,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import bgimg1 from '../../Images/sliderimg1.png';
-import bgimg2 from '../../Images/sliderimg2.png';
-import bgimg3 from '../../Images/sliderimg3.png';
+// import bgimg1 from '../../Images/sliderimg1.png';
+import bgimg3 from '../../Images/wallpaper1.webp';
+import bgimg2 from '../../Images/wallpaper2.jpg';
+import bgimg1 from '../../Images/wallpaper3.jpg';
+
+// import bgimg2 from '../../Images/sliderimg2.png';
+// import bgimg3 from '../../Images/sliderimg3.png';
 import './IntroPage.css';
 
 
@@ -42,7 +46,7 @@ function IntroPage() {
     },
     {
       img: bgimg3,
-      title: 'From Farm to Table',
+      title: 'From Farm To Your Dining Table',
       text: 'Farm Cart supports local farmers by connecting them with health-conscious consumers seeking fresh produce. Farmers can create a profile, list their products, manage inventory and set prices with ease. Expand your market reach beyond local farmers  markets and traditional channels with Farm Cart.'
     },
   ];

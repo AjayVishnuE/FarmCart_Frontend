@@ -63,7 +63,7 @@ function FarmerDash() {
         <h2 className="username">{userData.username} !</h2>
         <div className="dash-box">
           <div className="buttonbox1">
-            <div className="orderno">{userData.num_recent_orders}</div>
+            <div className="orderno">{userData.daily_orders}</div>
             <div className="ordertitle">Orders today</div>
           </div>
           <div className="buttonbox2">
@@ -95,17 +95,17 @@ function FarmerDash() {
           
         </div>
         <Saleschart 
-          sold_products = {userData.sold_products}
+          sold_products = {userData.product_sales}
         />
   
         <div className="Statistics">Statistics</div>
-        {userData.product_details.map((item,index)=>
+        {userData.products.map((item,index)=>
           <div className="statibox">
-              <img src={API_ENDPOINTS.media + item.product_image} alt={item.product_name}></img>
+              <img className="statisticsproductimage" src={API_ENDPOINTS.media + item.product_image} alt={item.product_name}></img>
               <div className="Statitextout">
                 <div className="Frame19995">
                   <div className="fruitname">{item.product_name}</div>
-                  <div className="RJFarms">{item.farms}</div>
+                  <div className="RJFarms">{userData.farms}</div>
                 </div>
                 <div className="Frame19994">
                   <div className="Kg">

@@ -12,10 +12,8 @@
     gap:12%;
   }
   
-  #he1{
-    
-    
-    font-size: 16px;
+  #he1, #he2, #he3{
+    font-size: 18px;
   }
   #he1:hover{
     color: #7519EB; 
@@ -43,15 +41,20 @@
   .seemore{
     display: flex;
     color: #7519EB;
-padding-right: 15%;
+    padding-right: 10%;
     flex-direction: row-reverse;
-    margin-top: 20px;
+    margin: 20px 0;
   }
   .Productcompset{
     display:flex;
     overflow: scroll;
+    width: 92%;
+    padding-left: 8%;
+    gap: 20px;
+  }
+
+  .content{
     width: 100%;
-    margin-left: 10%;
   }
 
   .Productcompset::-webkit-scrollbar {
@@ -59,6 +62,6 @@ padding-right: 15%;
   }
   .Productbox{
     height: 200px;
-    margin-top: 50px;
+    margin-top: 60px;
     padding:10px;
   }

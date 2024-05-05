@@ -1,7 +1,7 @@
 //checkout without address
 import React, { useState, useEffect }  from 'react';
 import './CheckoutPage.css'; 
-import { Navbar, Header, NavigationButton} from '../../components';
+import { Navbar, Header, NavigationButton, Loader} from '../../components';
 import { Link } from 'react-router-dom';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 
@@ -53,7 +53,7 @@ function CheckoutPage() {
         
       }, []);
       if (isLoading) {
-        return <div>Loading checkout </div>;
+        return <Loader/>;
       }
 
     return (
@@ -79,7 +79,7 @@ function CheckoutPage() {
                 </div>
                 
             
-                <div className="container">
+                <div className="container12">
                     <div className="titleContainer">
                         <div className="title">Payment Details</div>
                     </div>

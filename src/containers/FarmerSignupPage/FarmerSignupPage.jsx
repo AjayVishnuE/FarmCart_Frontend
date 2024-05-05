@@ -67,12 +67,13 @@ function FarmerSignupPage() {
           <input className='inputfield' type="password" name="password1" value={data.password1} onChange={handleChange} placeholder="Enter Your Password" required /><br/>
           <label className='labelstyles'>Re-Type Password</label><br/>
           <input className='inputfield' type="password" name="password2" value={data.password2} onChange={handleChange} placeholder="Re-Type Your Password" required /><br/>
-          <input type="checkbox" name="isChecked" checked={data.isChecked} onChange={handleChange}/>
+          <input className="cbinputfield" type="checkbox" name="isChecked" checked={data.isChecked} onChange={handleChange}/>
           <label>Sign up myself as a farmer</label><br/>
           {error && <div className="error-message">{error}</div>} 
           <button className='submitbtn' type="submit">Sign Up</button>
         </form>
-        <p style={{'font-size':'medium', 'fontWeight':'300', 'textAlign':'center'}}>Already have an account? <Link to='/login'>Login instead.</Link></p>
+        <p style={{'font-size':'medium', 'fontWeight':'300', 'textAlign':'center'}}>Already have an account? <Link style={{color:"#8423FF"}} to='/login'>Login instead.</Link></p>
+        <p style={{'fontSize':'small  ','width':'100%' ,'fontWeight':'300', 'textAlign':'center', 'position':'absolute','bottom':'10px'}}>Do you Wish only to purchase products, Not a farmer? <Link style={{color:"#8423FF"}} to='/signup'>Click Here!</Link></p>
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './CartPage.css';
-import { Header, Navbar, EmptyCart } from '../../components';
+import { Header, Navbar, EmptyCart, Loader } from '../../components';
 import { Link } from 'react-router-dom';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 
@@ -35,7 +35,7 @@ function CartPage() {
                     quantities[item.cart_id] = adjustedQuantity;
                     return {
                         ...item,
-                        quantity: adjustedQuantity  // Adjusting quantity before setting state
+                        quantity: adjustedQuantity  
                     };
                 });
                 setCartItems(data);
@@ -111,14 +111,14 @@ function CartPage() {
       setRefreshCart(!refreshCart);
     };
 
+
+
+    if (isLoading) {
+        return <Loader/>;
+    }
     if (cartItems.length === 0) {
         return <EmptyCart />;
     }
-
-    if (isLoading) {
-        return <div>Loading cart items...</div>;
-    }
-
     if (error) {
         return <div>Error: {error}</div>;
     }

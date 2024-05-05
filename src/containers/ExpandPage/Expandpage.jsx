@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Header, Navbar } from '../../components';
+import { Header, Loader, Navbar } from '../../components';
 import { Rating } from 'react-simple-star-rating';
 import { useParams } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
@@ -72,7 +72,7 @@ function Expandpage() {
         }
     };
 
-    if (loading) return <div>Loading.....</div>;
+    if (loading) return <Loader/>;
     if (error) return <div>Error: {error}</div>;
     if (!productDetails) return <div>Product not found.</div>;
 
@@ -118,8 +118,8 @@ function Expandpage() {
         <div className='popdiv'>
         <p style={{textAlign:"justify", width:"100%", }}>{productDetails.product_description}</p>
           <h3 style={{textAlign:"left", width:"100%"}} className='farmdetailshead'>Farm details</h3>
-          <div className='farmdetailsdesc'>
-            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+          <div className='farmdetailsdesc12'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 35 35" fill="none">
             <path d="M10.4497 4.0332L10.1619 5.40039H12.4735L12.1857 4.0332H10.4497ZM10.7025 6.63086V7.58789H11.9329V6.63086H10.7025ZM8.60282 8.81836L8.07098 15.2441H9.24301L9.65316 9.77539H18.5771L18.4404 8.81836H8.60282ZM29.2962 10.3906V15.4904C29.7069 15.5221 30.1171 15.5601 30.5267 15.6043V10.3906H29.2962ZM10.7948 11.0059L10.4768 15.2441H10.9075C11.5913 15.2441 12.2435 15.5367 12.8899 15.9718V11.0059H10.7948ZM14.1204 11.0059V16.7658L19.4525 17.3592V15.9035L18.7528 11.0059H14.1204ZM5.84896 16.4746C5.30209 16.4746 4.25674 16.9367 3.29389 17.7069C2.54823 18.3034 1.84098 19.0666 1.32877 19.8374L2.47809 20.1247C3.84665 18.4041 5.95608 17.2949 8.30983 17.2949C11.7684 17.2949 14.7001 19.6891 15.5276 22.9004H16.9228C16.2985 21.6194 15.3452 20.1515 14.303 18.9431C13.6652 18.2036 12.9999 17.563 12.3927 17.1247C11.7856 16.6864 11.2388 16.4746 10.9076 16.4746H5.84896ZM20.6829 16.4786V23.9941H22.8807C23.5017 21.9328 24.6714 20.5235 26.2389 19.811C27.0804 19.4285 28.0153 19.2433 29.0235 19.2246C29.8028 19.2101 30.6262 19.2963 31.4837 19.4666V16.9722C30.6979 16.8504 29.769 16.755 28.7744 16.6849C26.0259 16.4914 22.8846 16.4798 20.6829 16.4786ZM32.7142 17.2179V18.5254H33.6712V17.6087C33.3993 17.4243 32.9941 17.2938 32.7142 17.2179ZM15.2236 18.1267C15.2273 18.131 15.2311 18.1351 15.2348 18.1394C16.6018 19.7242 17.8218 21.6661 18.4536 23.2928L18.7791 24.1309H15.7351C15.752 24.3339 15.7611 24.539 15.7611 24.7461C15.7611 25.2368 15.7123 25.7167 15.6205 26.1816H19.4525V18.5975L15.2236 18.1267ZM8.3099 18.5254C4.88639 18.5254 2.0892 21.3227 2.0892 24.7461C2.0892 28.1695 4.88639 30.9668 8.3099 30.9668C11.7333 30.9668 14.5306 28.1695 14.5306 24.7461C14.5306 21.3227 11.7333 18.5254 8.3099 18.5254ZM32.7142 19.7559V20.7129H33.6712V19.7559H32.7142ZM8.3099 20.0293C10.9185 20.0293 13.0267 22.1375 13.0267 24.7461C13.0267 27.3547 10.9185 29.4629 8.3099 29.4629C5.70124 29.4629 3.5931 27.3547 3.5931 24.7461C3.5931 22.1375 5.70124 20.0293 8.3099 20.0293ZM29.3375 20.4579C28.456 20.4691 27.4665 20.6127 26.7481 20.9312C25.597 21.4544 24.7196 22.404 24.1715 23.9941H24.8941C25.8467 22.4412 27.5609 21.3965 29.5013 21.3965C30.1805 21.3966 30.8533 21.5266 31.4837 21.7793V20.7233C30.7191 20.5581 30.0015 20.4688 29.3375 20.4579ZM8.3099 21.2598C6.35564 21.2598 4.82357 22.7919 4.82357 24.7461C4.82357 26.7003 6.35564 28.2324 8.3099 28.2324C10.2641 28.2324 11.7962 26.7003 11.7962 24.7461C11.7962 22.7919 10.2641 21.2598 8.3099 21.2598ZM32.7142 21.9434V22.4677C33.0688 22.7324 33.3902 23.0389 33.6712 23.3808V21.9434H32.7142ZM29.5013 22.627C27.2117 22.627 25.3314 24.5074 25.3314 26.7969C25.3314 29.0864 27.2117 30.9668 29.5013 30.9668C31.7908 30.9668 33.6712 29.0864 33.6712 26.7969C33.6712 24.5074 31.7908 22.627 29.5013 22.627ZM29.5013 24.1309C30.9721 24.1309 32.1673 25.3261 32.1673 26.7969C32.1673 28.2677 30.9721 29.4629 29.5013 29.4629C28.0304 29.4629 26.8353 28.2677 26.8353 26.7969C26.8353 25.3261 28.0304 24.1309 29.5013 24.1309ZM20.6829 25.2246V26.2758L24.1016 26.8455C24.1014 26.8293 24.1009 26.8131 24.1009 26.7969C24.1009 26.2508 24.1842 25.7229 24.3377 25.2246H20.6829ZM29.5013 25.3613C28.6745 25.3613 28.0658 25.9701 28.0658 26.7969C28.0658 27.6237 28.6745 28.2324 29.5013 28.2324C30.328 28.2324 30.9369 27.6237 30.9369 26.7969C30.9369 25.9701 30.328 25.3613 29.5013 25.3613Z" fill="#555555"/>
             </svg>
                 <div className='Farmlocationdesc'>
@@ -134,38 +134,44 @@ function Expandpage() {
          <h3 style={{textAlign:"left", width:"100%"}} className='farmerdetailshead'>
             About farmer
          </h3>
-         <div className='farmdetailsdesc'>
-         <img className='farmer' src={userImageUrl} alt="farmer" />
+         <div className='farmdetailsdesc12'>
+         <img className='farmerIMG' src={userImageUrl} alt="farmer" />
                 <div className='Farmlocationdesc'>
-                    <div className='farmername'>{productDetails.seller_details.username}</div>
-                    <div className='verification'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <g clip-path="url(#clip0_296_4080)">
-                            <path d="M5.01668 13.125L3.90834 11.2583L1.80834 10.7917L2.01251 8.63333L0.583344 7L2.01251 5.36667L1.80834 3.20833L3.90834 2.74167L5.01668 0.875L7.00001 1.72083L8.98334 0.875L10.0917 2.74167L12.1917 3.20833L11.9875 5.36667L13.4167 7L11.9875 8.63333L12.1917 10.7917L10.0917 11.2583L8.98334 13.125L7.00001 12.2792L5.01668 13.125ZM6.38751 9.07083L9.68334 5.775L8.86668 4.92917L6.38751 7.40833L5.13334 6.18333L4.31668 7L6.38751 9.07083Z" fill="#0BCE83"/>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_296_4080">
-                            <rect width="14" height="14" fill="white"/>
-                            </clipPath>
-                        </defs>
-                        </svg>
+                    <div className='flexdiv12'>
+                        <div className='flexdiv'>
+                            <div className='farmername'>{productDetails.seller_details.username}</div>
+                            <div className='verification'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <g clip-path="url(#clip0_296_4080)">
+                                    <path d="M5.01668 13.125L3.90834 11.2583L1.80834 10.7917L2.01251 8.63333L0.583344 7L2.01251 5.36667L1.80834 3.20833L3.90834 2.74167L5.01668 0.875L7.00001 1.72083L8.98334 0.875L10.0917 2.74167L12.1917 3.20833L11.9875 5.36667L13.4167 7L11.9875 8.63333L12.1917 10.7917L10.0917 11.2583L8.98334 13.125L7.00001 12.2792L5.01668 13.125ZM6.38751 9.07083L9.68334 5.775L8.86668 4.92917L6.38751 7.40833L5.13334 6.18333L4.31668 7L6.38751 9.07083Z" fill="#0BCE83"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_296_4080">
+                                    <rect width="14" height="14" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                                </svg>
+                            </div>
+                        </div>
+                        <div className='farmerdesc'>
+                            <Rating
+                            className='ratingfarmerwidth'
+                            initialValue={productDetails.farmer_details.farmer_rating}
+                            onClick={function noRefCheck(){}}
+                            readonly
+                            size={28}
+                            allowFraction
+                            showTooltip
+                            tooltipStyle={{
+                                'background-color': 'white',
+                                color: 'transparent'
+                            }}
+                            />
+                        </div>
                     </div>
                     <div className='farmerlocation'>{productDetails.seller_details.location_latitude},{productDetails.seller_details.location_longitude}</div>
                 </div>
-                <div className='farmerdesc'>
-                    <Rating
-                    initialValue={productDetails.farmer_details.farmer_rating}
-                    onClick={function noRefCheck(){}}
-                    readonly
-                    size={28}
-                    allowFraction
-                    showTooltip
-                    tooltipStyle={{
-                        'background-color': 'white',
-                        color: 'transparent'
-                      }}
-                    />
-                </div>
+
                 
          </div>
         <div className='button-group'>

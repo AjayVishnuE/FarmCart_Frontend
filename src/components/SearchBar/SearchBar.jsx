@@ -46,7 +46,7 @@ function SearchBar() {
 
   return (
     <div className="search-bar-container">
-      <form onSubmit={handleSubmit} className={`search-form ${isExpanded ? 'expanded' : ''}`}>
+      <form onSubmit={handleSubmit} className={`search-form ${isExpanded ? 'expanded34' : ''}`}>
         {isExpanded && (
           <input
             type="text"

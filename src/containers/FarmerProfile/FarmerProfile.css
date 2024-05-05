@@ -98,9 +98,11 @@
     gap:10%;
   }
 
-  .explorebtn{
-    margin: 0;
-    width: 100%;
+  .explorebtn1{
+    margin: 0 10%;
+    width: 80%;
+    height: 50px;
+    border-radius: 15px;
     display: flex;
     background: #7519eb;
     align-items: center;

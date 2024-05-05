@@ -14,8 +14,8 @@ function LoadingPage() {
       <h1 className="herotext">Farm fresh <br></br>for all</h1>
       <img className='heroimage' src={heroimg} alt="" />
       <div className="getbutton">
-        <Link to="/introduction">
-          Get Started
+        <Link style={{color:"white", fontSize:"20px"}} to="/introduction">
+          Get Started!
         </Link>
       </div>
     </div>

@@ -2,7 +2,7 @@
     height: 100vh;
     padding: 0;
     margin: 0;
-    width: 100%;
+    width: 100vw;
     background-image: url('../../Images/whitecommonbg.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -19,24 +19,23 @@
     font-size:32px ;
 }
 .goodmorni{
-  margin-top:25px;
+  margin-top:35px;
   margin-left: 10%;
   font-size:32px;
 }
 .search-box {
     display: flex;
-    width:68%;
+    width:80%;
     background: #fffcfc;
     height: 35px;
-    border-radius: 40px;
-    padding: 10px;
-    margin-top: 20px;
-    margin-left: 13%;
+    border-radius: 20px;
+    padding: 10px 0;
+    margin-top: 40px;
+    margin-left: 10%;
   }
   
 
   .search-btn{
-    
     color: rgb(0, 0, 0);
     width: 40px;
     height: 40px;
@@ -45,7 +44,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    padding-left: 10px;
     text-decoration: none;
     
   }
@@ -54,11 +53,9 @@
   }
   
   .search-text {
-  
     border: none;
     background: none;
     outline: none;
-    padding: 10;
     color: rgb(0, 0, 0);
     font-size: 16px;
     font-weight: normal;

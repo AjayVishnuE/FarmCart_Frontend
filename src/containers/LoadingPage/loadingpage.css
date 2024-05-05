@@ -31,22 +31,24 @@
   text-align: left;
   position: absolute;
   top: 18%;
+  z-index: 99;
 }
+
 .heroimage{
-  width: 95%;
+  width: 100%;
   position: absolute;
   max-width: 450px; 
-  z-index: 2;
+  object-fit: cover;
   top: 37%;
-  
+  z-index: 1;
 }
 .getbutton{
   text-align: center;
   font-size:20px;
   color: #FFFFFF;
   background-color: #0BCE83;
-  border-radius: 30px;
-  padding: 15px 20px 15px 20px;
+  border-radius: 25px;
+  padding: 20px 20px 20px 20px;
   width: 250px;
   z-index: 5;
   position: absolute;

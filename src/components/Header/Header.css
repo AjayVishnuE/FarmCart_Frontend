@@ -1,26 +1,31 @@
-
-.header12{
+.header123{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-between;
     width: 80%;
+    padding: 30px 10% 20px 10%;
     max-width: 450px;
-    padding:10% 10% 6% 10%;
-    gap:86%;
     margin:0;
-  }
- 
-  
-.images1{
-  width:7%;
+}
+
+.cartimagecontainer{
+  width:50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+.cartimage{
+  width:30px;
   height: 30px;
-  object-fit: contain;
+  object-fit: cover;
   margin:0;
 }
 
-.logoimage{
-  width:25%;
-  height: 45px;
-  object-fit: contain;
+.logoimageheader{
+  width:50px;
+  height: 50px;
+  object-fit: cover;
   margin:0;
 }

@@ -101,7 +101,6 @@ function FarmerProfile(props) {
                         <p className='profile-email'>{profileData.email}</p>
                     </div>
                     <div className='editbtn'>
-                        
                         <div className='explore'>
                             <Link style={{color:"#7519eb"}} to="/profileedit">
                             <img className='editlogo' src={edit} alt="edit"/>
@@ -110,13 +109,10 @@ function FarmerProfile(props) {
                     </div>
                 </div>
                 
-                <div className='explorebtncontainer'>
-                    
-                    <div className="explorebtn">
-                        <img className='editpremlogo' src={crown} alt="crown"></img>
-                        <div className='explore'>
-                            Farm Cart Premium
-                        </div>
+                <div className="explorebtn1">
+                    <img className='editpremlogo' src={crown} alt="crown"></img>
+                    <div className='explore'>
+                        Farm Cart Premium
                     </div>
                 </div>
                 <div className='farmerseccontainer'>

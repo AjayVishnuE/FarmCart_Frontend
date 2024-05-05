@@ -30,9 +30,8 @@
 .dottedline{
     margin-top: 10px;
 }
-.container {
+.container12 {
     width:300px;
-    padding: 19.01px;
     background: white;
     border-radius: 20px;
     display: inline-flex;
@@ -40,11 +39,12 @@
     justify-content: center;
     align-items: center;
     gap: 12px;
+    padding: 10px;
     margin-top: 15px;
   }
   
   .titleContainer {
-    width: 314px;
+    width: 280px;
     display: inline-flex;
     justify-content: flex-start;
     align-items: center;
@@ -82,7 +82,8 @@
   }
   
   .label {
-    width: 159.22px;
+    padding-left: 10px;
+    width: 150px;
     color: #615D5D;
     font-size: 12.36px;
     font-family: 'SF Pro Rounded';
@@ -92,7 +93,7 @@
   }
   
   .value {
-    width: 159.22px;
+    width: 150px;
     text-align: right;
     color: #615D5D;
     font-size: 12.36px;
@@ -119,7 +120,7 @@
   }
   
   .totalValue-checkout {
-    width: 159.22px;
+    width: 150px;
     text-align: right;
     color: #212529;
     font-size: 13.31px;

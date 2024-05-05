@@ -62,7 +62,7 @@
 .popdiv {
     height:72%;
     width: 90%;
-    padding: 5%;
+    padding:0 5% 3% 5%;
     background-color: #ffffff;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;  
@@ -71,27 +71,39 @@
     align-items: center;
     justify-content: center;
   }
+
 .farmdetailshead, .farmerdetailshead{
     font-size: 20px;
     margin-top: 3%;
 }
-.farmdetailsdesc{
-display: flex;
-align-items: center;
-width:100%;
+.farmdetailsdesc12{
+    display: flex;
+    align-items: center;
+    width:100%;
+    margin: 10px 0;
 }
 .Farmlocationdesc{
-    margin: 3%;
+    width: 100%;
+    padding-left: 10px;
 }
 .farmname{
     color:#0BCE83;
     
 }
+.farmerdesc{
+    height: 30px;
+    width: 150px;
+
+}
+.ratingfarmerwidth{
+    width: 150px;
+    height: 50px;
+}
 .farmlocation,.farmerlocation{
     color:#888;
 }
 .farmcodedesc{
-    margin: 3%;
+    width: 110px;
 }
 .farmcodehead{
     font-weight: 200;
@@ -99,8 +111,26 @@ width:100%;
 .farmcode{
     font-weight: 300;
 }
-.farmer{
+.verification{
+    padding-top: 5px;
+    padding-left: 5px;
+}
+.flexdiv12{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flexdiv{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.farmerIMG{
     height: 50px;
+    width: 50px;
+    object-fit: cover;
     border-radius: 50%;
 }
 .farmername{

@@ -1,5 +1,7 @@
 .notification-overall-container{
     height: 100vh;
+    overflow: scroll;
+    padding-bottom: 70px;
     background-color: #F6F5F5;
     justify-content: center;
     align-items: center;

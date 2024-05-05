@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Header, Navbar} from '../../components';
+import { Header, Loader, Navbar} from '../../components';
 import { Link, useNavigate } from 'react-router-dom';
 import './ProfilePage.css';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
@@ -48,7 +48,7 @@ function ProfilePage(props) {
         fetchData();
     }, [accessToken]); 
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <Loader/>;
     if (error) return <div>Error: {error}</div>;
     if (!profileData) return <div>No profile data found</div>;
 
@@ -102,7 +102,7 @@ function ProfilePage(props) {
                     </div>
                 </div>
 
-                <div className="profile-btns">
+                <div className="profile-btns12">
                     <div className="Group97">
                         <div className="button-box" />
                         <Link to= "/orders">
@@ -140,11 +140,11 @@ function ProfilePage(props) {
                     </div>
                 </div>
 
-                <div className='recent-order'>
+                <div className='recent-order12'>
                 Recent Order
                 </div>
                 {profileData.orders.slice(0, 1).map((item,index)=>
-                    <div className="order-box-1-profile">
+                    <div className="order-box-1-profile12">
                         {item.order_details.map((orderitem,index)=>
                             <div className='order-box-1-item'>
                                 <div className='order-left'>
@@ -190,8 +190,8 @@ function ProfilePage(props) {
                     </div>
                 </div>
                 )}
-                <div>
-                    <button onClick={confirmLogout} className='logoutbtn'>Logout</button>
+                <div className='logoutbtncont'>
+                    <button onClick={confirmLogout} className='logoutbtn12'>Logout</button>
                     {showModal && (
                         <div className="modal-overlay">
                             <div className="modal-content">

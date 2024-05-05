@@ -3,14 +3,15 @@
     padding: 0;
     margin: 0;
     width: 100%;
+    padding: 0 10%;
     background-image: url('../../Images/whitecommonbg.png');
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;
 }
 
-  .Productlist{
-    height:68%;
+  .Productlist12{
+    height:100%;
     overflow: scroll;
   }
   .Productlist::-webkit-scrollbar {
@@ -25,13 +26,39 @@
     width: 100%;
   }
 
-  .logoimage{
-    width:25%;
-    height: 45px;
-    object-fit: contain;
-    margin:0;
-  }
   .Productbox{
     margin-top: 35px;
     padding:10px;
   }
+
+.header212{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    width: 80%;
+    padding: 30px 10% 20px 10%;
+    max-width: 450px;
+    margin:0;
+}
+
+.cartimagecontainer{
+  width:50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+.cartimage{
+  width:30px;
+  height: 30px;
+  object-fit: cover;
+  margin:0;
+}
+
+.logoimageheader{
+  width:50px;
+  height: 50px;
+  object-fit: cover;
+  margin:0;
+}

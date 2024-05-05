@@ -3,7 +3,7 @@ import './Checkout.css';
 import axios from 'axios';
 import home from '../../Images/Home.svg';
 import office from '../../Images/Briefcase.svg';
-import { Navbar, Header } from '../../components';
+import { Navbar, Header, Loader } from '../../components';
 import { useNavigate } from 'react-router-dom';
 import order from '../../Images/order.png';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
@@ -185,7 +185,7 @@ function Checkout(props) {
     };
     
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <Loader/>;
     }
 
     if (error) {

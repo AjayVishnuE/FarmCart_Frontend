@@ -52,7 +52,12 @@
     border-radius: 10px;
     background-color: #FFF;
     margin: 3px 0 15px 10%;
+    text-indent: 15px;
+}
 
+.cbinputfield{
+    margin-left: 10%;
+    margin-right: 5px;
 }
 
 .submitbtn{

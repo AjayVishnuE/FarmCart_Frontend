@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Wishlist.css';
 import axios from 'axios';
-import { EmptyWishlist, Header, Navbar} from '../../components';
+import { EmptyWishlist, Header, Loader, Navbar} from '../../components';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import cart from '../../Images/shopping-cart.svg';
 import bar from '../../Images/Bar.png';
 import product from '../../Images/listone.png';
@@ -13,6 +13,8 @@ function Wishlist(props) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [refreshCart, setRefreshCart] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
+    const navigate = useNavigate();
     const accessToken = localStorage.getItem('accessToken');
 
     useEffect(() => {
@@ -31,17 +33,16 @@ function Wishlist(props) {
             if (!response.ok) {
                 throw new Error('Failed to delete the item');
             }
-            document.getElementById(`deleteBtn-${itemId}`).style.display = "none";
+            setRefreshCart(!refreshCart);
         } catch (error) {
             console.error('Error:', error.message);
         }
-        setRefreshCart(!refreshCart);
     };
 
     const fetchWishlistItems = async () => {
         try {
             const response = await axios.get(`${API_ENDPOINTS.wishlist}/wishlist-crud/`, {
-                headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` }
+                headers: { Authorization: `Bearer ${accessToken}` }
             });
             setWishlistItems(response.data);
             setLoading(false);
@@ -51,10 +52,34 @@ function Wishlist(props) {
         }
     };
 
-    if (wishlistItems.length === 0) {
-        return <div><EmptyWishlist/></div>;
-    }
-    if (loading) return <div>Loading wishlist items...</div>;
+    const handleSubmit = async (productId, quantity) => {
+        console.log(productId)
+        if (submitting) return;
+        setSubmitting(true);
+        const payload = {
+            product: productId,  
+            quantity: quantity
+        };
+    
+        try {
+            const response = await axios.post(`${API_ENDPOINTS.cart}/cart-crud/`, payload, {
+                headers: { Authorization: `Bearer ${accessToken}` }
+            });
+            if (response.status === 200 || response.status === 201) {
+                navigate('/cart');
+            } else {
+                throw new Error('Failed to add to cart');
+            }
+        } catch (error) {
+            setError(error.response?.data?.message || 'Failed to add to cart');
+        } finally {
+            setSubmitting(false);
+        }
+    };
+    
+    console.log(wishlistItems)
+    if (loading) return <Loader/>;
+    if (wishlistItems.length === 0) return <div><EmptyWishlist/></div>;
     if (error) return <div>Error: {error}</div>;
 
     return (
@@ -78,7 +103,7 @@ function Wishlist(props) {
                         </div>
                         <div className='flexbtn'>
                             <div className='itempricewish'>INR {item.product_details.price}</div>
-                            <div className="wishbtn__container">
+                            <button onClick={() => handleSubmit(item.product_details.product_id, 1)} className="wishbtn__container">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
                                         <g clip-path="url(#clip0_914_604)">
                                         <path d="M4.67101 11.6899C4.95765 11.6899 5.19002 11.4575 5.19002 11.1709C5.19002 10.8842 4.95765 10.6519 4.67101 10.6519C4.38437 10.6519 4.15201 10.8842 4.15201 11.1709C4.15201 11.4575 4.38437 11.6899 4.67101 11.6899Z" stroke="white" stroke-width="1.26027" stroke-linecap="round" stroke-linejoin="round"/>
@@ -92,7 +117,7 @@ function Wishlist(props) {
                                         </defs>
                                     </svg>
                                 <div className='wishcart' >Add to cart</div>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>

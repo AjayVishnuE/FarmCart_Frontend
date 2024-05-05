@@ -1,9 +1,8 @@
-.product-component-ovrerall{
-}
 .minicard{
     text-align: center;
     background-color: transparent;
 }
+
 .Textbody{
     display: flex;
     flex-direction: column;
@@ -19,17 +18,21 @@
     padding-right: 5px;
     padding-left: 5px;
 }
-.product-image{
-    margin-top :-40%;
-    height: 150px;
-    object-fit: contain;
+
+.product-image12{
+    margin-top :-45%;
+    height: 140px;
+    width: 145px;
+    object-fit: cover;
 }
-.name{
+.name12{
     color:#000000;
-    font-weight: bold;
+    font-weight:500;
+    font-size: larger;
 }
+
 .inr{
     color:#7519EB;
     font-weight: 600;
-    padding-top: 5px;
+    margin-top: 5px;
 }

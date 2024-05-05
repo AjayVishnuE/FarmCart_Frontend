@@ -2,11 +2,17 @@
     background-color: #F6F5F5;
     height:100vh;
 }
+
+.profile-container{
+  width: 100%;
+  padding:0 10%;
+
+}
 .profile-box{
     display: flex;
+    width: 80%;
     align-items: center;
     justify-content: left;
-    padding-left: 10%;
     gap:25px;
 }
 
@@ -29,20 +35,19 @@
     line-height: 16.71px;
     margin-top: 5px;
 }
-.profile-btns {
-    width: 319px;
+.profile-btns12 {
+    width:80%;
+    margin-top: 10px;
     height: 55px;
-    margin-top: 15px;
-    margin-left: 8%;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 7px;
+    gap: 4%;
     display: inline-flex;
   }
   
   .Group97,
   .Group98 {
-    width: 156px;
+    width: 38%;
     height: 55px;
     position: relative;
   }
@@ -86,7 +91,8 @@
     word-wrap: break-word;
   }
   .explorebtncontainer-user{
-    margin:10px 10%;
+    width: 80%;
+
   }
   .explorebtn-user{
     display: flex;
@@ -107,18 +113,15 @@
     font-weight: 300;
 
 }
-.recent-order{
+.recent-order12{
     color: #201f20;
-    margin-top: 15px;
-    margin-left: 8%;
+    margin-top: 25px;
     font-size: 19.9px;
     font-weight: 500;
-
     line-height: 20px;
-
 }
 
-.order-box-1-profile {
+.order-box-1-profile12 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -128,16 +131,14 @@
     height: fit-content;
     width: fit-content;
     margin-top: 15px;
-    margin-left: 8%;
-    margin-right: 20px;
-    padding: 20px;
+    width: 80%;
+    padding: 15px 0;
     }
   
   .order-box-1-item{
     display: flex;
     align-items: center;
-    
-    width: 100%;
+    width: 0%;
   }
 
 .order1-pic{
@@ -310,7 +311,7 @@ line-height: 11.4px;
     line-height: 20.91px;
     word-wrap: break-word;
   }
-  .logoutbtn{
+  .logoutbtn12{
     
     bottom: 150px; 
     color: #FFF;
@@ -321,11 +322,14 @@ line-height: 11.4px;
     border-radius: 30px;
     background: #FF4343;
     width: 80%;
-    margin-left: 8%;
     margin-top: 15px;
     height: 70px;
     border: none;
 
+}
+.logoutbtncont{
+  margin: 0;
+  padding: 0;
 }
 
 .modal-overlay {

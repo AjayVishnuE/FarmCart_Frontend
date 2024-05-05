@@ -67,8 +67,8 @@ function SignupPage() {
           {error && <div>{error}</div>} 
           <button className='submitbtn' type="submit">Sign Up</button>
         </form>
-        <p style={{'fontSize':'medium', 'fontWeight':'300', 'textAlign':'center'}}>Already have an account? <Link to='/login'>login instead.</Link></p>
-        <p style={{'fontSize':'small  ','width':'100%' ,'fontWeight':'300', 'textAlign':'center', 'position':'absolute','bottom':'10px'}}>Want to Sign up as a farmer and sell your products? <Link to='/farmersignup'>Click Here!</Link></p>
+        <p style={{'fontSize':'medium', 'fontWeight':'300', 'textAlign':'center'}}>Already have an account? <Link style={{color:"#8423FF"}} to='/login'>login instead.</Link></p>
+        <p style={{'fontSize':'small  ','width':'100%' ,'fontWeight':'300', 'textAlign':'center', 'position':'absolute','bottom':'10px'}}>Want to Sign up as a farmer and sell your products? <Link style={{color:"#8423FF"}} to='/farmersignup'>Click Here!</Link></p>
         {showNotification && <NotificationPopup message="User created please login" onClose={() => setShowNotification(false)} />}</div>
     </div>
   )

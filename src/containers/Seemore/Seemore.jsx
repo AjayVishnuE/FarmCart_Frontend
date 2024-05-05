@@ -30,14 +30,14 @@ function Seemore(props) {
 
     return (
         <div className='seemore-overall-container'>
-        <div className='header2'>
-        <img className='logoimage' src={bar} alt="bars" />
+        <div className='header212'>
+            <img className='logoimage' src={bar} alt="bars" />
             <SearchBar/>
-            <Link to = "/cart">
-                    <img className='cartimage' src={cart} alt="cart" />
-                </Link>
+            <Link className='seemorecart' to = "/cart">
+                <img className='cartimage' src={cart} alt="cart" />
+            </Link>
         </div>
-            <div className='Productlist'>
+            <div className='Productlist12'>
                     <div className='Productcompset2'>
                         {products.map((item,index)=>
                             <div className='Productbox'>

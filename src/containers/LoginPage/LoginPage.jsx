@@ -71,7 +71,7 @@ function LoginPage() {
             {error && <div>{error}</div>} 
             <button className='submitbtn' type="submit" >Log In</button>
             </form> 
-            <p style={{'fontsize':'medium', 'fontWeight':'300', 'textAlign':'center'}}>Don't have an account? <Link to='/signup'>Sign Up here.</Link></p>
+            <p style={{'fontsize':'medium', 'fontWeight':'300', 'textAlign':'center', marginTop:"5px"}}>Don't have an account? <Link style={{color:"#8423FF"}} to='/signup'>Sign Up here.</Link></p>
         </div>
     </div>
   )

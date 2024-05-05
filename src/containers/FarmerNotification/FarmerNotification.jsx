@@ -1,53 +1,75 @@
-import React , { useState } from 'react';
+import axios from 'axios';
+import React , { useState, useEffect } from 'react';
 import './FarmerNotification.css';
 import { FarmerHeader, FarmerNavbar} from '../../components';
+import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 import { Link } from 'react-router-dom';
 import cart from '../../Images/shopping-cart.svg';
 import bar from '../../Images/Bar.png';
 
 function FarmerNotification(props) {
+
+    const [notifications, setNotifications] = useState([]);
     const [isHidden, setIsHidden] = useState(false);
 
-    const handleClearClick = () => {
-        setIsHidden(true);
+    useEffect(() => {
+        const fetchNotifications = async () => {
+            const accessToken = localStorage.getItem('accessToken'); 
+            try {
+                const response = await axios.get(`${API_ENDPOINTS.notification}getpost/`, {
+                    headers: { Authorization: `Bearer ${accessToken}` }
+                });
+                setNotifications(response.data);
+            } catch (error) {
+                console.error('Error fetching notifications:', error);
+            }
+        };
+
+        fetchNotifications();
+    }, []);
+
+    const handleClearClick = async () => {
+        const accessToken = localStorage.getItem('accessToken');
+        try {
+            await axios.delete(`${API_ENDPOINTS.notification}clear/`, {
+                headers: { Authorization: `Bearer ${accessToken}` }
+            });
+            setNotifications([]); 
+        } catch (error) {
+            console.error('Error clearing notifications:', error);
+        }
     };
     return (
         <div className='notification-overall-container'>
             <FarmerHeader/>
             <div className="overallframe">
-                
                 <div className='notihead'>
                     <div className='notitext'>Notifications</div>
                     <div className='clear' onClick={handleClearClick}>Clear all</div>
-            </div>
-            {!isHidden && (
-                <div className='notification-overall'>
-                    <div className="Notificationcell">
-                        <div className="Avatarandsubjectcontainer">
-                            <div className="Subjectlinecontainer">
-                                Account Sign-in Detected
-                            </div>
-                            <div className="Timestampcontainer">
-                                Today at 9:42 AM
-                            </div>
-                        </div>
-                    </div>
-                    <div className="Notificationcell">
-                        <div className="Avatarandsubjectcontainer">
-                            <div className="Subjectlinecontainer">
-                                Account Sign-in Detected
-                            </div>
-                            <div className="Timestampcontainer">
-                                Today at 9:42 AM
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            )}
-     
-     </div>
+                {!isHidden && notifications.length > 0 && (
+                    <div className='notification-overall'>
+                        {notifications.map((notification, index) => (
+                            <Link to = {notification.redirect}>
+                                <div key={index} className="Notificationcell">
+                                    <div className="Avatarandsubjectcontainer">
+                                        <div className="Subjectlinecontainer">
+                                            {notification.title}
+                                        </div>
+                                        <p className="Subjectmessagecontainer">
+                                            {notification.message}
+                                        </p>
+                                        <div className="Timestampcontainer">
+                                            {notification.timestamp}
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                )}
+            </div>
     <FarmerNavbar/>
-      
     </div>
     );
 }

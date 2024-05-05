@@ -14,9 +14,9 @@
     transition: max-width 0.5s ease-in-out;
   }
   
-  .search-form.expanded {
-    max-width: 300px;
-    background-color: #fff; /* Expand the search bar width */
+  .search-form.expanded34 {
+    max-width: 200px;
+    background-color: #fff; 
   }
   
   .search-input {
