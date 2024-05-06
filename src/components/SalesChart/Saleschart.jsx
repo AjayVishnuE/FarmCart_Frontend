@@ -38,7 +38,7 @@ const SalesChart = ({ sold_products }) => {
   const maxSoldQuantity = Math.max(...sold_products.map((item) => item.sold_quantity));
 
   return (
-    <ResponsiveContainer className="chart" width="74%" height="25%">
+    <ResponsiveContainer className="chart" width="74%" height="15%">
       <BarChart width={30} height={40} data={sold_products}>
         <XAxis dataKey="product_name" axisLine={false} tick={true} />
         <Bar dataKey="sold_quantity" fill="rgba(117, 25, 235, 0.3)" shape={<CustomShape />}>

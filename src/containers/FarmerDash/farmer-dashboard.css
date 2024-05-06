@@ -3,13 +3,14 @@
   background-repeat: no-repeat;
   background-size: cover;
   overflow-y: hidden;
+  padding-bottom: 70px;
 }
 
 .overall-farmer-dashboard::-webkit-scrollbar {
   display: none; 
 }
 .farmer-dashboard{
-  height:100vh;
+  height:110vh;
   padding: 0;
   margin: 0;
   width: 100%;
@@ -140,7 +141,7 @@ margin-bottom: 15px;;
 
 .topselling{
 display: flex;
-width: 259px;
+width: 255px;
 margin-left: 10%;
 text-align: center;
 font-family: "SF Pro Rounded";
@@ -161,6 +162,7 @@ box-shadow: 0px 20.127px 40.253px 0px rgba(57, 57, 57, 0.10)
 .topsellpercent{
 color:#0BCE83;
 }
+
 .statibox{
 display: flex;
 background-color: #FFF;
@@ -179,7 +181,7 @@ box-shadow: 0px 20.127px 40.253px 0px rgba(57, 57, 57, 0.10);
 margin-left: 10px;
 justify-content: flex-start;
 align-items: center;
-gap: 25px;
+gap: 85px;
 display: inline-flex;
 }
 
@@ -193,13 +195,14 @@ display: inline-flex;
 
 .fruitname {
 opacity: 0.90;
-text-align: center;
+
 color: black;
 font-size: 16px;
 font-family: 'SF Pro Rounded';
 font-weight: 600;
 line-height: 12.16px;
-word-wrap: break-word;
+/* white-space: nowrap; */
+
 }
 
 .RJFarms {
@@ -218,7 +221,7 @@ flex-direction: column;
 justify-content: flex-end;
 align-items:end;
 display: flex;
-margin-left: 75px;
+
 }
 
 .Kg {
