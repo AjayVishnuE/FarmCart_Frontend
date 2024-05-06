@@ -41,7 +41,7 @@ function SearchBar() {
     setIsLoading(false);
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div></div>;
   if (error) return <div>Error: {error}</div>;
 
   return (

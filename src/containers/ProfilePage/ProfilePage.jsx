@@ -89,7 +89,7 @@ function ProfilePage(props) {
         }
     };
     return (
-        <div className='Profile-overall-component'>
+        <div className='Profile-overall-component12'>
             <Header/>
             <div className='profile-container'>
                 <div className='profile-box'>

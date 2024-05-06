@@ -5,7 +5,7 @@ import { useParams, useNavigate} from "react-router-dom";
 import './ProfileEdit.css';
 import edit from '../../Images/edit_icon.png';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
-import { FarmerHeader, FarmerNavbar, Header, Navbar } from '../../components';
+import { FarmerHeader, FarmerNavbar, Header, Loader, Navbar } from '../../components';
 
 
 function FarmerUsersEdit() {
@@ -113,7 +113,7 @@ function FarmerUsersEdit() {
     
 
     if (loading) {
-        return <div className=''>Loading.....</div>;
+        return <Loader/>;
     }
     
     if (error) {
@@ -124,13 +124,13 @@ function FarmerUsersEdit() {
         return <div>User not found.</div>;
     }
     return (
-        <div>
+        <div classname="profileeditcontainer">
+            {userData.role === "Farmer" ? (
+                <FarmerHeader/>
+            ) : (
+                <Header/>
+            )}
             <form className='editUserFormContainer' onSubmit={handleFormSubmit}>
-                {userData.role === "Farmer" ? (
-                    <FarmerHeader/>
-                ) : (
-                    <Header/>
-                )}
                 <span className='editlabelprofile'>User Image:</span>
                 <div className="FileUploadBaseprofile">
                     <input type="file" onChange={handleInputChange} name="user_image" accept="image/*" style={{ display: 'none' }} id="UserImageUpload" />
@@ -143,27 +143,26 @@ function FarmerUsersEdit() {
                     </label>
                 </div>
                 <div className='editUserFormItem'>
-                    <label className='editlabel'>User name:</label>
-                    <input className='editvalue' name="username" value={userData.username} onChange={handleInputChange} type='text' placeholder='your name' />
+                    <label className='editlabel12'>User name:</label>
+                    <input className='editvalue12' name="username" value={userData.username} onChange={handleInputChange} type='text' placeholder='your name' />
                 </div>
                 <div className='editUserFormItem'>
-                    <label className='editlabel'>Email ID:</label>
-                    <input className='editvalue' name="email" value={userData.email} onChange={handleInputChange} type='text'placeholder='email Id' />
+                    <label className='editlabel12'>Email ID:</label>
+                    <input className='editvalue12' name="email" value={userData.email} onChange={handleInputChange} type='text'placeholder='email Id' />
                 </div>
                 <div className='editUserFormItem'>
-                    <label className='editlabel'>Phone No.:</label>
-                    <input className='editvalue' name="mobile" value={userData.mobile} onChange={handleInputChange} type='text' placeholder="mobile Number"/>
+                    <label className='editlabel12'>Phone No.:</label>
+                    <input className='editvalue12' name="mobile" value={userData.mobile} onChange={handleInputChange} type='text' placeholder="mobile Number"/>
                 </div>
                 <button className='editUserbtn' type="submit">
                     Update User
                 </button>
-                {userData.role === "Farmer" ? (
-                    <FarmerNavbar/>
-                ) : (
-                    <Navbar/>
-                )}
-
         </form>
+        {userData.role === "Farmer" ? (
+            <FarmerNavbar/>
+        ) : (
+            <Navbar/>
+        )}
         </div>
     )
 }

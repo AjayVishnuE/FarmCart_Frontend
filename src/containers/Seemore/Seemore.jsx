@@ -30,26 +30,28 @@ function Seemore(props) {
 
     return (
         <div className='seemore-overall-container'>
-        <div className='header212'>
-            <img className='logoimage' src={bar} alt="bars" />
-            <SearchBar/>
-            <Link className='seemorecart' to = "/cart">
-                <img className='cartimage' src={cart} alt="cart" />
-            </Link>
-        </div>
+            <div className='header256'>
+                <img className='logoimage75' src={bar} alt="bars" />
+                <div className='searchbar-container-searchpage'>
+                    <SearchBar/>
+                </div>
+                <Link className='cartimagecontainer32' to = "/cart">
+                    <img className='cartimage' src={cart} alt="cart" />
+                </Link>
+            </div>
             <div className='Productlist12'>
-                    <div className='Productcompset2'>
-                        {products.map((item,index)=>
-                            <div className='Productbox'>
-                                <ProductComponent
-                                    id = {item.product_id}
-                                    name={item.product_name}
-                                    price={item.price}
-                                    image={item.product_image}
-                                    altText={`${item.product_name} image`}/>
-                            </div>
-                        )}
-                    </div>
+                <div className='Productcompset2'>
+                    {products.map((item,index)=>
+                        <div className='Productbox'>
+                            <ProductComponent
+                                id = {item.product_id}
+                                name={item.product_name}
+                                price={item.price}
+                                image={item.product_image}
+                                altText={`${item.product_name} image`}/>
+                        </div>
+                    )}
+                </div>
             </div>
             <Navbar/>
         </div>

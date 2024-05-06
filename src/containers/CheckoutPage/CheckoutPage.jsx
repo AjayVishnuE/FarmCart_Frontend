@@ -73,7 +73,7 @@ function CheckoutPage() {
                     
                 </div></Link>
                 <div className='dottedline'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="338" height="2" viewBox="0 0 338 2" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="2" viewBox="0 0 338 2" fill="none">
                     <path d="M0.25 1H337.75" stroke="#7519EB" stroke-dasharray="5 5"/>
                     </svg>
                 </div>
@@ -81,7 +81,7 @@ function CheckoutPage() {
             
                 <div className="container12">
                     <div className="titleContainer">
-                        <div className="title">Payment Details</div>
+                        <div className="title12">Payment Details</div>
                     </div>
                     <div className="detailsContainer">
                         <div className="rowContainer">
@@ -96,7 +96,7 @@ function CheckoutPage() {
                         </div>
                         <div className="separator-checkout"></div>
                         <div className="row">
-                        <div className="totalLabel">Total Amount</div>
+                        <div className="totalLabel12">Total Amount</div>
                         <div className="totalValue-checkout">₹ {overallTotalPrice}</div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@ function CheckoutPage() {
                     <div className="secondContainer">
                         <div className="secondIconContainer">
                             <div className="secondIcon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <svg style={{paddingLeft:"15px"}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <g clip-path="url(#clip0_600_2464)">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.116272 8.39331C0.116272 6.40419 0.906448 4.49653 2.31297 3.09001C3.71949 1.68349 5.62715 0.893311 7.61627 0.893311C9.6054 0.893311 11.5131 1.68349 12.9196 3.09001C14.3261 4.49653 15.1163 6.40419 15.1163 8.39331C15.1163 10.3824 14.3261 12.2901 12.9196 13.6966C11.5131 15.1031 9.6054 15.8933 7.61627 15.8933C5.62715 15.8933 3.71949 15.1031 2.31297 13.6966C0.906448 12.2901 0.116272 10.3824 0.116272 8.39331ZM7.18827 11.6033L11.5063 6.20531L10.7263 5.58131L7.04427 10.1823L4.43627 8.00931L3.79627 8.77731L7.18827 11.6033Z" fill="#0BCE83"/>
                                 </g>

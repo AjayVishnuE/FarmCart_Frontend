@@ -187,9 +187,9 @@ function Orders(props) {
     return (
         <div className='order-overall-container'>
             <Header/>
-            <div className='orderstitle'>My orders</div>
+            <div className='orderstitle12'>My orders</div>
             {profileData.orders.map((order,orderIndex)=>
-                <div className="order-1" key={order.order_id}>
+                <div className="order-21" key={order.order_id}>
                     {order.order_details.map((orderdetail,detailIndex)=>
                         <div key={detailIndex} className='order-box-container'>
                             <div className='order-box-1-item'>
@@ -211,22 +211,26 @@ function Orders(props) {
                             </div>
                         {getStatusInfo(order.order_status).text === 'Delivered' && (
                             <div className='rating-container'>
-                                <Rating
-                                    name={`rating-${orderdetail.product_details.product_id}`}
-                                    className='ratingcomponent'
-                                    starCount={0}
-                                    initialValue={rating[orderdetail.product_details.product_id] || 0}
-                                    value={rating[orderdetail.product_details.product_id] || 0}
-                                    onClick={(newRating) => handleRatingChange(orderdetail.product_details.product_id, newRating)}
-                                />
-                                <textarea
-                                    className='textareainrating'x
-                                    type="text" 
-                                    name = {`comment-${orderdetail.product_details.product_id}`}
-                                    value={comments[orderdetail.product_details.product_id] || ''}
-                                    onChange={(event) => handleCommentChange(orderdetail.product_details.product_id, event)}
-                                    placeholder='Any Comments?...'
-                                />
+                                <div className='ratingreview'>
+                                    <div className='ratingcontainer56'>
+                                        <Rating
+                                            name={`rating-${orderdetail.product_details.product_id}`}
+                                            className='ratingcomponent23'
+                                            starCount={0}
+                                            initialValue={rating[orderdetail.product_details.product_id] || 0}
+                                            value={rating[orderdetail.product_details.product_id] || 0}
+                                            onClick={(newRating) => handleRatingChange(orderdetail.product_details.product_id, newRating)}
+                                        />
+                                    </div>
+                                    <textarea
+                                        className='textareainrating'x
+                                        type="text" 
+                                        name = {`comment-${orderdetail.product_details.product_id}`}
+                                        value={comments[orderdetail.product_details.product_id] || ''}
+                                        onChange={(event) => handleCommentChange(orderdetail.product_details.product_id, event)}
+                                        placeholder='Any Comments?...'
+                                    />
+                                </div>
                                 <button 
                                     className='review-sbmt-btn' 
                                     onClick={() => handleSubmitReview(orderdetail.product_details.product_id)}

@@ -4,7 +4,7 @@ import './searchpage.css'
 import cart from '../../Images/shopping-cart.svg';
 import bar from '../../Images/Bar.png';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
-import { Navbar, ProductComponent, SearchBar} from '../../components';
+import { Loader, Navbar, ProductComponent, SearchBar} from '../../components';
 import { Link } from 'react-router-dom';
 
 function SearchPage(props) {
@@ -41,23 +41,24 @@ function SearchPage(props) {
     console.log(recentSearches)
     console.log(frequentSearches)
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <Loader/>;
     if (error) return <div>Error: {error}</div>;
 
 
     return (
         <div className='searchpage-container'>
-            <div className='header2'>
-            <img className='logoimage' src={bar} alt="bars" />
-                <SearchBar/>
-                <Link to = "/cart">
+            <div className='header256'>
+                <img className='logoimage75' src={bar} alt="bars" />
+                <div className='searchbar-container-searchpage'>
+                    <SearchBar/>
+                </div>
+                <Link className='cartimagecontainer32' to = "/cart">
                     <img className='cartimage' src={cart} alt="cart" />
                 </Link>
             </div>
             <p className='recentup'>Recent Searches</p>
             <div className='searchlist'>
-               
-                {recentSearchesquery.slice(0,4).map((item, index) => (
+                {recentSearchesquery.slice(0,9).map((item, index) => (
                     <div className='searchitem'>{item}</div>
                 ))}
             </div>

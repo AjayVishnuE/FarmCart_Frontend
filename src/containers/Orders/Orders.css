@@ -1,37 +1,37 @@
 .order-overall-container{
     background-color: #F6F5F5;
     height:100vh;
+    width:100%;
     overflow-y: scroll;
     padding-bottom: 70px;
 
 }
-.orderstitle{
-    margin-left: 8%;
-    color: #000;
-
-font-family: "SF Pro Rounded";
-font-size: 19.862px;
-font-style: normal;
-font-weight: 700;
-line-height: 26.483px; /* 133.333% */
-letter-spacing: -0.662px;
+.orderstitle12{
+  color: #000;
+  font-family: "SF Pro Rounded";
+  font-size: 19.862px;
+  font-style: normal;
+  font-weight: 700; 
+  line-height: 26.483px; /* 133.333% */
+  letter-spacing: -0.662px;
+  margin-left: 10%;
 }
 
-.order-1 {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    background-color: #ffffff;
-    border-radius: 20.13px;
-    box-shadow: 0px 20.13px 40.25px #3939391a;
-    margin-top: 15px;
-    margin-left: 8%;
-    padding: 20px;
-    }
+.order-21 {
+  width: 80%;
+  margin: 20px 10%;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  background-color: #ffffff;
+  border-radius: 20.13px;
+  box-shadow: 0px 20.13px 40.25px #3939391a;
+  }
 
 
 .order1-pic{
     margin-left: 6px;
+    object-fit: cover;    
 }
 .order-right {
     margin-top: 18px;
@@ -48,25 +48,44 @@ letter-spacing: -0.662px;
     gap: 2px;
     position: relative;
 }
+
+.order-box-container{
+  margin-left: 10px;
+}
 .order-box-1-item{
   display: flex;
 
 }
 .rating-container{
-  width: 100%;
+  width: 80%;
+  padding: 0 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ratingreview{
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 10px 0;
 }
 
-.ratingcomponent{
+.ratingcontainer56{
+  width: 200px;
+  height: 50px;
+}
+.ratingcomponent23{
   height: 40px;
+  width:200px;
 }
 
 .textareainrating{
-  width: 70%;
-  height: 30px;
+  width: 200px;
+  max-width:200px;
+  min-width: 200px;
+  height: fit-content;
   font-size: 16px; 
   border: none;
   border-radius: 5px;
@@ -74,8 +93,10 @@ letter-spacing: -0.662px;
 }
 
 .review-sbmt-btn{
-  margin: 10px 0;
-  padding: 5px 20px;
+  width: 25%;
+  padding: 5px 10px;
+  margin: 10px 0 0 10px;
+  border-radius: 5px;
 }
 
 .text-wrapper {
@@ -135,6 +156,7 @@ letter-spacing: -0.662px;
 
 .orderstatus{
     display: flex;
+    padding-bottom: 10px;
 }
 .statusframe{
     margin-left: 8%;

@@ -1,32 +1,33 @@
+.profileeditcontainer{
+  width:100%;
+  background-color: white;
+  height: 100vh;
+
+}
+
 .editUserFormContainer{
-    background-color: #F6F5F5;
+    background-color: white;
     display: flex;
     flex-direction: column;
-   
-    height: 100vh;
+    align-items: center;
+    justify-content: start;
+    width:80%;
+    padding: 0 10%;
   }
-  .editUserInfoContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    max-width: 450px;
-    justify-content: flex-start;
-     
-  }
+
 
   .User-image-edit{
     width: 100px;
     height: 100px;
     object-fit: cover;
+    border-radius: 50%;
   }
 
   .editUserInfoItem{
     margin-bottom: 15px;
   }
   .editvalue:focus {
-    border-color: #A0A5BA; /* Change the border color when input is focused */
+    border-color: #A0A5BA; 
   }
   .editvalue::placeholder {
     color: #A0A5BA;
@@ -38,20 +39,22 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin: 10px 0 0 8%;
+    margin: 10px 0 0 0;
   }
   
+  .editlabel12{
+
+  }
   
-  .editvalue {
+  .editvalue12 {
     width: 325px;
     height: 50px;
     font-size: 16px; 
     border: none;
     border-radius: 10px;
-    background-color: #FFF;
+    background-color: #a2a1a145;
     margin: 10px 0 15px 0%;
-    padding-left: 5%;
-  
+    text-indent: 10px;
   }
   .editvalue::placeholder {
     color: #A0A5BA; /* Change placeholder text color */
@@ -64,7 +67,7 @@
   
   .FileUploadBaseprofile {
     width: 200px;
-    padding: 20px;
+    padding: 10px;
     background: white;
     border-radius: 6.57px;
     display: flex;
@@ -73,7 +76,7 @@
     align-items: center;
     gap: 2.19px;
     
-    margin: 10px 0 15px 25%;
+    margin: 10px 0 15px 0;
   }
   
   .Content {
@@ -105,7 +108,7 @@
       font-weight: 500;
   } 
   .DragText{
-      margin-left: 5px;
+      margin-left: 0px;
   }
   .SupportingText
   {
@@ -126,7 +129,6 @@
     color: white;
     border: none;
     margin-top: 15px;
-    margin-left: 30%;
     font-size: 15px;
   }
   

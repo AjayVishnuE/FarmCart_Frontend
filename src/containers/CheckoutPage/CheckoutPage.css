@@ -1,17 +1,19 @@
 .checkoutpage-overall-container{
     height: 100vh;
+    width: 100%;
     background-color: #F6F5F5;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
     align-items: center;
     
 }
 .checkout-container{
-    margin-left: 30px;
+    width:80%;
+
 }
 .addaddressbox{
     display: flex;
-    width:300px;
-    
     color: white;
     background-color: #7519EB;
     align-items: center;
@@ -31,7 +33,7 @@
     margin-top: 10px;
 }
 .container12 {
-    width:300px;
+    width:100%;
     background: white;
     border-radius: 20px;
     display: inline-flex;
@@ -39,7 +41,6 @@
     justify-content: center;
     align-items: center;
     gap: 12px;
-    padding: 10px;
     margin-top: 15px;
   }
   
@@ -50,7 +51,9 @@
     align-items: center;
   }
   
-  .title {
+  .title12 {
+    padding-top: 15px;
+    padding-left: 8px;
     width: 159.22px;
     color: #7519EB;
     font-size: 13.31px;
@@ -63,7 +66,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 11.41px;
     display: flex;
   }
   
@@ -82,45 +84,46 @@
   }
   
   .label {
-    padding-left: 10px;
-    width: 150px;
+    width: 140px;
     color: #615D5D;
     font-size: 12.36px;
     font-family: 'SF Pro Rounded';
     font-weight: 400;
     line-height: 20.91px;
-    word-wrap: break-word;
+    padding-left: 15px;
   }
   
   .value {
-    width: 150px;
+    width: 130px;
     text-align: right;
     color: #615D5D;
     font-size: 12.36px;
     font-family: 'SF Pro Rounded';
     font-weight: 400;
     line-height: 20.91px;
-    word-wrap: break-word;
   }
   
   .separator-checkout {
-    width: 318.43px;
+    width: 100%;
     height: 0;
     border: 0.95px #615D5D dotted;
   }
   
-  .totalLabel {
-    width: 159.22px;
+  .totalLabel12 {
+    width: 140px;
+    padding-left: 12px;
     color: #212529;
     font-size: 12.36px;
     font-family: 'SF Pro Rounded';
     font-weight: 700;
     line-height: 20.91px;
     word-wrap: break-word;
+    padding-bottom: 15px;
   }
+
   
   .totalValue-checkout {
-    width: 150px;
+    width: 130px;
     text-align: right;
     color: #212529;
     font-size: 13.31px;
@@ -130,10 +133,8 @@
     word-wrap: break-word;
   }
   .secondContainer {
-    width: 300px;
+    width: 100%;
     margin-top: 15px;
-    padding-left: 20.12px;
-    padding-right: 20.12px;
     padding-top: 10.06px;
     padding-bottom: 10.06px;
     background: white;
@@ -160,7 +161,7 @@
   }
   
   .secondContentContainer {
-    flex: 1 1 0;
+    width: 80%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -176,7 +177,7 @@
   }
   
   .secondDescription {
-    width: 247.43px;
+    width: 80%;
     color: #615D5D;
     font-size: 10.06px;
     font-family: 'SF Pro Rounded';
@@ -184,6 +185,7 @@
     line-height: 14.08px;
     word-wrap: break-word;
   }
+
   
   .placebtn {
     position: fixed;

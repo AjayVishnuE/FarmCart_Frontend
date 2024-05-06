@@ -1,12 +1,13 @@
-.Profile-overall-component{
+.Profile-overall-component12{
     background-color: #F6F5F5;
     height:100vh;
+    overflow-y: scroll;
+    width: 100%;
 }
 
 .profile-container{
-  width: 100%;
-  padding:0 10%;
-
+  width: 80%;
+  padding: 0 10%;
 }
 .profile-box{
     display: flex;
@@ -36,7 +37,7 @@
     margin-top: 5px;
 }
 .profile-btns12 {
-    width:80%;
+    width:100%;
     margin-top: 10px;
     height: 55px;
     justify-content: flex-start;
@@ -131,7 +132,7 @@
     height: fit-content;
     width: fit-content;
     margin-top: 15px;
-    width: 80%;
+    width: 100%;
     padding: 15px 0;
     }
   
@@ -180,6 +181,10 @@
     line-height: 10px;
 }
 
+.leftdiv{
+  width: 130px;
+}
+
 .element {
     color: #000000;
     align-items: center;
@@ -218,13 +223,14 @@
 }
 .statusframe{
     margin-left: 8%;
+    width:70px;
 }
 
 .status-wrapper{
     color:#7519EB;
-font-size: 10px;
-font-weight: 600;
-line-height: 11.4px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 11.4px;
 
 }
 .transitdiv{
@@ -321,7 +327,7 @@ line-height: 11.4px;
     line-height: normal;
     border-radius: 30px;
     background: #FF4343;
-    width: 80%;
+    width: 100%;
     margin-top: 15px;
     height: 70px;
     border: none;
