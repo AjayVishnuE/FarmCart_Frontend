@@ -3,7 +3,7 @@ import './Loader.css'; // Ensure the path to your CSS file is correct
 
 const Loader = () => {
     return (
-        <div className="container">
+        <div className="container-loader">
             <svg className="pl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="pl-grad1" x1="1" y1="0.5" x2="0" y2="0.5">

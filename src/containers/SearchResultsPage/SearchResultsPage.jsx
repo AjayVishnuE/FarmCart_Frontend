@@ -13,12 +13,14 @@ function SearchResultsPage() {
     console.log(query)
   return (
     <div className='seemore-overall-container'>
-        <div className='header2'>
-        <img className='logoimage' src={bar} alt="bars" />
+        <div className='header256'>
+          <img className='logoimage75' src={bar} alt="bars" />
+          <div className='searchbar-container-searchpage'>
             <SearchBar/>
-            <Link to = "/cart">
-                    <img className='cartimage' src={cart} alt="cart" />
-                </Link>
+          </div>
+          <Link className='cartimagecontainer32' to = "/cart">
+            <img className='cartimage' src={cart} alt="cart" />
+          </Link>
         </div>
         <h3 className='search-result'>Search Results for "{query}"</h3>
         <div className="searchresults-container">

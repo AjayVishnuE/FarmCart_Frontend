@@ -16,7 +16,7 @@ function EmptyCart(props) {
                 <h5 className='waitmsg'>Add items to your cart, we are waiting!</h5>
             
             <button className='shopbtn' type="submit" 
-         ><Link to='/dashboard'>Start Shopping</Link>
+         ><Link style={{color:"white"}} to='/dashboard'>Start Shopping</Link>
          </button>
          <Navbar/>
          </div>

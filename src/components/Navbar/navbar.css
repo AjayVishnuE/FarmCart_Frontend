@@ -2,13 +2,13 @@
     display: flex;
     align-items: center;
     justify-content:space-between;
-    height: 50px;
+    height: 60px;
     width: 80%;
     max-width: 450px;
     position: fixed;
     bottom: 0px;
     padding: 0 10%;
-    background: linear-gradient(0deg, #FFFFFF, rgba(255, 255, 255, 0));
+    background: linear-gradient(0deg, #FFFFFF, rgba(255, 255, 255, 0.335));
    
 
 }

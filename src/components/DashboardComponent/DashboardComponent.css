@@ -48,8 +48,9 @@
   .Productcompset{
     display:flex;
     overflow: scroll;
-    width: 92%;
+    width: 89%;
     padding-left: 8%;
+    padding-right: 3%;
     gap: 20px;
   }
 
