@@ -198,7 +198,7 @@ function Checkout(props) {
                 {addresses.map((item) => (
                     <div 
                         key={item.id}
-                        className={selectedAddressId === item.id ? 'AddressSelected' : 'Address'} 
+                        className={selectedAddressId === item.id ? 'AddressSelected1' : 'Address'} 
                         onClick={() => handleSelectAddress(item.id)}
                     >
                         <div className="Frame11">
@@ -219,16 +219,14 @@ function Checkout(props) {
                 ))}
     
                 <div className='dottedline2'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="338" height="2" viewBox="0 0 338 2" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="2" viewBox="0 0 338 2" fill="none">
                     <path d="M0.25 1H337.75" stroke="#7519EB" stroke-dasharray="5 5"/>
                     </svg>
                 </div>
                 
             
                 <div className="container2">
-                    <div className="titleContainer2">
-                        <div className="title2">Payment Details</div>
-                    </div>
+                    <div className="title22">Payment Details</div>
                     <div className="detailsContainer2">
                         <div className="rowContainer2">
                         <div className="row2">
@@ -268,7 +266,7 @@ function Checkout(props) {
                     </div>
                 </div>
             </div>
-            <button className='orderbtn2' onClick={handleOrderSubmit}>
+            <button className='orderbtn22' onClick={handleOrderSubmit}>
                 <img className="bagicon"src={order} alt="bagicon"></img>
                 <div className='placeorder'>Place order</div>
             </button>

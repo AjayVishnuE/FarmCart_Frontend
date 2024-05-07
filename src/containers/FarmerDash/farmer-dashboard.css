@@ -2,7 +2,10 @@
   background-image: url('../../Images/whitecommonbg.png');
   background-repeat: no-repeat;
   background-size: cover;
-  overflow-y: hidden;
+  height: 100vh;
+  width: 100%;
+  overflow  : scroll;
+  padding-bottom: 40px;
 }
 
 .overall-farmer-dashboard::-webkit-scrollbar {
@@ -10,65 +13,53 @@
 }
 .farmer-dashboard{
   height:100vh;
-  padding: 0;
+  padding: 0 10%;
   margin: 0;
-  width: 100%;
- 
+  width: 80%;
+  overflow-y: scroll;
 }
 .farmer-dashboard::-webkit-scrollbar {
   display: none; 
 }
-.username{
+.username123{
   color:#7519EB;
-  margin-left:10%;
   font-size:32px ;
 }
 .farmgoodmorni{
 margin-top:10px;
-margin-left: 10%;
 font-size:32px;
 }
-.header1{
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  width: 80%;
-  max-width: 450px;
-  padding:10% 10% 6% 10%;
-  gap:86%;
-  margin:0;
-}
+
 .dash-box{
 display: flex;
-margin-left: 10%;
+align-items: center;
+justify-content: space-between;
+gap: 6%;
 margin-top: 13px;
+width: 100%;
 }
+
 .buttonbox1{
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-width: 148px;
+width: 47%;
 height: 102px;
 border-radius: 20.127px;
 background: #FFF;
 box-shadow: 0px 20.127px 40.253px 0px rgba(57, 57, 57, 0.10);
-
-margin-right: 9px;
-
 }
 .buttonbox2{
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-width: 148px;
+width: 47%;
 height: 102px;
 border-radius: 20.127px;
 background: #FFF;
 box-shadow: 0px 20.127px 40.253px 0px rgba(57, 57, 57, 0.10);
-margin-left: 9px;
-margin-right: 9px;
 
 }
 .totalorder,.orderno{
@@ -93,13 +84,12 @@ line-height: normal;
 display: flex;
 background: #7519eb;
 border-radius: 11px;
-width: 318px;
+width: 100%;
 align-items: center;
 justify-content: center;
 height: 55px;
 position: relative;
 margin-top: 15px;
-margin-left: 10%;
 }
 
 .explorepro{
@@ -113,7 +103,6 @@ margin-left: 10px;
 .topproduct{
 color: #000;
 text-align:left;
-margin-left: 10%;
 font-size: 19.86px;
 font-style: normal;
 font-weight: 600;
@@ -123,7 +112,6 @@ margin-top: 15px;
 .Statistics{
 color: #000;
 text-align:left;
-margin-left: 10%;
 font-size: 19.86px;
 font-style: normal;
 font-weight: 600;
@@ -140,17 +128,14 @@ margin-bottom: 15px;;
 
 .topselling{
 display: flex;
-width: 259px;
-margin-left: 10%;
+width: 94%;
+padding: 20px 3% 10px 3%;
 text-align: center;
 font-family: "SF Pro Rounded";
 font-size: 14.759px;
 font-style: normal;
 font-weight: 600;
 margin-top: 20px;
-padding-top:20px;
-padding-left: 20px;
-padding-right: 10px;
 background-color: #FFF;
 justify-content: space-between;
 border-top-left-radius:20.127px ;
@@ -166,7 +151,6 @@ display: flex;
 background-color: #FFF;
 border-radius: 18px;
 width: 280px;
-margin-left: 10%;
 margin-bottom: 20px;
 padding:10px 15px;
 box-shadow: 0px 20.127px 40.253px 0px rgba(57, 57, 57, 0.10);
@@ -177,28 +161,30 @@ box-shadow: 0px 20.127px 40.253px 0px rgba(57, 57, 57, 0.10);
 }
 .Statitextout {
 margin-left: 10px;
+width: 100%;
 justify-content: flex-start;
 align-items: center;
-gap: 25px;
 display: inline-flex;
 }
 
-.Frame19995 {
+.Frame199953 {
 flex-direction: column;
 justify-content: flex-start;
 align-items: flex-start;
+width: 80%;
 gap: 2px;
 display: inline-flex;
 }
 
 .fruitname {
 opacity: 0.90;
-text-align: center;
+text-align:left;
 color: black;
 font-size: 16px;
 font-family: 'SF Pro Rounded';
 font-weight: 600;
 line-height: 12.16px;
+width: 60%;
 word-wrap: break-word;
 }
 
@@ -213,12 +199,12 @@ line-height: 8.88px;
 word-wrap: break-word;
 }
 
-.Frame19994 {
+.Frame199943 {
 flex-direction: column;
 justify-content: flex-end;
 align-items:end;
 display: flex;
-margin-left: 75px;
+width: 30%;
 }
 
 .Kg {
@@ -253,17 +239,4 @@ font-family: 'SF Pro Rounded';
 font-weight: 600;
 line-height: 10.31px;
 word-wrap: break-word;
-}
-.fnavbar-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  width: 100%;
-  max-width: 450px;
-  position:fixed;
-  bottom: 0;
-  gap:15%;
-  background: linear-gradient(0deg, #FFFFFF, rgba(255, 255, 255, 0));
-  
 }

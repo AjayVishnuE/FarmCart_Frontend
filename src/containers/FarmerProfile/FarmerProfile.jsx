@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FarmerHeader, FarmerNavbar, Header, Navbar} from '../../components';
+import { FarmerHeader, FarmerNavbar, Header, Loader, Navbar} from '../../components';
 import { Link, useNavigate } from 'react-router-dom';
 import './FarmerProfile.css';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
@@ -48,7 +48,7 @@ function FarmerProfile(props) {
         fetchData();
     }, []); 
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <Loader/>;
     if (error) return <div>Error: {error}</div>;
     if (!profileData) return <div>No profile data found</div>;
 
@@ -141,18 +141,18 @@ function FarmerProfile(props) {
                     <div  className='viewname'><Link to="/farmerorders">view all</Link></div>
                 </div>
                 {profileData.user_orders.slice(0, 1).map((item,index)=>
-                    <div className="order-box-1-profile">
+                    <div className="order-box-1-profile12">
                         {item.custom_order_details.map((orderitem,index)=>
-                            <div className='order-box-1-item-profile'>
+                            <div className='order-box-1-item'>
                                 <div className='order-left'>
                                         <img className='order1-pic' src={API_ENDPOINTS.media + orderitem.product_details.product_image} alt="lemonpic"></img>
                                 </div>
                                 <div className='order-right'>
-                                    <div className="leftdiv-profile">
+                                    <div className="leftdiv12">
                                         <div className="text-wrapper">{orderitem.product_details.product_name}</div>
                                         <div className="text-wrapper-2">INR {orderitem.product_details.price}</div>
                                     </div>
-                                    <div className="element-wrapperprofile">
+                                    <div className="element-wrapper">
                                         <p className="element">
                                         <span className="span">{orderitem.quantity}</span>
                                         <span className="text-wrapper-3">kg</span>
@@ -171,17 +171,17 @@ function FarmerProfile(props) {
                             <div className="rowContainerpro">
                                 <div className="rowpro">
                                     <div className="labelpro">Order Price</div>
-                                    <div className="pricevalueprofile">₹ {item.total_price-20}</div>
+                                    <div className="pricevaluepro">₹ {item.total_price-20}</div>
                                 </div>
                                 <div className="rowpro">
                                     <div className="labelpro">Packing Charges</div>
-                                    <div className="packvalueprofile">₹ 20.00</div>
+                                    <div className="packvaluepro">₹ 20.00</div>
                                 </div>
                             </div>
-                            <div className="separator-profile"></div>
+                            <div className="separator"></div>
                             <div className="row">
                                 <div className="totalLabel">Total Amount</div>
-                                <div className="totalValueprofile">₹ {item.total_price}</div>
+                                <div className="totalValue">₹ {item.total_price}</div>
                             </div>
                         </div>
                     </div>

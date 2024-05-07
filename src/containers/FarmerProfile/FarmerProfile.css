@@ -1,17 +1,21 @@
 .Profile-overall-component{
     background-color: #F6F5F5;
-    height:103vh;
+    height:100vh;
+    width: 100%;
+    padding-bottom: 50px;
     overflow-y: scroll;
 }
 .Profile-overall-component::-webkit-scrollbar {
   display: none; 
 }
-
+.profile-container-farmer{
+  width: 80%;
+  padding: 0 10%;
+}
 .profile-box-farmer{
     display: flex;
     align-items: center;
     justify-content: left;
-    padding-left: 10%;
     gap:25px;
 }
 
@@ -36,10 +40,9 @@
     margin-top: 5px;
 }
 .profile-btns {
-    width: 319px;
+    width: 100%px;
     height: 55px;
     margin-top: 15px;
-    margin-left: 8%;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 7px;
@@ -83,25 +86,10 @@
     
   }
   
-  .Wishlist,
-  .Orders {
-    color: #222222;
-    font-size: 16px;
-    font-family: 'SF Pro Rounded';
-    font-weight: 500;
-    word-wrap: break-word;
-  }
-  .explorebtncontainer{
-    width:80%;
-    margin: 10px 10%;
-    display: flex;
-    gap:10%;
-  }
-
   .explorebtn1{
-    margin: 0 10%;
-    width: 80%;
+    width: 100%;
     height: 50px;
+    margin-top: 10px;
     border-radius: 15px;
     display: flex;
     background: #7519eb;
@@ -130,45 +118,35 @@
 }
 
 .farmerseccontainer{
-  margin: 15px;
   display: flex;
   flex-direction: column;
-  
+  margin: 10px 0;
   justify-content: center;
   gap: 15px;
 }
 
 .farmdetailsbtn{
-   background-color: rgb(213, 210, 210);
-  padding: 10px 30px;
+  background-color: rgb(213, 210, 210);
   border-radius: 11px;
-  width: 70%;
-  margin-left:25px;
+  padding: 10px 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; 
-
-
-  
- 
- 
 }
 
 .recentorderviewallcontainer{
     display: flex;
     justify-content: space-between;
-    margin-right: 10%;
     align-items:end;
 }
 
 .recent-order{
     color: #201f20;
     margin-top: 15px;
-    margin-left: 12%;
     font-size: 19.9px;
     font-weight: 500;
-
     line-height: 20px;
 
 }
@@ -212,8 +190,10 @@
     position: relative;
 }
 
-.leftdiv-profile{
+.leftdiv12{
     align-items: flex-start;
+    width: 130px;
+    margin: 0 0 0 10px;
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -385,8 +365,7 @@ line-height: 11.4px;
     line-height: normal;
     border-radius: 30px;
     background: #FF4343;
-    width: 80%;
-    margin-left: 10%;
+    width: 100%;
     margin-top: 15px;
     height: 70px;
     border: none;
@@ -435,7 +414,8 @@ line-height: 11.4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin:0 10%;
+    width: 100%;
+    margin:0;
     gap:8%;
 }
 

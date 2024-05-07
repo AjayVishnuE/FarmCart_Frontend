@@ -101,7 +101,7 @@ function Addproduct(props) {
                 <span className='addlabel'>Product Image</span>
                 <div className="FileUploadBase-Addpro">
                     <input type="file" onChange={handleImageChange} accept="image/*" style={{ display: 'none' }} id="productImageUpload" />
-                    <label htmlFor="productImageUpload" className="Content"> 
+                    <label htmlFor="productImageUpload" className="Content4"> 
                     {productImagePreview ? (
                             <img className='imagepreview12' src={productImagePreview} alt="Product Preview" />
                         ) : (
@@ -126,27 +126,27 @@ function Addproduct(props) {
                     </label>
                 </div>
                 <div className='addproductInfoItem'>
-                    <label className='addlabel'>Product name</label>
-                    <input className='addvalue' value={productName} onChange={handleProductNameChange} type='text' placeholder='Kashmir Apple' />
+                    <label className='addlabel34'>Product name</label>
+                    <input className='addvalue83' value={productName} onChange={handleProductNameChange} type='text' placeholder='Kashmir Apple' />
                 </div>
                 <div className='addproductInfoItem'>
-                    <label className='addlabel'>Price (per kg in Rs.)</label>
-                    <input className='addvalue' value={price} onChange={handlePriceChange} type='text'placeholder='₹ 250/-' />
+                    <label className='addlabel34'>Price (per kg in Rs.)</label>
+                    <input className='addvalue83' value={price} onChange={handlePriceChange} type='text'placeholder='₹ 250/-' />
                 </div>
                 <div className='addproductInfoItem'>
-                    <label className='addlabel'>Quantity Available</label>
-                    <input className='addvalue' value={quantity} onChange={handleQuantityChange} type='text' placeholder='80 kgs'/>
+                    <label className='addlabel34'>Quantity Available</label>
+                    <input className='addvalue83' value={quantity} onChange={handleQuantityChange} type='text' placeholder='80 kgs'/>
                 </div>
                 <div className='addproductInfoItem'>
-                    <label className='addlabel'>Product Description</label>
-                    <input className='addvalue' value={productDescription} onChange={handleProductDescriptionChange} type='text' placeholder='The pomegranate is a fruit-bearing deci....' />
+                    <label className='addlabel34'>Product Description</label>
+                    <input className='addvalue83' value={productDescription} onChange={handleProductDescriptionChange} type='text' placeholder='The pomegranate is a fruit-bearing deci....' />
                 </div>
                 {/* <div className='addproductInfoItem'>
                     <label className='addlabel'>Farm Details</label>
                     <input className='addvalue' type='text' placeholder='ARN Fruits and Vegetables' />
                 </div> */}
                 <div className='addproductInfoItem'>
-                    <label className='addlabel'>Product Type</label>
+                    <label className='addlabel34'>Product Type</label>
                     <select className='addvalue select' onChange={handleProductTypeChange} id="product_type" name="type">
                         <option className='optionaddproduct' value="Fruits">Fruits</option>
                         <option value="Vegetables">Vegetables</option>

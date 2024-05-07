@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React , { useState, useEffect } from 'react';
 import './FarmerNotification.css';
-import { FarmerHeader, FarmerNavbar} from '../../components';
+import { FarmerHeader, FarmerNavbar, Loader} from '../../components';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 import { Link } from 'react-router-dom';
 import cart from '../../Images/shopping-cart.svg';
@@ -11,6 +11,7 @@ function FarmerNotification(props) {
 
     const [notifications, setNotifications] = useState([]);
     const [isHidden, setIsHidden] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchNotifications = async () => {
@@ -22,12 +23,14 @@ function FarmerNotification(props) {
                 setNotifications(response.data);
             } catch (error) {
                 console.error('Error fetching notifications:', error);
+            }finally {
+                setLoading(false);
             }
         };
 
         fetchNotifications();
     }, []);
-
+    if (loading) return <Loader/>;
     const handleClearClick = async () => {
         const accessToken = localStorage.getItem('accessToken');
         try {

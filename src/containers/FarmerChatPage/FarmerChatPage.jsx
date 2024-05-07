@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 import './ChatPage.css';
@@ -19,6 +19,31 @@ function ChatPage() {
   const handleQueryChange = (e) => {
     setQuery(e.target.value);
   };
+
+  const animateText = (text, index) => {
+    let animatedText = '';
+    let i = 0;
+    const intervalId = setInterval(() => {
+      if (i < text.length) {
+        animatedText += text.charAt(i);
+        setResponses(responses => {
+          const newResponses = [...responses];
+          newResponses[index] = { ...newResponses[index], animatedResponse: animatedText };
+          return newResponses;
+        });
+        i++;
+      } else {
+        clearInterval(intervalId);
+      }
+    }, 25); 
+  };
+  
+  useEffect(() => {
+    if (responses.length > 0) {
+      animateText(responses[responses.length - 1].response, responses.length - 1);
+    }
+  }, [responses.length]);
+
 
   const handleQuerySubmit = async (e) => {
     e.preventDefault();
@@ -75,7 +100,7 @@ function ChatPage() {
                   <img src={bot} alt="logo"></img>
                 </div>
                 <div className='msg-bubble'>
-                  <p className="msg-text"> {item.response}</p>
+                  <p className="msg-text"> {item.animatedResponse || ''}</p>
                 </div>
               </div>
             </div>

@@ -103,30 +103,30 @@ function AddressPage(props) {
             <Header/>
             <form className='addressInfoContainer' onSubmit={handleSubmit}>
                 <div className='addressInfoItem'>
-                    <label className='addlabel'>Address Type</label>
-                    <select className='addvalue' value={addressType} onChange={e => setAddressType(e.target.value)}>
-                        <option value='Home'>Home Address</option>
-                        <option value='Office'>Office Address</option>
-                        <option value='Other'>Other</option>
+                    <label className='addlabeladdress'>Address Type</label><br/>
+                    <select className='addvalueaddress12' value={addressType} onChange={e => setAddressType(e.target.value)}>
+                        <option className="addvalueaddress12option" value='Home'>Home Address</option>
+                        <option className="addvalueaddress12option" value='Office'>Office Address</option>
+                        <option className="addvalueaddress12option" value='Other'>Other</option>
                     </select>
                 </div>
                 <div className='addressInfoItem'>
-                    <label className='addlabel'>Name</label>
-                    <input className='addvalue' type='text' value={name} onChange={e => setName(e.target.value)} />
+                    <label style={{paddingBottom:"20px"}} className='addlabeladdress'>Name</label>
+                    <input className='addvalueaddress' type='text' value={name} onChange={e => setName(e.target.value)} />
                 </div>
                 <div className='addressInfoItem'>
-                    <label className='addlabel'>Address</label>
-                    <input className='addvalue' type='text' value={address} onChange={e => setAddress(e.target.value)} />
+                    <label className='addlabeladdress'>Address</label>
+                    <input className='addvalueaddress' type='text' value={address} onChange={e => setAddress(e.target.value)} />
                 </div>
                 <div className='addressInfoItem'>
-                    <label className='addlabel'>Pincode</label>
-                    <input className='addvalue' type='text' value={pincode} onChange={e => setPincode(e.target.value)} />
+                    <label className='addlabeladdress'>Pincode</label>
+                    <input className='addvalueaddress' type='text' value={pincode} onChange={e => setPincode(e.target.value)} />
                 </div>
                 <div className='addressInfoItem'>
-                    <label className='addlabel'>Phone Number</label>
-                    <input className='addvalue' type='text' value={phonenumber} onChange={e => setPhonenumber(e.target.value)} />
+                    <label className='addlabeladdress'>Phone Number</label>
+                    <input className='addvalueaddress' type='text' value={phonenumber} onChange={e => setPhonenumber(e.target.value)} />
                 </div>
-                <button className='orderbtn' type="submit">
+                <button className='orderbtn36' type="submit">
                     Continue
                 </button>
             </form>

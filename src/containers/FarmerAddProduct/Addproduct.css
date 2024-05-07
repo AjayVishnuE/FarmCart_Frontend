@@ -1,7 +1,8 @@
 .addproduct-overall-container{
-  overflow-y: hidden;
+  overflow-y: scroll;
   background-color: #F6F5F5;
- 
+  width: 100%;
+  padding-bottom: 70px;
 }
 
 .imagepreview12{
@@ -14,17 +15,18 @@
   display: none; 
 }
 .addproductInfoContainer {
-  width: 100%;
-  height: 103vh;
+  width: 80%;
+  padding: 0 10%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: start;
   max-width: 450px;
-  justify-content: flex-start;
+  justify-content: start;
    
 }
 .addproductInfoItem{
   margin-bottom: 15px;
+  width: 100%;
 }
 .addvalue:focus {
   border-color: #A0A5BA; 
@@ -32,30 +34,33 @@
 .addvalue::placeholder {
   color: #A0A5BA;
 }
-.addlabel {
+.addlabel34 {
   word-wrap: 'break-word';
   color: #32343E;;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin: 10px 0 0 8%;
 }
 
 
-.addvalue {
-  width: 325px;
+.addvalue83 {
+  margin: 10px 0 0 0 ;
+  width: 100%;
   height: 50px;
   font-size: 16px; 
   border: none;
   border-radius: 10px;
   background-color: #FFF;
-  margin: 10px 0 15px 8%;
-  padding-left: 5%;
-
+  text-indent: 5%;
 }
 .addvalue.select {
-  width: 350px;
+  margin: 10px 0 0 0 ;
+  width: 100%;
+  height: 50px;
+  text-indent: 5%;
+  border-radius: 10px;
+
 }
 .addvalue::placeholder {
   color: #A0A5BA; /* Change placeholder text color */
@@ -63,30 +68,24 @@
 }
 .addvalue option {
   color: #A0A5BA; 
-  padding: 5%; 
 }
   
 .addproductbtn {
-  margin-bottom: 50px;
   color: #FFF;
   font-size: 15.448px;
   font-style: normal;
   font-weight: 600;
-  margin-left: 40px;
   border-radius: 30px;
   background: #7519EB;
-  width: 80%;
+  width: 100%;
   height: 70px;
   border: none;
   margin-top: 20px;
-  
-  bottom: 150px;
 }
 
 .FileUploadBase-Addpro{
-  width: 300px;
-  
-  padding: 20px;
+  margin: 10px 0  ;
+  width: 100%;
   background: white;
   border-radius: 6.57px;
   display: flex;
@@ -94,13 +93,11 @@
   justify-content: center;
   align-items: center;
   gap: 2.19px;
-  margin-left: 8%;
-  margin: 10px 0 15px 8%;
 }
 
-.Content {
+.Content4 {
   align-items: center;
-  height: 61.70px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -138,5 +135,4 @@
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
-
 }

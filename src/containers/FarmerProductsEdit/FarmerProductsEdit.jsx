@@ -4,12 +4,12 @@ import { useParams, useNavigate} from "react-router-dom";
 
 import './FarmerProductsEdit.css';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
-import { FarmerHeader, FarmerNavbar } from '../../components';
+import { FarmerHeader, FarmerNavbar, Loader } from '../../components';
 
 
 function FarmerProductsEdit() {
     const { product_id } = useParams();
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [productData, setProductData] = useState({
         product_name: '',
@@ -17,7 +17,8 @@ function FarmerProductsEdit() {
         quantity: '',
         product_description: '',
         product_type: '',
-        product_image: '' 
+        product_image: '',
+        product_image_preview: '' // Holds the URL for the image preview
     });
     const navigate = useNavigate();
 
@@ -25,81 +26,97 @@ function FarmerProductsEdit() {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`${API_ENDPOINTS.product}/product-details/${product_id}`);
-                setProductData(response.data);
+                setProductData({
+                    ...response.data,
+                    product_image_preview: `${API_ENDPOINTS.media}${response.data.product_image}`
+                });
             } catch (error) {
                 console.error('Error fetching product data:', error);
+                setError('Error fetching product data');
             }
+            setLoading(false);
         };
         fetchData();
-        setLoading(false);
-    }, []);
+    }, [product_id]);
+
+    const handleImageChange = async (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const formData = new FormData();
+            formData.append('image_file', file);
+            formData.append('size', 'auto');
+    
+            try {
+                const response = await axios({
+                    method: 'post',
+                    url: 'https://api.remove.bg/v1.0/removebg',
+                    data: formData,
+                    responseType: 'blob',
+                    headers: {
+                        'X-Api-Key': 'DcNc7BVMLrEy9kF6CNt5Rdtb',
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+                const blob = new Blob([response.data], { type: 'image/png' });
+                const imageFile = new File([blob], "product_image.png", { type: 'image/png' }); // Creating File object
+                const imageUrl = URL.createObjectURL(imageFile);
+                setProductData({
+                    ...productData,
+                    product_image: imageFile, // Saving File object
+                    product_image_preview: imageUrl
+                });
+            } catch (error) {
+                console.error('Failed to remove background:', error);
+            }
+        }
+    };    
+    
+    const handleInputChange = (event) => {
+        const { name, type, value, files } = event.target;
+        if (type === 'file') {
+            handleImageChange(event);
+        } else {
+            setProductData({
+                ...productData,
+                [name]: value
+            });
+        }
+    };
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-    
         const formData = new FormData();
     
+        // Iterate over productData to append form fields
         Object.entries(productData).forEach(([key, value]) => {
-            if (key !== 'product_image') {
+            if (key === 'product_image') {
+                // Append image only if it's a File object
+                if (value instanceof File) {
+                    formData.append(key, value, value.name);
+                }
+            } else if (key !== 'product_image_preview') {
+                // Append other data fields normally
                 formData.append(key, value);
             }
         });
-    
-        if (productData.product_image instanceof File) {
-            formData.append('product_image', productData.product_image);
-        }
     
         try {
             const accessToken = localStorage.getItem('accessToken');
             const config = {
                 headers: {
                     'Authorization': `Bearer ${accessToken}`,
-                    'Content-Type': 'multipart/form-data',  
                 },
             };
-            const response = await axios.patch(`${API_ENDPOINTS.product}/seller-crud/${product_id}/`, formData, config);
-            console.log('Product updated:', response.data);
+            await axios.patch(`${API_ENDPOINTS.product}/seller-crud/${product_id}/`, formData, config);
+            navigate(`/farmerexpand/${product_id}`);
         } catch (error) {
             console.error('Error updating product:', error.response ? error.response.data : error);
         }
-        navigate(`/farmerexpand/${product_id}`)
     };
-    
-    
-    const handleInputChange = (event) => {
-        const { name, type } = event.target;
-        if (type === "file") {
-            const file = event.target.files[0];
-            setProductData({
-                ...productData,
-                [name]: file
-            });
-            if (file) {
-                setProductData(prevData => ({
-                    ...prevData,
-                    product_image_preview: URL.createObjectURL(file)
-                }));
-            }
-        } else {
-            setProductData({
-                ...productData,
-                [name]: event.target.value
-            });
-        }
-    };
-    
 
-    if (loading) {
-        return <div className=''>Loading.....</div>;
-    }
-    
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
-    
-    if (!productData) {
-        return <div>Product not found.</div>;
-    }
+    if (loading) return <Loader/>;
+    if (error) return <div>Error: {error}</div>;
+
     return (
         <div className='edit-overall'>
             <FarmerHeader/>
@@ -139,7 +156,7 @@ function FarmerProductsEdit() {
                         <option value="Exotic">Exotic</option>
                     </select>
                 </div>
-                <button className='editproductbtn' type="submit">
+                <button className='editproductbtn34' type="submit">
                     Update Product
                 </button>
         </form>

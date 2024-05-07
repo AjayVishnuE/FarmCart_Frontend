@@ -1,14 +1,22 @@
 
 .checkout-overall-container{
     height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
     background-color: #F6F5F5;
     justify-content: center;
     align-items: center;
     
-}.Address {
-    width: 280px;
+}
+.checkout-container{
+  padding: 0 10%;
+  width: 80%;
+}
+
+.Address {
+    width: 90%;
     margin-top: 8px;
-    padding: 20px;
+    padding: 5%;
     background: white;
     border-radius: 20px;
     border: 1px solid #EBEBEB;
@@ -19,10 +27,10 @@
     display: inline-flex;
   }
   
-  .AddressSelected {
-    width: 280px;
+  .AddressSelected1 {
+    width: 90%;
+    padding: 5%;
     margin-top: 8px;
-    padding: 20px;
     background: #F5EDFF;
     border-radius: 20px;
     border: 1px solid #7519EB;
@@ -132,11 +140,10 @@
 
   .dottedline2{
       
-      margin-bottom: 5px;
+      margin-bottom: 10px;
   }
   .container2 {
-      width:300px;
-      padding: 19.01px;
+      width: 100%;
       background: white;
       border-radius: 20px;
       display: inline-flex;
@@ -144,23 +151,15 @@
       justify-content: center;
       align-items: center;
       gap: 10px;
-      
-    }
+      padding: 10px 0;
+  }
     
-    .titleContainer2 {
-      width: 314px;
-      display: inline-flex;
-      justify-content: flex-start;
-      align-items: center;
-    }
-    
-    .title2 {
-      width: 159.22px;
+    .title22{
       color: #7519EB;
       font-size: 13.31px;
       font-family: 'SF Pro Rounded';
       font-weight: 700;
-      word-wrap: break-word;
+      text-align: left;
     }
     
     .detailsContainer2 {
@@ -186,17 +185,18 @@
     }
     
     .label2 {
-      width: 159.22px;
+      width: 140px;
       color: #615D5D;
       font-size: 12.36px;
       font-family: 'SF Pro Rounded';
       font-weight: 400;
       line-height: 20.91px;
       word-wrap: break-word;
+      margin-left: 10px;
     }
     
     .value2 {
-      width: 159.22px;
+      width: 130px;
       text-align: right;
       color: #615D5D;
       font-size: 12.36px;
@@ -207,23 +207,24 @@
     }
     
     .separator2 {
-      width: 318.43px;
+      width: 100%;
       height: 0;
       border: 0.95px #615D5D dotted;
     }
     
     .totalLabel2 {
-      width: 159.22px;
+      width: 140px;
       color: #212529;
       font-size: 12.36px;
       font-family: 'SF Pro Rounded';
       font-weight: 700;
+      margin-left: 10px;
       line-height: 20.91px;
       word-wrap: break-word;
     }
     
     .totalValue2 {
-      width: 159.22px;
+      width: 130px;
       text-align: right;
       color: #212529;
       font-size: 13.31px;
@@ -233,12 +234,9 @@
       word-wrap: break-word;
     }
     .secondContainer2 {
-      width: 300px;
-      margin-top: 10px;
-      padding-left: 20.12px;
-      padding-right: 20.12px;
-      padding-top: 10.06px;
-      padding-bottom: 10.06px;
+      width: 80%;
+      margin-top: 20px;
+      padding: 15px 10%;
       background: white;
       border-radius: 15px;
       display: inline-flex;
@@ -288,15 +286,14 @@
       word-wrap: break-word;
     }
     
-    .orderbtn2 {
+    .orderbtn22 {
       display: flex;
-      margin-top: 25px;
       bottom: 100px; 
       color: #FFF;
       font-size: 15.448px;
       font-style: normal;
       font-weight: 600;
-      margin-left: 40px;
+      margin:20px 10%;
       border-radius: 30px;
       background:#0BCE83;
       width: 80%;

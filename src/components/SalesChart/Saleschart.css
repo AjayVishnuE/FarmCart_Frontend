@@ -1,15 +1,13 @@
 
 .chart{
     display: flex;
-    
-    margin-left: 10%;
 }
 .recharts-wrapper{
     border-top-left-radius:0 ;
     border-top-right-radius: 0;
     border-bottom-right-radius:20.127px;
     border-bottom-left-radius: 20.127px;
-   
+    width: 100%;
     background: #FFF;
     box-shadow: 0px 20.127px 40.253px 0px rgba(57, 57, 57, 0.10);
     padding:5%

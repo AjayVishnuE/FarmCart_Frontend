@@ -1,7 +1,8 @@
 .edit-overall{
+  overflow-y: scroll;
   background-color: #F6F5F5;
-  overflow-y: hidden;
-  
+  width: 100%;
+  height: 100vh;
 }
 .edit-overall::-webkit-scrollbar {
   display: none; 
@@ -11,20 +12,18 @@
     background-color: #F6F5F5;
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
-    height: 100vh;
-   
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
   }
-  .editproductInfoContainer {
-    width: 100%;
-    height: 100%;
+  .editProductFormContainer {
+    width: 80%;
+    padding: 0 10%;
     display: flex;
     flex-direction: column;
-   
+    align-items: start;
     max-width: 450px;
-   
-     
+    justify-content: start;
   }
 
   .product-image-edit{
@@ -33,8 +32,9 @@
     object-fit: cover;
   }
 
-  .editproductInfoItem{
+  .editProductFormItem{
     margin-bottom: 15px;
+    width: 100%;
   }
   .editvalue:focus {
     border-color: #A0A5BA; /* Change the border color when input is focused */
@@ -49,36 +49,37 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin: 10px 0 0 8%;
+    width: 100%;
   }
   
-  
   .editvalue {
-    width: 325px;
+    width: 100%;
     height: 50px;
     font-size: 16px; 
     border: none;
     border-radius: 10px;
     background-color: #FFF;
-    margin: 10px 0 15px 8%;
-    padding-left: 5%;
-  
+    text-indent: 5%;
   }
   .editvalue::placeholder {
     color: #A0A5BA; /* Change placeholder text color */
     
   }
   .editvalue option {
-    color: #A0A5BA; /* Example font color */
-    padding: 5%; /* Example padding */
+    color: #A0A5BA;
+    width: 100%; /* Example font color */
+    padding:0; /* Example padding */
   }
   .editvalue.select {
-    width: 350px;
+    width: 100%;
   }
-  
+  .product-image-edit-label{
+    width: 100%;
+    text-align: center;
+    margin: auto;
+  }
   .FileUploadBase {
-    width: 200px;
-    padding: 20px;
+    width: 100%;
     background: white;
     border-radius: 6.57px;
     display: flex;
@@ -86,8 +87,6 @@
     justify-content: center;
     align-items: center;
     gap: 2.19px;
-   
-    margin: 10px 0 15px 25%;
   }
   
   .Content {
@@ -132,16 +131,14 @@
     font-weight: 400;
   }
 
-  .editproductbtn{
+  .editproductbtn34{
     background-color: blueviolet;
-    padding: 15px 30px;
-    width: fit-content;
+    width: 100%;
+    padding: 25px 30px;
     border-radius: 15px;
     color: white;
     border: none;
     font-size: 15.448px;
-    margin-left: 35%;
     margin-top: 20px;
-    bottom: 150px; 
   }
   

@@ -1,23 +1,31 @@
-.header1{
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    width: 80%;
-    max-width: 450px;
-    padding:10% 10% 6% 10%;
-    gap:86%;
-    margin:0;
-  }
-  .images1{
-    width:7%;
-    height: 30px;
-    object-fit: contain;
-    margin:0;
-  }
-  
-  .logoimage{
-    width:25%;
-    height: 45px;
-    object-fit: contain;
-    margin:0;
-  }
+.header156{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  width: 80%;
+  padding: 30px 10% 20px 10%;
+  max-width: 450px;
+  margin:0;
+}
+
+.notiimagecontainer{
+width:50px;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
+} 
+
+.notiimage{
+width:30px;
+height: 30px;
+object-fit: cover;
+margin:0;
+}
+
+.logoimagelogo3{
+width:50px;
+height: 50px;
+object-fit: cover;
+margin:0;
+}

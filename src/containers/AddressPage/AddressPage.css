@@ -1,7 +1,9 @@
 .address-overall-container{
   background-color: #F6F5F5;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
     
 }
 .address-overall-container::-webkit-scrollbar {
@@ -9,64 +11,60 @@
 }
 .addressInfoContainer {
     height: 100vh;
-    
-    width: 100%;
-  
+    width: 80%;
+    padding: 0 10%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     max-width: 450px;
     justify-content: flex-start;
     overflow-y: hidden;
-   
+    gap:15px;
   }
   .addressInfoItem{
-    margin-bottom: 15px;
+    width: 100%;
   }
   .addvalue:focus {
     border-color: #A0A5BA; /* Change the border color when input is focused */
   }
   
-  .addlabel {
-    
+  .addlabeladdress {
     color: #32343E;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin: 10px 0 0 8%;
   }
   
   
-  .addvalue {
-    width: 325px;
+  .addvalueaddress {
+    margin-top: 10px;
+    width: 100%;
     height: 50px;
     border: none;
     border-radius: 10px;
     background-color: #FFF;
-    margin: 10px 0 15px 8%;
-    padding-left: 5%;
 
   }
-  .addvalue::placeholder {
-    color: #A0A5BA; /* Change placeholder text color */
-    
+
+  .addvalueaddress12{
+    width:100%;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 10px;
+
   }
-  .addvalue option {
-    color: #A0A5BA; /* Example font color */
-    padding: 5%; /* Example padding */
-  }
+
+
     
-  .orderbtn {
-  position: fixed;
-    bottom: 100px; 
+  .orderbtn36 {
+    margin-top: 20px;
     color: #FFF;
     font-size: 15.448px;
     font-style: normal;
     font-weight: 600;
-    margin-left: 40px;
     border-radius: 30px;
     background: #7519EB;
-    width: 80%;
+    width: 100%;
     height: 70px;
     border: none;}

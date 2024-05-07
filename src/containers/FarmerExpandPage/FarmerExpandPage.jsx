@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FarmerHeader, FarmerNavbar} from '../../components';
+import { FarmerHeader, FarmerNavbar, Loader} from '../../components';
 import './Farmerexpandpage.css';
 import { Rating } from 'react-simple-star-rating';
 import bar from "../../Images/Bar.png";
@@ -77,7 +77,7 @@ function FarmerExpandPage() {
     }, [product_id]);
     console.log(productDetails)
     if (loading) {
-        return <div className=''>Loading.....</div>;
+        return <Loader/>;
     }
     
     if (error) {

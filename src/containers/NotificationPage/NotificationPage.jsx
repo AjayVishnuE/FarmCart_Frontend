@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Navbar, Header } from '../../components';
+import { Navbar, Header, Loader } from '../../components';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 import './NotificationPage.css';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 function NotificationPage(props) {
     const [notifications, setNotifications] = useState([]);
     const [isHidden, setIsHidden] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchNotifications = async () => {
@@ -19,6 +20,8 @@ function NotificationPage(props) {
                 setNotifications(response.data);
             } catch (error) {
                 console.error('Error fetching notifications:', error);
+            }finally {
+                setLoading(false);
             }
         };
 
@@ -36,7 +39,7 @@ function NotificationPage(props) {
             console.error('Error clearing notifications:', error);
         }
     };
-
+    if (loading) return <Loader/>;
     return (
         <div className='notification-overall-container'>
             <Header />

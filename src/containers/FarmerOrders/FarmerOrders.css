@@ -1,25 +1,26 @@
 .order-overall-container{
-    background-color: #F6F5F5;
-   
-    overflow-y: scroll;
-
+  background-color: #F6F5F5;
+  width:100%;
+  overflow-y: scroll;
+  height: 100vh;
 }
 .order-overall-container::-webkit-scrollbar {
   display: none; 
 }
 .order-container{
- 
+ width: 80%;
+ padding: 0 10% 0 10%;
+ overflow-y: scroll;
+ height: 100vh;
 }
-.orderstitle{
-    margin-left: 8%;
-    color: #000;
-
-font-family: "SF Pro Rounded";
-font-size: 19.862px;
-font-style: normal;
-font-weight: 700;
-line-height: 26.483px; /* 133.333% */
-letter-spacing: -0.662px;
+.orderstitle123{
+  color: #000;
+  font-family: "SF Pro Rounded";
+  font-size: 19.862px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26.483px; /* 133.333% */
+  letter-spacing: -0.662px;
 }
 .order-box-1 {
   display: flex;
@@ -31,9 +32,6 @@ letter-spacing: -0.662px;
   height: fit-content;
   width: fit-content;
   margin-top: 15px;
-  margin-left: 10%;
-  
-  padding: 20px 50px 20px 20px;
   }
   .order-box-1:last-child {
    margin-bottom: 100px;
