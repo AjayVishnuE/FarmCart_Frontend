@@ -12,7 +12,7 @@ function FarmerAddDetails() {
   const [farmerRating, setFarmerRating] = useState(0);
   const [hasDetails, setHasDetails] = useState(false);
   const navigate = useNavigate();
-
+  const accessToken = localStorage.getItem('accessToken');
 
   useEffect(() => {
       const fetchData = async () => {
@@ -63,6 +63,19 @@ function FarmerAddDetails() {
               setHasDetails(true);
           }
           console.log('Success:', response.data);
+
+          const notifyUrl = `${API_ENDPOINTS.notification}getpost/`;
+          const notifyData = {
+            title: "Farm Details Added/ Edited",
+            message:"Your Farm Details Has been Updated successfully",
+            redirect: "/farmeradddetails",
+    
+          };
+    
+          await axios.post(notifyUrl, notifyData, {
+            headers: { Authorization: `Bearer ${accessToken}` }
+          });
+
           navigate("/farmerprofile")
       } catch (error) {
           console.error('Error submitting farmer details:', error);
@@ -71,12 +84,12 @@ function FarmerAddDetails() {
   return (
     <div className='adddetailsoverallcontainer'>
         <FarmerHeader/>
-        <form onSubmit={handleSubmit}>
-            <div className='addproductInfoItem'>
-                <label className='addlabel'>Enter FarmName</label>
-                <input className='addvalue' id="farms" value={farms} onChange={e => setFarms(e.target.value)} type='text'/>
-                <label className='addlabel'>Enter Address</label>
-                <input className='addvalue' placeholder="address"/>
+        <form className='addproductinfocontainer' onSubmit={handleSubmit}>
+            <div className='addproductInfoItem46'>
+                <label className='addlabel'>Enter FarmName</label><br/>
+                <input className='addvalue47' id="farms" value={farms} onChange={e => setFarms(e.target.value)} type='text'/><br/>
+                <label className='addlabel'>Enter Address</label><br/>
+                <input className='addvalue47' placeholder="address"/>
             </div>
             <button className='addproductbtn' type="submit">
                 Add/Edit Farm

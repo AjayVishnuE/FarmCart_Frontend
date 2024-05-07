@@ -18,6 +18,7 @@ function Checkout(props) {
     const [overallTotalPrice, setOverallTotalPrice] = useState(0);
     const accessToken = localStorage.getItem('accessToken'); 
     const navigate = useNavigate();
+    const [buttonActive, setButtonActive] = useState(false);
 
     useEffect(() => {
         fetchAddresses();
@@ -104,6 +105,7 @@ function Checkout(props) {
             alert("Please select an address before placing your order.");
             return;
         }
+        setButtonActive(true);
     
         try {
             const cartResponse = await fetch(`${API_ENDPOINTS.cart}/cart-crud/`, {
@@ -266,7 +268,7 @@ function Checkout(props) {
                     </div>
                 </div>
             </div>
-            <button className='orderbtn22' onClick={handleOrderSubmit}>
+            <button className={`orderbtn22 ${buttonActive ? 'orderbtn22-active' : ''}`} onClick={handleOrderSubmit}>
                 <img className="bagicon"src={order} alt="bagicon"></img>
                 <div className='placeorder'>Place order</div>
             </button>

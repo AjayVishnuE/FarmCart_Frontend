@@ -78,7 +78,7 @@ function Expandpage() {
     };
 
     if (loading) return <Loader/>;
-    if (error) return <div>Error: {error}</div>;
+    if (error) return <div>Error: The farmer is not yet verified. This product will be available soon.</div>;
     if (!productDetails) return <div>Product not found.</div>;
 
     const productImageUrl = `${API_ENDPOINTS.media}${productDetails.product_image}`;

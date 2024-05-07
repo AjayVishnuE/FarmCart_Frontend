@@ -303,7 +303,9 @@
       justify-content: center;
   
     }
-    
+    .orderbtn22-active {
+      background-color: #11d518c6;
+    }
     .bagicon{
         
         padding-right: 3%;

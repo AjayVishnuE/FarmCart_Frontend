@@ -2,7 +2,6 @@
     background-color: #F6F5F5;
     height:100vh;
     width: 100%;
-    padding-bottom: 50px;
     overflow-y: scroll;
 }
 .Profile-overall-component::-webkit-scrollbar {
@@ -128,7 +127,7 @@
 .farmdetailsbtn{
   background-color: rgb(213, 210, 210);
   border-radius: 11px;
-  padding: 10px 0;
+  padding: 16px 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -150,8 +149,9 @@
     line-height: 20px;
 
 }
-.viewname{
-  color:#7519eb;
+.viewname45{
+  text-decoration: none;
+  color:#7519EB;
   margin-right: 3%;
 }
 

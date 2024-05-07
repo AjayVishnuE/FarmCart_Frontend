@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { IntroPage, LoadingPage, SignupPage,LocationPage, LoginPage, Dashboard, Seemore, SearchPage, Expandpage, CartPage,CheckoutPage, AddressPage,Checkout, Orderplace ,Notification, EmptyNotification, ChatPage, Profile, ProductDetail, FarmChat, FarmerSignupPage, Orders, Wishlist, FarmerProductsList, FarmerDash, FarmerExpandPage, FarmerProfile, FarmerOrders, FarmerChatPage, FarmerAddDetails, SearchResultsPage, FarmerProductsEdit, ProfileEdit, FarmerNotification} from './containers';
+import { IntroPage, LoadingPage, SignupPage,LocationPage, LoginPage, Dashboard, Seemore, SearchPage, Expandpage, CartPage,CheckoutPage, AddressPage,Checkout, Orderplace ,Notification, EmptyNotification, ChatPage, Profile, ProductDetail, FarmChat, FarmerSignupPage, Orders, Wishlist, FarmerProductsList, FarmerDash, FarmerExpandPage, FarmerProfile, FarmerOrders, FarmerChatPage, FarmerAddDetails, SearchResultsPage, FarmerProductsEdit, ProfileEdit, FarmerNotification, ForgotPassword} from './containers';
 import { AuthProvider } from './components/Auth/AuthContext';
 import { Header } from './components';
 
@@ -14,6 +14,7 @@ const App = () => {
           <Route path="/introduction" exact element={<IntroPage />} />
           <Route path="/signup" exact element={<SignupPage />} />
           <Route path="/login" exact element={<LoginPage />} />
+          <Route path="/forgotpassword" exact element={<ForgotPassword />} />
           <Route path="/location" exact element={<LocationPage/>} />
           <Route path="/dashboard" exact element={<Dashboard/>} />
           <Route path="/seemore" exact element={<Seemore/>} />

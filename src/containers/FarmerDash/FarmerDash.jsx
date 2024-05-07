@@ -41,7 +41,11 @@ function FarmerDash() {
         });
         const data = response.data;
         data.username = capitalizeFirstLetter(data.username || '');
-        setUserData(data); 
+        const filteredAndSortedSales = data.product_sales
+          .filter(product => product.sold_quantity > 0)
+          .sort((a, b) => b.sold_quantity - a.sold_quantity)
+          .slice(0, 5); 
+        setUserData({ ...data, product_sales: filteredAndSortedSales });  
       } catch (err) {
         setError('Failed to fetch data');
         console.error('Fetching data error:', err);

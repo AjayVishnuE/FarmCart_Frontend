@@ -36,7 +36,7 @@ function LoginPage() {
       const notifyData = {
         title: "Successful login",
         message:"Your Account login Has been successful",
-        redirect: "/",
+        redirect: "/profileedit",
 
       };
 
@@ -48,7 +48,7 @@ function LoginPage() {
   
     } catch(error){
       if (error.response) {
-        setError(error.response.data.message || "An error occurred during registration.");
+        setError(error.response.data.detail || "An error occurred during registration.");
       }
     }
   };
@@ -66,9 +66,9 @@ function LoginPage() {
             <input className='inputfield' type="password" name="password" value={data.password} onChange={handleChange} placeholder="Enter Your Password" required /><br></br>
             <div className='floatdiv'>
               <label className='labelstylescb'><input className='checkbox1' type='checkbox' name="rememberme" />Remember Me</label><br></br>
-              <label className='fplabel'>Forgot Password</label>
+              <Link style={{textDecoration:"none", color:"#8423FF"}} to="/forgotpassword" className='fplabel'>Forgot Password</Link>
             </div>
-            {error && <div>{error}</div>} 
+            {error && <div style={{margin:"5px 0 0 10%"}}>{error}</div>} 
             <button className='submitbtn' type="submit" >Log In</button>
             </form> 
             <p style={{'fontsize':'medium', 'fontWeight':'300', 'textAlign':'center', marginTop:"5px"}}>Don't have an account? <Link style={{color:"#8423FF"}} to='/signup'>Sign Up here.</Link></p>

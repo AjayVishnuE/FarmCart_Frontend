@@ -4,6 +4,7 @@ export { default as SignupPage } from './SignupPage/SignupPage';
 export { default as FarmerSignupPage } from './FarmerSignupPage/FarmerSignupPage';
 export {default as LoginPage} from './LoginPage/LoginPage';
 export {default as LocationPage} from './LocationPage/LocationPage';
+export {default as ForgotPassword} from './ForgotPassword/ForgotPassword';
 export {default as Dashboard} from './Dashboard/Dashboard';
 export {default as Seemore} from './Seemore/Seemore';
 export {default as SearchPage} from './SearchPage/SearchPage';
