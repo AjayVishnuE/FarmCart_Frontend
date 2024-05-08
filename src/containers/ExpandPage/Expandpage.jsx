@@ -44,18 +44,23 @@ function Expandpage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSubmitting(true);
-        try {
-            await axios.post(`${API_ENDPOINTS.cart}/cart-crud/`, {
-                product: product_id,
-                quantity: counter
-            }, {
-                headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` }
-            });
-            navigate('/cart');
-        } catch (error) {
-            setError(error.response?.data?.message || 'Failed to add to cart');
-        } finally {
-            setSubmitting(false);
+        if ((productDetails.quantity <= 0)){
+            navigate('/dashboard');
+        }
+        else{
+            try {
+                await axios.post(`${API_ENDPOINTS.cart}/cart-crud/`, {
+                    product: product_id,
+                    quantity: counter
+                }, {
+                    headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` }
+                });
+                navigate('/cart');
+            } catch (error) {
+                setError(error.response?.data?.message || 'Failed to add to cart');
+            } finally {
+                setSubmitting(false);
+            }
         }
     };
 
@@ -73,7 +78,7 @@ function Expandpage() {
     };
 
     if (loading) return <Loader/>;
-    if (error) return <div>Error: {error}</div>;
+    if (error) return <div>Error: The farmer is not yet verified. This product will be available soon.</div>;
     if (!productDetails) return <div>Product not found.</div>;
 
     const productImageUrl = `${API_ENDPOINTS.media}${productDetails.product_image}`;
@@ -95,13 +100,17 @@ function Expandpage() {
               <div className='price'>INR {productDetails.price}</div>
               <div className='titlebox'>Quantity (in kgs)</div>
               
-                <div className='quantity-entry'>
-                  <div className="btn__container">
-                    <button className="addminus" type="button" onClick={decrease}>-</button>
-                    <input className='addinput'  style={{width:"20px", textAlign: "center"}} name="amount" type="text" readOnly value={counter}/>
-                    <button className="addminus"  type="button" onClick={increase}>+</button>  
-                  </div>
-                </div>
+                {productDetails.quantity > 0 ? (
+                    <div className='quantity-entry'>
+                        <button className="addminus" type="button" onClick={decrease}>-</button>
+                        <input className='addinput' style={{ width: "20px", textAlign: "center" }} readOnly value={counter} />
+                        <button className="addminus" type="button" onClick={increase}>+</button>
+                    </div>
+                ) : (
+                    <div style={{color:"red"}} className='out-of-stock'>
+                        Out of Stock
+                    </div>
+                )}
             </div>
           
           <img className="images3" src={productImageUrl} alt="hoho" />
@@ -175,7 +184,7 @@ function Expandpage() {
                 
          </div>
         <div className='button-group'>
-          <button type="submit" disabled={submitting} className='addtobtn'>Add to Cart</button>
+          <button type="submit" disabled={submitting} className='addtobtn'>{productDetails.quantity > 0 ? 'Add to Cart' : 'Go Back'}</button>
           <button type="button" onClick={handleAddToWishlist} className='wishlistbtn'>Add to Wishlist</button>
         </div>
         </div>

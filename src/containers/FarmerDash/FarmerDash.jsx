@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import Saleschart from "../../components/SalesChart/Saleschart";
 import lemon from '../../Images/lemon.png';
 import Farmer_navbar from "../../components/Farmer-Navbar/FarmerNavbar";
-import { FarmerHeader } from "../../components";
+import { FarmerHeader, Loader} from "../../components";
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -26,6 +26,7 @@ function FarmerDash() {
     });
   };
 
+  const [greeting, setGreeting] = useState('');
   const [userData, setUserData] = useState({ username: '', otherData: null });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -40,7 +41,11 @@ function FarmerDash() {
         });
         const data = response.data;
         data.username = capitalizeFirstLetter(data.username || '');
-        setUserData(data); 
+        const filteredAndSortedSales = data.product_sales
+          .filter(product => product.sold_quantity > 0)
+          .sort((a, b) => b.sold_quantity - a.sold_quantity)
+          .slice(0, 5); 
+        setUserData({ ...data, product_sales: filteredAndSortedSales });  
       } catch (err) {
         setError('Failed to fetch data');
         console.error('Fetching data error:', err);
@@ -50,17 +55,29 @@ function FarmerDash() {
     };
 
     fetchUserData();
+    updateGreeting();
   }, []); 
-  console.log(userData)
-  if (loading) return <p>Loading...</p>;
+
+  const updateGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) {
+        setGreeting("Good Morning,");
+    } else if (hour < 18) {
+        setGreeting("Good Afternoon,");
+    } else {
+        setGreeting("Good Evening,");
+    }
+  };
+
+  if (loading) return <Loader/>;
   if (error) return <p>Error: {error}</p>;
     return (
       <div className="overall-farmer-dashboard">
          <FarmerHeader/>
         <div className="farmer-dashboard">
        
-        <h1 className="farmgoodmorni">Good Morning,</h1>
-        <h2 className="username">{userData.username} !</h2>
+        <h1 className="farmgoodmorni">{greeting}</h1>
+        <h2 className="username123">{userData.username} !</h2>
         <div className="dash-box">
           <div className="buttonbox1">
             <div className="orderno">{userData.daily_orders}</div>
@@ -103,11 +120,11 @@ function FarmerDash() {
           <div className="statibox">
               <img className="statisticsproductimage" src={API_ENDPOINTS.media + item.product_image} alt={item.product_name}></img>
               <div className="Statitextout">
-                <div className="Frame19995">
+                <div className="Frame199953">
                   <div className="fruitname">{item.product_name}</div>
                   <div className="RJFarms">{userData.farms}</div>
                 </div>
-                <div className="Frame19994">
+                <div className="Frame199943">
                   <div className="Kg">
                     <span className="Weight">{item.quantity}</span>
                     <span className="Unit">kg</span>
@@ -117,13 +134,6 @@ function FarmerDash() {
               </div>
           </div>
         )}
-
-  
-  
-  
-  
-  
-  
       </div>
       <div className='fnavbar-container' onClick={handleSvgClick}>
           <Link to='/farmerdashboard'>

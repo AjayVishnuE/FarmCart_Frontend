@@ -85,7 +85,7 @@ function Wishlist(props) {
     return (
         <div className='wishcart-overall-container' >
         <Header/>
-        <div className='orderstitle'>My wishlist</div>
+        <div className='orderstitle12'>My wishlist</div>
             <div  className='cartlist'>
             {wishlistItems.map(item => (
                 <div  className='listitem'>
@@ -103,6 +103,7 @@ function Wishlist(props) {
                         </div>
                         <div className='flexbtn'>
                             <div className='itempricewish'>INR {item.product_details.price}</div>
+                            {item.product_details.quantity > 0 ? (
                             <button onClick={() => handleSubmit(item.product_details.product_id, 1)} className="wishbtn__container">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
                                         <g clip-path="url(#clip0_914_604)">
@@ -118,6 +119,11 @@ function Wishlist(props) {
                                     </svg>
                                 <div className='wishcart' >Add to cart</div>
                             </button>
+                            ) : (
+                                <button className="wishbtn__container" disabled>
+                                    Out of Stock
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>

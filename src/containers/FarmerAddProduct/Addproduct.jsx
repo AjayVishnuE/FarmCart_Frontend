@@ -101,11 +101,11 @@ function Addproduct(props) {
                 <span className='addlabel'>Product Image</span>
                 <div className="FileUploadBase-Addpro">
                     <input type="file" onChange={handleImageChange} accept="image/*" style={{ display: 'none' }} id="productImageUpload" />
-                    <label htmlFor="productImageUpload" className="Content"> 
+                    <label htmlFor="productImageUpload" className="Content4"> 
                     {productImagePreview ? (
                             <img className='imagepreview12' src={productImagePreview} alt="Product Preview" />
                         ) : (
-                        <div>
+                        <div className='flexdiv65'>
                             <div className="IconFrame">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
                                     <path d="M5.66335 11.637C5.41235 11.637 5.2042 11.4289 5.2042 11.1779V8.61272L4.76341 9.05351C4.58587 9.23105 4.29202 9.23105 4.11448 9.05351C3.93694 8.87597 3.93694 8.58211 4.11448 8.40457L5.33888 7.18017C5.46745 7.0516 5.66947 7.00875 5.84089 7.08222C6.01231 7.14956 6.1225 7.32097 6.1225 7.50464V11.1779C6.1225 11.4289 5.91436 11.637 5.66335 11.637Z" fill="#0BCE83"/>
@@ -126,27 +126,27 @@ function Addproduct(props) {
                     </label>
                 </div>
                 <div className='addproductInfoItem'>
-                    <label className='addlabel'>Product name</label>
-                    <input className='addvalue' value={productName} onChange={handleProductNameChange} type='text' placeholder='Kashmir Apple' />
+                    <label className='addlabel34'>Product name</label>
+                    <input className='addvalue83' value={productName} onChange={handleProductNameChange} type='text' placeholder='Kashmir Apple' />
                 </div>
                 <div className='addproductInfoItem'>
-                    <label className='addlabel'>Price (per kg in Rs.)</label>
-                    <input className='addvalue' value={price} onChange={handlePriceChange} type='text'placeholder='₹ 250/-' />
+                    <label className='addlabel34'>Price (per kg in Rs.)</label>
+                    <input className='addvalue83' value={price} onChange={handlePriceChange} type='text'placeholder='₹ 250/-' />
                 </div>
                 <div className='addproductInfoItem'>
-                    <label className='addlabel'>Quantity Available</label>
-                    <input className='addvalue' value={quantity} onChange={handleQuantityChange} type='text' placeholder='80 kgs'/>
+                    <label className='addlabel34'>Quantity Available</label>
+                    <input className='addvalue83' value={quantity} onChange={handleQuantityChange} type='text' placeholder='80 kgs'/>
                 </div>
                 <div className='addproductInfoItem'>
-                    <label className='addlabel'>Product Description</label>
-                    <input className='addvalue' value={productDescription} onChange={handleProductDescriptionChange} type='text' placeholder='The pomegranate is a fruit-bearing deci....' />
+                    <label className='addlabel34'>Product Description</label>
+                    <input className='addvalue83' value={productDescription} onChange={handleProductDescriptionChange} type='text' placeholder='The pomegranate is a fruit-bearing deci....' />
                 </div>
                 {/* <div className='addproductInfoItem'>
                     <label className='addlabel'>Farm Details</label>
                     <input className='addvalue' type='text' placeholder='ARN Fruits and Vegetables' />
                 </div> */}
                 <div className='addproductInfoItem'>
-                    <label className='addlabel'>Product Type</label>
+                    <label className='addlabel34'>Product Type</label>
                     <select className='addvalue select' onChange={handleProductTypeChange} id="product_type" name="type">
                         <option className='optionaddproduct' value="Fruits">Fruits</option>
                         <option value="Vegetables">Vegetables</option>
@@ -165,8 +165,8 @@ function Addproduct(props) {
       </svg>
       </Link>
       <Link to='/addproduct'>
-      <svg id="products-svg" className="mySvg" xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 21 19" fill="#7519EB">
-        <path d="M2.57141 5.50001H11.0214H10.5714H10.9214H2.57141ZM2.97141 3.50001H16.1714L15.3214 2.50001H3.82141L2.97141 3.50001ZM7.57141 10.25L9.57141 9.25001L11.5714 10.25V5.50001H7.57141V10.25ZM12.1214 18.5H2.57141C2.02141 18.5 1.55074 18.3043 1.15941 17.913C0.768078 17.5217 0.572078 17.0507 0.571411 16.5V4.02501C0.571411 3.79167 0.609078 3.56667 0.684411 3.35001C0.759744 3.13334 0.872078 2.93334 1.02141 2.75001L2.27141 1.22501C2.45474 0.991672 2.68374 0.812339 2.95841 0.687005C3.23308 0.561672 3.52074 0.499339 3.82141 0.500005H15.3214C15.6214 0.500005 15.9091 0.562672 16.1844 0.688005C16.4597 0.813339 16.6887 0.992339 16.8714 1.22501L18.1214 2.75001C18.2714 2.93334 18.3841 3.13334 18.4594 3.35001C18.5347 3.56667 18.5721 3.79167 18.5714 4.02501V8.92501C18.2547 8.80834 17.9297 8.71667 17.5964 8.65001C17.2631 8.58334 16.9214 8.55001 16.5714 8.55001V5.50001H13.5714V9.32501C12.9881 9.65834 12.4797 10.071 12.0464 10.563C11.6131 11.055 11.2714 11.609 11.0214 12.225L9.57141 11.5L5.57141 13.5V5.50001H2.57141V16.5H10.9214C11.0547 16.8833 11.2214 17.2417 11.4214 17.575C11.6214 17.9083 11.8547 18.2167 12.1214 18.5ZM15.5714 18.5V15.5H12.5714V13.5H15.5714V10.5H17.5714V13.5H20.5714V15.5H17.5714V18.5H15.5714Z" fill="#7519EB"/>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19" fill="none">
+        <path d="M2 18.5C1.45 18.5 0.979333 18.3043 0.588 17.913C0.196667 17.5217 0.000666667 17.0507 0 16.5V4.02501C0 3.79167 0.0376666 3.56667 0.113 3.35001C0.188333 3.13334 0.300667 2.93334 0.45 2.75001L1.7 1.22501C1.88333 0.991672 2.11233 0.812339 2.387 0.687005C2.66167 0.561672 2.94933 0.499339 3.25 0.500005H14.75C15.05 0.500005 15.3377 0.562672 15.613 0.688005C15.8883 0.813339 16.1173 0.992339 16.3 1.22501L17.55 2.75001C17.7 2.93334 17.8127 3.13334 17.888 3.35001C17.9633 3.56667 18.0007 3.79167 18 4.02501V8.92501C17.6833 8.80834 17.3583 8.71234 17.025 8.63701C16.6917 8.56167 16.35 8.52467 16 8.52601C15.45 8.52601 14.9207 8.58867 14.412 8.71401C13.9033 8.83934 13.4327 9.03467 13 9.30001V5.50001H5V13.5L9 11.5L10.45 12.225C10.3167 12.575 10.2083 12.9377 10.125 13.313C10.0417 13.6883 10 14.0757 10 14.475C10 15.225 10.1333 15.946 10.4 16.638C10.6667 17.33 11.05 17.9507 11.55 18.5H2ZM15 18.5V15.5H12V13.5H15V10.5H17V13.5H20V15.5H17V18.5H15ZM2.4 3.50001H15.6L14.75 2.50001H3.25L2.4 3.50001Z" fill="#7519EB"/>
         </svg>
         </Link>
         <Link to='/farmerchat'>

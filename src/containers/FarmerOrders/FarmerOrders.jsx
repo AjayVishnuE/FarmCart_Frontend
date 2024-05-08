@@ -1,6 +1,6 @@
 import React, { useState, useEffect }  from 'react';
 import './FarmerOrders.css';
-import { FarmerHeader, FarmerNavbar, Header, Navbar} from '../../components';
+import { FarmerHeader, FarmerNavbar, Header, Loader, Navbar} from '../../components';
 import { Link, useNavigate } from 'react-router-dom';
 import intransit from '../../Images/wpf_in-transit.svg';
 import delievered from '../../Images/package-delivered.svg';
@@ -42,7 +42,7 @@ function FarmerOrders(props) {
         fetchData();
     }, []); 
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <Loader/>;
     if (error) return <div>Error: {error}</div>;
     if (!profileData) return <div>No profile data found</div>;
 
@@ -62,7 +62,7 @@ function FarmerOrders(props) {
         <div className='order-overall-container'>
             <FarmerHeader/>
             <div className='order-container'>
-            <div className='orderstitle'>My orders</div>
+            <div className='orderstitle123'>My orders</div>
             {profileData.user_orders.map((item,index)=>
                     <div className="order-box-1">
                         {item.custom_order_details.map((orderitem,index)=>

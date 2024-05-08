@@ -5,7 +5,7 @@ import bar from '../../Images/Bar.png';
 import { Link } from 'react-router-dom';
 import cart from '../../Images/shopping-cart.svg';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';  
-import { FarmerHeader, FarmerProductComponent, Navbar,ProductComponent} from '../../components'
+import { FarmerHeader, FarmerProductComponent, Loader, Navbar,ProductComponent} from '../../components'
 import Farmer_navbar from '../../components/Farmer-Navbar/FarmerNavbar';
 
 
@@ -14,7 +14,6 @@ function FarmerProductList(props) {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        setLoading(true);
         const config = {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, 
@@ -28,12 +27,12 @@ function FarmerProductList(props) {
             .catch(error => {
                 console.error('Error fetching the data:', error);
             });
+        setLoading(true);
     }, []);
 
     if (!loading) {
-        return <div>Loading...</div>;
+        return <Loader/>;
     }
-    console.log(products);
     return (
         <div className='seemore-overall-container'>
             <FarmerHeader/>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_ENDPOINTS } from '../../components/Auth/apiConfig';
 import './ChatPage.css';
@@ -19,6 +19,31 @@ function ChatPage() {
   const handleQueryChange = (e) => {
     setQuery(e.target.value);
   };
+
+  const animateText = (text, index) => {
+    let animatedText = '';
+    let i = 0;
+    const intervalId = setInterval(() => {
+      if (i < text.length) {
+        animatedText += text.charAt(i);
+        setResponses(responses => {
+          const newResponses = [...responses];
+          newResponses[index] = { ...newResponses[index], animatedResponse: animatedText };
+          return newResponses;
+        });
+        i++;
+      } else {
+        clearInterval(intervalId);
+      }
+    }, 25); 
+  };
+  
+  useEffect(() => {
+    if (responses.length > 0) {
+      animateText(responses[responses.length - 1].response, responses.length - 1);
+    }
+  }, [responses.length]);
+
 
   const handleQuerySubmit = async (e) => {
     e.preventDefault();
@@ -75,7 +100,7 @@ function ChatPage() {
                   <img src={bot} alt="logo"></img>
                 </div>
                 <div className='msg-bubble'>
-                  <p className="msg-text"> {item.response}</p>
+                  <p className="msg-text"> {item.animatedResponse || ''}</p>
                 </div>
               </div>
             </div>
@@ -113,22 +138,10 @@ function ChatPage() {
         </svg>
         </Link>
         <Link to='/farmerchat'>
-        <svg xmlns="http://www.w3.org/2000/svg" width="61" height="60" viewBox="0 0 61 50" fill="none">
-        <g filter="url(#filter0_d_775_3908)">
-        <path d="M20.8572 34V16C20.8572 15.45 21.0532 14.9793 21.4452 14.588C21.8372 14.1967 22.3078 14.0007 22.8572 14H38.8572C39.4072 14 39.8782 14.196 40.2702 14.588C40.6622 14.98 40.8578 15.4507 40.8572 16V28C40.8572 28.55 40.6615 29.021 40.2702 29.413C39.8788 29.805 39.4078 30.0007 38.8572 30H24.8572L20.8572 34ZM24.8572 26H32.8572V24H24.8572V26ZM24.8572 23H36.8572V21H24.8572V23ZM24.8572 20H36.8572V18H24.8572V20Z" fill="#7519EB"/>
-        </g>
-        <defs>
-        <filter id="filter0_d_775_3908" x="-1" y="-2.5" width="64" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-        <feOffset dy="6"/>
-        <feGaussianBlur stdDeviation="10"/>
-        <feColorMatrix type="matrix" values="0 0 0 0 0.458824 0 0 0 0 0.0980392 0 0 0 0 0.921569 0 0 0 0.4 0"/>
-        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_775_3908"/>
-        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_775_3908" result="shape"/>
-        </filter>
-        </defs>
-        </svg></Link>
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="#7519EB">
+        <path d="M0.857147 20V2C0.857147 1.45 1.05315 0.979333 1.44515 0.588C1.83715 0.196667 2.30781 0.000666667 2.85715 0H18.8571C19.4071 0 19.8781 0.196 20.2701 0.588C20.6621 0.98 20.8578 1.45067 20.8571 2V14C20.8571 14.55 20.6615 15.021 20.2701 15.413C19.8788 15.805 19.4078 16.0007 18.8571 16H4.85715L0.857147 20ZM4.85715 12H12.8571V10H4.85715V12ZM4.85715 9H16.8571V7H4.85715V9ZM4.85715 6H16.8571V4H4.85715V6Z" fill="#7519EB"/>
+      </svg>
+      </Link>
          <Link to='/farmerprofile'>
         <svg id="profile-svg" className="mySvg" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="user">

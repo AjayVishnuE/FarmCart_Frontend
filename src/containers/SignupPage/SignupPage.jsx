@@ -64,7 +64,7 @@ function SignupPage() {
           <input className='inputfield' type="password" name="password1" value={data.password1} onChange={handleChange}  placeholder="Enter Your Password" required /><br></br>
           <label className='labelstyles'>Re-Type Password</label><br></br>
           <input className='inputfield' type="password" name="password2" value={data.password2} onChange={handleChange}   placeholder="Re-Type Your Password" required /><br></br>
-          {error && <div>{error}</div>} 
+          {error && <div  style={{marginLeft:"10%"}}>{error}</div>} 
           <button className='submitbtn' type="submit">Sign Up</button>
         </form>
         <p style={{'fontSize':'medium', 'fontWeight':'300', 'textAlign':'center'}}>Already have an account? <Link style={{color:"#8423FF"}} to='/login'>login instead.</Link></p>

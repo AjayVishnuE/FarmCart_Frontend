@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FarmerHeader, FarmerNavbar} from '../../components';
+import { FarmerHeader, FarmerNavbar, Loader} from '../../components';
 import './Farmerexpandpage.css';
 import { Rating } from 'react-simple-star-rating';
 import bar from "../../Images/Bar.png";
@@ -77,7 +77,7 @@ function FarmerExpandPage() {
     }, [product_id]);
     console.log(productDetails)
     if (loading) {
-        return <div className=''>Loading.....</div>;
+        return <Loader/>;
     }
     
     if (error) {
@@ -90,7 +90,7 @@ function FarmerExpandPage() {
     return (
         <div className='expand-overall-container'>
           <FarmerHeader/>
-          <div className='product-container'>
+          <div className='product-container12'>
           <div className='product-details-box'>
             <div className='productbox'>
               <div className='product-name'>
@@ -115,15 +115,12 @@ function FarmerExpandPage() {
                   </div>
                 </div> */}
             </div>
-          
           <img className="images3" src={productDetails.product_image} alt="hoho" />
           </div>
           <div className='buttondiv'>
-          <div className='editproductbutton'>
-          <Link style={{color:"white"}} to={`/productsedit/${product_id}`}>
+          <Link className='editproductbutton12' style={{color:"white"}} to={`/productsedit/${product_id}`}>
               Edit the Product Details
           </Link>
-          </div>
           <div className="deleteproductbutton" onClick={handleDeleteClick}>
           {/* <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
           <circle cx="9.5" cy="9.5" r="9.5" fill="#FF4343"/>

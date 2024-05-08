@@ -65,31 +65,39 @@ function SearchPage(props) {
             <div className="searchtext">Recently Searched Products</div>
             <div className="recent-searches">
                 <div className="mini-card-row">
-                    {recentSearches.slice(0,4).map((item, index) => (
+                    {recentSearches.length > 0 ? (
+                        recentSearches.slice(0, 4).map((item, index) => (
                         <div key={index} className='Productbox'>
                             <ProductComponent
-                                id = {item.product_id}
-                                name={item.product_name}
-                                price={item.price}
-                                image={item.product_image}
-                                altText={`${item.product_name} image`} />
+                            id = {item.product_id}
+                            name={item.product_name}
+                            price={item.price}
+                            image={item.product_image}
+                            altText={`${item.product_name} image`} />
                         </div>
-                    ))}
+                        ))
+                    ) : (
+                        <p style={{marginLeft:"2%"}}>No recent searches</p>  
+                    )}
                 </div>
             </div>
             <div className='searchtext'>Frequently Searched Products</div>
             <div className="frequent-searches">
                 <div className="mini-card-row">
-                    {frequentSearches.slice(0,4).map((item, index) => (
-                        <div key={index} className='Productbox'>
-                            <ProductComponent
-                                id = {item.product_id}
-                                name={item.product_name}
-                                price={item.price}
-                                image={item.product_image}
-                                altText={`${item.product_name} image`} />
-                        </div>
-                    ))}
+                    {frequentSearches.length > 0 ? (
+                        frequentSearches.slice(0,4).map((item, index) => (
+                            <div key={index} className='Productbox'>
+                                <ProductComponent
+                                    id = {item.product_id}
+                                    name={item.product_name}
+                                    price={item.price}
+                                    image={item.product_image}
+                                    altText={`${item.product_name} image`} />
+                            </div>
+                        ))                    
+                    ) : (
+                        <p style={{marginLeft:"2%"}}>No frequent searches</p>  
+                    )}
                 </div>
             </div>
             <Navbar/>

@@ -1,9 +1,8 @@
 .expand-overall-container{
     height: 100vh;
-    padding: 0;
     margin: 0;
     width: 100%;
-
+    overflow: scroll;
     background-image: url('../../Images/whitecommonbg.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,6 +12,7 @@
   }
 .product-container{
     height:fit-content;
+    overflow: scroll;
     padding: 0 0 0 10%;
     margin-bottom: 20px;
 }
@@ -62,7 +62,7 @@
 .popdiv {
     height:72%;
     width: 90%;
-    padding:0 5% 3% 5%;
+    padding:0 5% 30px 5%;
     background-color: #ffffff;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;  
