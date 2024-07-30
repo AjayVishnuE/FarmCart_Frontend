@@ -1,9 +1,11 @@
 import './App.css';
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
+import React , {useState, useEffect }from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { IntroPage, LoadingPage, SignupPage,LocationPage, LoginPage, Dashboard, Seemore, SearchPage, Expandpage, CartPage,CheckoutPage, AddressPage,Checkout, Orderplace ,Notification, EmptyNotification, ChatPage, Profile, ProductDetail, FarmChat, FarmerSignupPage, Orders, Wishlist, FarmerProductsList, FarmerDash, FarmerExpandPage, FarmerProfile, FarmerOrders, FarmerChatPage, FarmerAddDetails, SearchResultsPage, FarmerProductsEdit, ProfileEdit, FarmerNotification, ForgotPassword} from './containers';
-import { AuthProvider } from './components/Auth/AuthContext';
-import { Header } from './components';
+import { AuthProvider, useAuth } from './components/Auth/AuthContext';
+import { API_ENDPOINTS } from '../src/components/Auth/apiConfig';
+
 
 const App = () => {
   return (
